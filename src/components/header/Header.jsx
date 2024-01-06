@@ -9,7 +9,7 @@ const Header = () => {
     <header className="header">
       <nav className="nav container">
         <a href="index.html" className="nav__logo">
-          Fabio
+          Fabio D. Dorneles
         </a>
 
         <div className={Toggle ? "nav__menu show-menu" : "nav__menu"}>
@@ -60,8 +60,6 @@ const Header = () => {
         <div className="nav__toggle" onClick={() => showMenu(!Toggle)}>
           <i class="uil uil-apps"></i>
         </div>
-
-        <div className="nav__toggle"></div>
       </nav>
     </header>
   );
