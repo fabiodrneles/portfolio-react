@@ -9,10 +9,13 @@ import Qualification from "./components/qualification/Qualification";
 import Testimonials from "./components/testimonials/Testimonials";
 import Contact from "./components/contact/Contact.jsx";
 import Footer from "./components/footer/Footer.jsx";
+import ScrollUp from "./components/scrollup/ScrollUp.jsx";
+
 const App = () => {
   return (
     <>
       <Header />
+
       <main className="main">
         <Home />
         <About />
@@ -21,8 +24,10 @@ const App = () => {
         <Qualification />
         <Testimonials />
         <Contact />
-        <Footer />
       </main>
+
+      <Footer />
+      <ScrollUp />
     </>
   );
 };
