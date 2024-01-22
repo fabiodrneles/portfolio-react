@@ -6,8 +6,9 @@ const Data = () => {
       <h1 className="home__title">Fabio D'arcy</h1>
       <h3 className="home__subtitle">Full Stack Developer</h3>
       <p className="home__description">
-        Full Stack Developer especializado em criar soluções completas para web,
-        unindo front-end e back-end para garantir funcionalidade e desempenho.
+        Full Stack Developer specialized in creating comprehensive web
+        solutions, bringing together front-end and back-end to ensure
+        functionality and performance.
       </p>
 
       <a href="#contact" className="button button--flex">

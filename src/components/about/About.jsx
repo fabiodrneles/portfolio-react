@@ -17,9 +17,9 @@ const About = () => {
           <Info />
 
           <p className="about__description">
-            Como Desenvolvedor Full Stack, acumulei experiência desempenhando um
-            papel integral em equipes colaborativas, contribuindo para o
-            desenvolvimento e entrega de soluções robustas e eficientes.
+            As a Full Stack Developer, I have accumulated experience playing an
+            integral role in collaborative teams, contributing to the
+            development and delivery of robust and efficient solutions.
           </p>
           <a download="" href={CV} className="button button--flex">
             Download CV
