@@ -50,12 +50,12 @@ const Qualification = () => {
           >
             <div className="qualification__data">
               <div>
-                <h3 className="qualification__title">Web Design</h3>
-                <span className="qualification__subtitle">
-                  Spain - Institute
-                </span>
+                <h3 className="qualification__title">
+                  Bootcamps with Digital Innovation One (DIO)
+                </h3>
+                <span className="qualification__subtitle">Brazil</span>
                 <div className="qualification__calender">
-                  <i className="uil uil-calender-alt"></i> 2019 - Present
+                  <i className="uil uil-calender-alt"></i> Jan 2019 - Present
                 </div>
               </div>
 
@@ -74,30 +74,15 @@ const Qualification = () => {
               </div>
 
               <div>
-                <h3 className="qualification__title">Art Director</h3>
+                <h3 className="qualification__title">
+                  Associate's Degree in Analysis and Systems Development
+                </h3>
                 <span className="qualification__subtitle">
-                  Spain - Institute
+                  Brazil - Estácio
                 </span>
                 <div className="qualification__calender">
-                  <i className="uil uil-calender-alt"></i> 2019 - Present
+                  <i className="uil uil-calender-alt"></i> Aug 2021 - Dec 2024
                 </div>
-              </div>
-            </div>
-
-            <div className="qualification__data">
-              <div>
-                <h3 className="qualification__title">Web Development</h3>
-                <span className="qualification__subtitle">
-                  Spain - Institute
-                </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender-alt"></i> 2019 - Present
-                </div>
-              </div>
-
-              <div>
-                <sapn className="qualification__rounder"></sapn>
-                <span className="qualification__line"></span>
               </div>
             </div>
 
@@ -107,16 +92,6 @@ const Qualification = () => {
               <div>
                 <span className="qualification__rounder"></span>
                 <span className="qualification__line"></span>
-              </div>
-
-              <div>
-                <h3 className="qualification__title">UX Expert</h3>
-                <span className="qualification__subtitle">
-                  Spain - Institute
-                </span>
-                <div className="qualification__calender">
-                  <i className="uil uil-calender-alt"></i> 2017 - 2018
-                </div>
               </div>
             </div>
           </div>
@@ -130,9 +105,11 @@ const Qualification = () => {
           >
             <div className="qualification__data">
               <div>
-                <h3 className="qualification__title">Produt Designer</h3>
+                <h3 className="qualification__title">
+                  Software Developer | Java - Angular - PHP - React | Full Stack
+                </h3>
                 <span className="qualification__subtitle">
-                  Microsoft - Spain
+                  Freelancer - Brazil
                 </span>
                 <div className="qualification__calender">
                   <i className="uil uil-calender-alt"></i> 2019 - Present
@@ -154,28 +131,55 @@ const Qualification = () => {
               </div>
 
               <div>
-                <h3 className="qualification__title">UX Designer</h3>
-                <span className="qualification__subtitle">
-                  Apple Inc - Spain
-                </span>
+                <h3 className="qualification__title">
+                  {" "}
+                  Intership Developer | Java - Angular - Cobol - Mainframe |
+                  Full Stack
+                </h3>
+                <span className="qualification__subtitle">IBM - Brazil</span>
                 <div className="qualification__calender">
-                  <i className="uil uil-calender-alt"></i> 2019 - Present
+                  <i className="uil uil-calender-alt"></i> May 2022 - Aug 2022
                 </div>
               </div>
             </div>
 
             <div className="qualification__data">
               <div>
-                <h3 className="qualification__title">Web Designer</h3>
-                <span className="qualification__subtitle">Figma - Spain</span>
+                <h3 className="qualification__title">
+                  Software Developer | Java - Angular - Cobol - React | Full
+                  Stack
+                </h3>
+                <span className="qualification__subtitle">IBM - Brazil</span>
                 <div className="qualification__calender">
-                  <i className="uil uil-calender-alt"></i> 2019 - Present
+                  <i className="uil uil-calender-alt"></i> Sep 2022 - Aug 2023
                 </div>
               </div>
 
               <div>
                 <sapn className="qualification__rounder"></sapn>
                 <span className="qualification__line"></span>
+              </div>
+            </div>
+
+            <div className="qualification__data">
+              <div></div>
+
+              <div>
+                <span className="qualification__rounder"></span>
+                <span className="qualification__line"></span>
+              </div>
+
+              <div>
+                <h3 className="qualification__title">
+                  {" "}
+                  Intership Developer | Kotlin | Backend
+                </h3>
+                <span className="qualification__subtitle">
+                  Stone Co. - Brazil
+                </span>
+                <div className="qualification__calender">
+                  <i className="uil uil-calender-alt"></i> Feb 2024 - Present
+                </div>
               </div>
             </div>
           </div>
