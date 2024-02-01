@@ -172,6 +172,20 @@ const Qualification = () => {
               <div>
                 <h3 className="qualification__title">
                   {" "}
+                  Apprenticeship | Scrum Master (Volunteer Project)
+                </h3>
+                <span className="qualification__subtitle">
+                  SouJunior Labs - Brazil
+                </span>
+                <div className="qualification__calender">
+                  <i className="uil uil-calender-alt"></i> Nov 2023 - Present
+                </div>
+              </div>
+            </div>
+
+            <div className="qualification__data">
+              <div>
+                <h3 className="qualification__title">
                   Intership Developer | Kotlin | Backend
                 </h3>
                 <span className="qualification__subtitle">
@@ -180,6 +194,11 @@ const Qualification = () => {
                 <div className="qualification__calender">
                   <i className="uil uil-calender-alt"></i> Feb 2024 - Present
                 </div>
+              </div>
+
+              <div>
+                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__line"></span>
               </div>
             </div>
           </div>
