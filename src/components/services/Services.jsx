@@ -170,6 +170,8 @@ const Services = () => {
           <div>
             <i className="uil uil-edit services__icon"></i>
             <i className="uil uil-apps services__icon"></i>
+            <i className="uil uil-mobile-android services__icon"></i>
+
 
             <h3 className="services__title">
               Mobile <br /> Developer
