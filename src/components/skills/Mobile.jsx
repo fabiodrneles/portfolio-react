@@ -65,7 +65,8 @@ const Mobile = () => {
                 </div>
             </div>
       </div>
+    </div>
   )
 }
 
-export default Mobile
+export default Mobile;
