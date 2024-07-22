@@ -147,4 +147,16 @@ export const Data = [
       </a>
     ),
   },
+
+  {
+    id: 14,
+    image: Image5,
+    title: "Aplicação Kotlin",
+    description: "Aplicação Mobile Android com Kotlin. Confira os detalhes do projeto no repositório",
+    link: (
+      <a href="http://www.google.com" target="_blank" rel="noopener noreferrer">
+        ver mais
+      </a>
+    ),
+  },
 ];
