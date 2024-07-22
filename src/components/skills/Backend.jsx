@@ -16,6 +16,12 @@ const Backend = () => {
                 </div>
                 </div>
 
+                <div>
+                    <h3 className="skills__name">Kotlin</h3>
+                    <span className="skills__level">Intermediate</span>
+                </div>
+                </div>
+
                 <div className="skills__data">
                 <i class='bx bx-badge-check'></i>
 
@@ -29,8 +35,8 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">Kotlin</h3>
-                    <span className="skills__level">Basic</span>
+                    <h3 className="skills__name">JavaScript / TypeScript</h3>
+                    <span className="skills__level">Intermediate</span>
                 </div>
                 </div>
             </div>
@@ -40,7 +46,7 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">Spring Boot</h3>
+                    <h3 className="skills__name">React Native</h3>
                     <span className="skills__level">Intermediate</span>
                 </div>
                 </div>
@@ -49,7 +55,7 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">MySQL</h3>
+                    <h3 className="skills__name">Firebase</h3>
                     <span className="skills__level">Advanced</span>
                 </div>
                 </div>
@@ -58,7 +64,16 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">MongoDB</h3>
+                    <h3 className="skills__name">Android</h3>
+                    <span className="skills__level">Intermediate</span>
+                </div>
+                </div>
+
+                <div className="skills__data">
+                <i class='bx bx-badge-check'></i>
+
+                <div>
+                    <h3 className="skills__name">JetPack Compose</h3>
                     <span className="skills__level">Intermediate</span>
                 </div>
                 </div>
