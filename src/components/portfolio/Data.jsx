@@ -141,7 +141,7 @@ export const Data = [
     id: 13,
     image: Image4,
     title: "Aplicação React Native",
-    description: "Projeto desenvolvido para demonstração de uma tela de um aplicativo de Delivery utilizando React Native.O propósito deste repositório não é entregar uma aplicação completa, mas sim fornecer um modelo utilizado como peça de portfólio.",
+    description: "Projeto desenvolvido para demonstração de uma tela de um aplicativo de Delivery, utilizado como peça para este portfólio.",
     link: (
       <a href="https://github.com/fabiodrneles/food" target="_blank" rel="noopener noreferrer">
         ver mais
