@@ -140,7 +140,7 @@ export const Data = [
     id: 13,
     image: Image4,
     title: "Aplicação React Native",
-    description: "Aplicação Mobile multiplataforma. Confira os detalhes no repositório",
+    description: "Aplicação Mobile multiplataforma. Confira os detalhes do projeto no repositório",
     link: (
       <a href="http://www.google.com" target="_blank" rel="noopener noreferrer">
         ver mais
