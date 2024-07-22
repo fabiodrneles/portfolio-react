@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Backend = () => {
+const Mobile = () => {
   return (
     <div className="skills__content">
       <h3 className="skills__title">Mobile Developer</h3>
@@ -82,4 +82,4 @@ const Backend = () => {
   )
 }
 
-export default Backend
+export default Mobile
