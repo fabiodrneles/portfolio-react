@@ -31,14 +31,6 @@ const Mobile = () => {
                 </div>
                 </div>
 
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">JavaScript / TypeScript</h3>
-                    <span className="skills__level">Intermediate</span>
-                </div>
-                </div>
             </div>
 
             <div className="skills__group">
