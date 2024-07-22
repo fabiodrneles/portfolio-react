@@ -142,7 +142,7 @@ export const Data = [
     title: "Aplicação React Native",
     description: "Aplicação Mobile multiplataforma. Confira os detalhes do projeto no repositório",
     link: (
-      <a href="http://www.google.com" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/fabiodrneles/food" target="_blank" rel="noopener noreferrer">
         ver mais
       </a>
     ),
