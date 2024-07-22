@@ -2,6 +2,7 @@ import Image1 from "../../assets/java.png";
 import Image2 from "../../assets/angular.png";
 import Image3 from "../../assets/nextjs.png";
 import Image4 from "../../assets/react-native-logo.png";
+import Image5 from "../../assets/kotlin.png";
 
 export const Data = [
   {
