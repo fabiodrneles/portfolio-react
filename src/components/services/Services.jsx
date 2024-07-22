@@ -170,7 +170,7 @@ const Services = () => {
           <div>
             <i className="uil uil-edit services__icon"></i>
             <h3 className="services__title">
-              Design <br /> Thinking
+              Mobile <br /> Developer
             </h3>
           </div>
 
@@ -193,48 +193,46 @@ const Services = () => {
               ></i>
 
               <h3 className="services__modal-title">
-                Design <br /> Thinking
+                Mobile <br /> Developer
               </h3>
               <p className="services__modal-description">
-                I embrace a user-centered approach, deeply understanding their
-                needs through empathy. I clearly identify problems, leading
-                creative ideation sessions and swiftly transforming concepts
-                into tangible prototypes.
+              Delivering dynamic and intuitive mobile experiences through innovative development practices. 
+              I create responsive and high-performance mobile applications that meet user needs and drive engagement.
               </p>
 
               <ul className="services__modal-services grid">
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">
-                    Visualization and Communication of Ideas.
+                    Cross-Platform Mobile Development.
                   </p>
                 </li>
 
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">
-                    Facilitation of Problem-Solving Workshops.
+                    Native Mobile App Development.
                   </p>
                 </li>
 
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">
-                    Collaborative Design Tools.
+                    Integration with Mobile APIs and Services.
                   </p>
                 </li>
 
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">
-                    Analysis of Market Trends and Insights.
+                    Collaborative Work with UI/UX Designers.
                   </p>
                 </li>
 
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">
-                    Mentorship in Innovation Culture.
+                    Continuous Testing and Deployment.
                   </p>
                 </li>
               </ul>
