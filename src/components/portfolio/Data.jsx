@@ -1,6 +1,7 @@
 import Image1 from "../../assets/java.png";
 import Image2 from "../../assets/angular.png";
 import Image3 from "../../assets/nextjs.png";
+import Image4 from "../../assets/react-native-logo.png";
 
 export const Data = [
   {
@@ -129,6 +130,17 @@ export const Data = [
     image: Image1,
     title: "Aplicação Java",
     description: "Aplicação backend construída com java, spring framework.",
+    link: (
+      <a href="http://www.google.com" target="_blank" rel="noopener noreferrer">
+        ver mais
+      </a>
+    ),
+  },
+  {
+    id: 13,
+    image: Image4,
+    title: "Aplicação React Native",
+    description: "Aplicação Mobile multiplataforma.",
     link: (
       <a href="http://www.google.com" target="_blank" rel="noopener noreferrer">
         ver mais
