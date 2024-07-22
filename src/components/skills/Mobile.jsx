@@ -29,7 +29,7 @@ const Mobile = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">FlutterFlow</h3>
+                    <h3 className="skills__name">JetPack Compose</h3>
                     <span className="skills__level">Intermediate</span>
                 </div>
                 </div>
@@ -52,24 +52,6 @@ const Mobile = () => {
                 <div>
                     <h3 className="skills__name">Firebase</h3>
                     <span className="skills__level">Advanced</span>
-                </div>
-                </div>
-
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">Android</h3>
-                    <span className="skills__level">Intermediate</span>
-                </div>
-                </div>
-
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">JetPack Compose</h3>
-                    <span className="skills__level">Intermediate</span>
                 </div>
                 </div>
             </div>
