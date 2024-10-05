@@ -29,7 +29,7 @@ const Mobile = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">JetPack Compose</h3>
+                    <h3 className="skills__name">Kotlin Multiplataform</h3>
                     <span className="skills__level">Intermediate</span>
                 </div>
                 </div>
@@ -50,7 +50,7 @@ const Mobile = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">Firebase</h3>
+                    <h3 className="skills__name">Android</h3>
                     <span className="skills__level">Intermediate</span>
                 </div>
                 </div>
