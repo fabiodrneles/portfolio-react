@@ -1,9 +1,9 @@
 import React from "react";
 
-const Backend = () => {
+const SoftSkills = () => {
   return (
     <div className="skills__content">
-      <h3 className="skills__title">Backend</h3>
+      <h3 className="skills__title">Soft Skills</h3>
 
       <div className="skills__box">
             <div className="skills__group">
@@ -11,8 +11,7 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">Java</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <h3 className="skills__name">Adaptability</h3>
                 </div>
                 </div>
 
@@ -20,8 +19,7 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">Kotlin</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <h3 className="skills__name">Problem-solving</h3>
                 </div>
                 </div>
 
@@ -29,8 +27,7 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">Spring Framework</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <h3 className="skills__name">Attention to Detail</h3>
                 </div>
                 </div>
             </div>
@@ -40,8 +37,7 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">Microservices</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <h3 className="skills__name">Time Management</h3>
                 </div>
                 </div>
 
@@ -49,8 +45,7 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">SQL and NOSQL</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <h3 className="skills__name">Flexibility</h3>
                 </div>
                 </div>
 
@@ -58,8 +53,7 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">QA</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <h3 className="skills__name">Teamwork</h3>
                 </div>
                 </div>
             </div>
@@ -71,4 +65,4 @@ const Backend = () => {
   );
 };
 
-export default Backend;
+export default SoftSkills;
