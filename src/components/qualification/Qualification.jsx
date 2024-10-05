@@ -106,7 +106,7 @@ const Qualification = () => {
             <div className="qualification__data">
               <div>
                 <h3 className="qualification__title">
-                  Software Developer | Java - Angular - PHP - React | Full Stack
+                  Software Developer Java - Angular - React - Wordpress | Full Stack
                 </h3>
                 <span className="qualification__subtitle">
                   Freelancer - Brazil
@@ -133,7 +133,7 @@ const Qualification = () => {
               <div>
                 <h3 className="qualification__title">
                   {" "}
-                  Intership Developer | Java - Angular - Cobol - Mainframe |
+                  Intership Developer Java - Angular - Cobol - Mainframe |
                   Full Stack
                 </h3>
                 <span className="qualification__subtitle">IBM - Brazil</span>
@@ -146,7 +146,7 @@ const Qualification = () => {
             <div className="qualification__data">
               <div>
                 <h3 className="qualification__title">
-                  Software Developer | Java - Angular - Cobol - React | Full
+                  Software Developer Java - Angular - Cobol - React | Full
                   Stack
                 </h3>
                 <span className="qualification__subtitle">IBM - Brazil</span>
@@ -172,6 +172,21 @@ const Qualification = () => {
               <div>
                 <h3 className="qualification__title">
                   {" "}
+                  Software Developer Java - Angular - SQL Server (Swissre Project)
+                </h3>
+                <span className="qualification__subtitle">
+                  Capgemini - Brazil
+                </span>
+                <div className="qualification__calender">
+                  <i className="uil uil-calender-alt"></i> Aug 2023 - Apr 2024
+                </div>
+              </div>
+            </div>
+
+
+            <div className="qualification__data">
+              <div>
+                <h3 className="qualification__title">
                   Apprenticeship | Scrum Master (Volunteer Project)
                 </h3>
                 <span className="qualification__subtitle">
@@ -181,11 +196,26 @@ const Qualification = () => {
                   <i className="uil uil-calender-alt"></i> Nov 2023 - Present
                 </div>
               </div>
+
+              <div>
+                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__line"></span>
+              </div>
             </div>
 
+
+
             <div className="qualification__data">
+              <div></div>
+
+              <div>
+                <span className="qualification__rounder"></span>
+                <span className="qualification__line"></span>
+              </div>
+
               <div>
                 <h3 className="qualification__title">
+                  {" "}
                   Intership Developer | Kotlin | Backend
                 </h3>
                 <span className="qualification__subtitle">
@@ -195,12 +225,18 @@ const Qualification = () => {
                   <i className="uil uil-calender-alt"></i> Feb 2024 - Present
                 </div>
               </div>
-
-              <div>
-                <sapn className="qualification__rounder"></sapn>
-                <span className="qualification__line"></span>
-              </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
           </div>
         </div>
       </div>
