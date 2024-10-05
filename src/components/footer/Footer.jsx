@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
 
         <span className="footer__copy">
-          &#169; Fabio D'arcy. All rigths reserved
+          &#169; Fabio D'arcy. <strong>Made in React.JS</strong> - All rigths reserved
         </span>
       </div>
     </footer>
