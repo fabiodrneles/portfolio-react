@@ -16,7 +16,9 @@ const portfolio = () => {
     <section className="portfolio container section" id="portfolio">
       <h2 className="section__title">My Portfolio</h2>
       <span className="section__subtitle">
-        Browse my showcase of study and skill development projects.
+      Loading... Something awesome is coming!
+
+        {/* Browse my showcase of study and skill development projects. */}
       </span>
 
       <Swiper
