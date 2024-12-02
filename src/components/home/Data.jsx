@@ -6,7 +6,11 @@ const Data = () => {
       <h1 className="home__title">Fabio D'arcy</h1>
       <h3 className="home__subtitle">Full Stack Developer</h3>
       <p className="home__description">
+<<<<<<< HEAD
         QA Engineer and Full Stack Developer specialized in creating comprehensive web
+=======
+        Full Stack Developer specialized in creating comprehensive web
+>>>>>>> a4a24aba300112bf2d13a2519bfd1939b1792c32
         solutions, bringing together front-end and back-end to ensure
         functionality and performance.
       </p>
