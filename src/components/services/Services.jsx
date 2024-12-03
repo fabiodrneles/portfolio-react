@@ -168,10 +168,10 @@ const Services = () => {
 
         <div className="services__content">
           <div>
-            <i className="uil uil-mobile-android services__icon"></i>
+            <i className="uil uil-flask services__icon"></i>
 
             <h3 className="services__title">
-              Mobile <br /> Developer
+              QA <br /> Engineer
             </h3>
           </div>
 
@@ -194,46 +194,45 @@ const Services = () => {
               ></i>
 
               <h3 className="services__modal-title">
-                Mobile <br /> Developer
+                QA <br /> Engineer
               </h3>
               <p className="services__modal-description">
-              Delivering dynamic and intuitive mobile experiences through innovative development practices. 
-              I create responsive and high-performance mobile applications that meet user needs and drive engagement.
+              Delivering robust and efficient testing solutions to ensure high-quality software and seamless user experiences across platforms.
               </p>
 
               <ul className="services__modal-services grid">
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">
-                    Cross-Platform Mobile Development.
+                  Test Automation Development.
                   </p>
                 </li>
 
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">
-                    Native Mobile App Development.
+                  API Testing and Validation.
                   </p>
                 </li>
 
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">
-                    Integration with Mobile APIs and Services.
+                    Cross-Browser and Cross-Platform Testing.
                   </p>
                 </li>
 
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">
-                    Collaborative Work with UI/UX Designers.
+                  Mobile App Testing.
                   </p>
                 </li>
 
                 <li className="services__modal-service">
                   <i className="uil uil-check-circle services__modal-icon"></i>
                   <p className="services__modal-info">
-                    Continuous Testing and Deployment.
+                  CI/CD Pipeline Integration.
                   </p>
                 </li>
               </ul>

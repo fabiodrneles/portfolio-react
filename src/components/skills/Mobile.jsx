@@ -12,7 +12,8 @@ const Mobile = () => {
 
                 <div>
                     <h3 className="skills__name">Java</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
 
@@ -21,7 +22,8 @@ const Mobile = () => {
 
                 <div>
                     <h3 className="skills__name">Kotlin</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
 
@@ -30,7 +32,8 @@ const Mobile = () => {
 
                 <div>
                     <h3 className="skills__name">Kotlin Multiplataform</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
 
@@ -42,7 +45,8 @@ const Mobile = () => {
 
                 <div>
                     <h3 className="skills__name">React Native</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
 
@@ -51,7 +55,8 @@ const Mobile = () => {
 
                 <div>
                     <h3 className="skills__name">Android</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
 
@@ -60,7 +65,8 @@ const Mobile = () => {
 
                 <div>
                     <h3 className="skills__name">FlutterFlow</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
             </div>

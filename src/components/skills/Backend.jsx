@@ -12,7 +12,8 @@ const Backend = () => {
 
                 <div>
                     <h3 className="skills__name">Java</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
 
@@ -21,7 +22,8 @@ const Backend = () => {
 
                 <div>
                     <h3 className="skills__name">Kotlin</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
 
@@ -30,7 +32,8 @@ const Backend = () => {
 
                 <div>
                     <h3 className="skills__name">Spring Framework</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
             </div>
@@ -41,7 +44,8 @@ const Backend = () => {
 
                 <div>
                     <h3 className="skills__name">Microservices</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
 
@@ -50,7 +54,8 @@ const Backend = () => {
 
                 <div>
                     <h3 className="skills__name">SQL and NOSQL</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <br></br>
+                   {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
 
@@ -58,8 +63,9 @@ const Backend = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">QA</h3>
-                    <span className="skills__level">Intermediate</span>
+                    <h3 className="skills__name">Developing REST APIs</h3>
+                    <br></br>
+                    {/**<span className="skills__level">Intermediate</span> */}
                 </div>
                 </div>
             </div>

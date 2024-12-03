@@ -4,7 +4,7 @@ const Data = () => {
   return (
     <div className="home__data">
       <h1 className="home__title">Fabio D'arcy</h1>
-      <h3 className="home__subtitle">QA Engineer and Full Stack Developer</h3>
+      <h3 className="home__subtitle">QA Engineer and Developer</h3>
       <p className="home__description">
         QA Engineer and Full Stack Developer specialized in creating comprehensive web
         solutions, bringing together front-end and back-end to ensure
@@ -12,7 +12,7 @@ const Data = () => {
       </p>
 
       <a href="#contact" className="button button--flex">
-        Contato
+        Contact
         <svg
           class="button__icon"
           xmlns="http://www.w3.org/2000/svg"
