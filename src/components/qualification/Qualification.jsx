@@ -86,6 +86,88 @@ const Qualification = () => {
               </div>
             </div>
 
+            {/** */}
+            <div className="qualification__data">
+              <div>
+                <h3 className="qualification__title">
+                  Bachelor's Degree in Software Engineering
+                </h3>
+                <span className="qualification__subtitle">Brazil</span>
+                <div className="qualification__calender">
+                  <i className="uil uil-calender-alt"></i> Jan 2025 - Present
+                </div>
+              </div>
+
+              <div>
+                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__line"></span>
+              </div>
+            </div>
+
+            {/** */}
+            <div className="qualification__data">
+              <div></div>
+
+              <div>
+                <span className="qualification__rounder"></span>
+                <span className="qualification__line"></span>
+              </div>
+
+              <div>
+                <h3 className="qualification__title">
+                  Postgraduate Degree in Digital Law.
+                </h3>
+                <span className="qualification__subtitle">
+                  Brazil - Unifecaf
+                </span>
+                <div className="qualification__calender">
+                  <i className="uil uil-calender-alt"></i> Jan 2025 - Jan 2026
+                </div>
+              </div>
+            </div>
+
+            {/** */}
+            <div className="qualification__data">
+              <div>
+                <h3 className="qualification__title">
+                  Postgraduate Degree in Full Stack Development
+                </h3>
+                <span className="qualification__subtitle">
+                  Brazil - Unifecaf
+                </span>
+                <div className="qualification__calender">
+                  <i className="uil uil-calender-alt"></i> Jan 2025 - Jan 2026
+                </div>
+              </div>
+
+              <div>
+                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__line"></span>
+              </div>
+            </div>
+
+            {/** */}
+            <div className="qualification__data">
+              <div></div>
+
+              <div>
+                <span className="qualification__rounder"></span>
+                <span className="qualification__line"></span>
+              </div>
+
+              <div>
+                <h3 className="qualification__title">
+                  MBA in compliance and governance.
+                </h3>
+                <span className="qualification__subtitle">
+                  Brazil - Unifecaf
+                </span>
+                <div className="qualification__calender">
+                  <i className="uil uil-calender-alt"></i> Jan 2025 - Jan 2026
+                </div>
+              </div>
+            </div>
+
             <div className="qualification__data">
               <div></div>
 
@@ -228,13 +310,24 @@ const Qualification = () => {
             </div>
 
 
+            <div className="qualification__data">
+              <div>
+                <h3 className="qualification__title">
+                  Software Engineer | Golang Developer
+                </h3>
+                <span className="qualification__subtitle">
+                  Visa/Pismo - Brazil
+                </span>
+                <div className="qualification__calender">
+                  <i className="uil uil-calender-alt"></i> Jan 2025 - Present
+                </div>
+              </div>
 
-
-
-
-
-
-
+              <div>
+                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__line"></span>
+              </div>
+            </div>
 
 
           </div>
