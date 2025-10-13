@@ -3,12 +3,10 @@ import React from "react";
 const Data = () => {
   return (
     <div className="home__data">
-      <h1 className="home__title">Fabio D'arcy</h1>
+      <h1 className="home__title">Fabio D. Dorneles</h1>
       <h3 className="home__subtitle">QA Engineer and Developer</h3>
       <p className="home__description">
-        QA Engineer and Full Stack Developer specialized in creating comprehensive web
-        solutions, bringing together front-end and back-end to ensure
-        functionality and performance.
+        QA Engineer and Full Stack Developer, covering the entire project lifecycle from front-end and back-end implementation to rigorous test automation and code coverage analysis.
       </p>
 
       <a href="#contact" className="button button--flex">
