@@ -3,6 +3,7 @@ import Image2 from "../../assets/angular.png";
 import Image4 from "../../assets/react-native-logo.png";
 import Image5 from "../../assets/kotlin.png";
 import Image6 from "../../assets/reactjs2.png";
+import Image7 from "../../assets/golang.png";
 
 export const Data = [
   {
@@ -18,6 +19,17 @@ export const Data = [
   },
   {
     id: 2,
+    image: Image7,
+    title: "Go-Release-Manager",
+    description: "Stop creating releases manually. This tool automates the entire release workflow: analyzing commits, bumping the version, creating a Git tag, and publishing a GitHub Release.",
+    link: (
+      <a href="https://github.com/fabiodrneles/Go-Release-Manager" target="_blank" rel="noopener noreferrer">
+        ver mais
+      </a>
+    ),
+  },
+  {
+    id: 3,
     image: Image6,
     title: "Portfolio made in React",
     description: "A React.JS portfolio showcasing my expertise in building React applications.",
@@ -28,7 +40,7 @@ export const Data = [
     ),
   },
   {
-    id: 3,
+    id: 4,
     image: Image2,
     title: "Aplicação Angular",
     description: "Aplicação frontend construída com Angular 2+",
@@ -39,7 +51,7 @@ export const Data = [
     ),
   },
   {
-    id: 4,
+    id: 5,
     image: Image4,
     title: "Aplicação React Native",
     description: "This React Native project provides a delivery app templateThis React Native project provides a delivery app template.",
@@ -51,7 +63,7 @@ export const Data = [
   },
 
   {
-    id: 5,
+    id: 6,
     image: Image5,
     title: "Aplicação Kotlin",
     description: "Aplicação Mobile Android com Kotlin. Confira os detalhes do projeto no repositório",
