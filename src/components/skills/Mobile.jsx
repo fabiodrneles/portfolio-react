@@ -64,7 +64,7 @@ const Mobile = () => {
                 <i class='bx bx-badge-check'></i>
 
                 <div>
-                    <h3 className="skills__name">Typescript</h3>
+                    <h3 className="skills__name">UI/UX</h3>
                     <br></br>
                     {/**<span className="skills__level">Intermediate</span> */}
                 </div>
