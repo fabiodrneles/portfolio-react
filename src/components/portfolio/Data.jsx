@@ -21,7 +21,7 @@ export const Data = [
     id: 2,
     image: Image7,
     title: "Go-Release-Manager",
-    description: "Stop creating releases manually. This tool automates the entire release workflow: analyzing commits, bumping the version, creating a Git tag, and publishing a GitHub Release.",
+    description: "Stop creating releases manually. This tool automates the entire release workflow.",
     link: (
       <a href="https://github.com/fabiodrneles/Go-Release-Manager" target="_blank" rel="noopener noreferrer">
         ver mais
