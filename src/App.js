@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
@@ -10,25 +11,33 @@ import Portfolio from "./components/portfolio/Portfolio.jsx";
 import Contact from "./components/contact/Contact.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import ScrollUp from "./components/scrollup/ScrollUp.jsx";
+import BlogList from "./components/blog/BlogList.jsx";
+import BlogPost from "./components/blog/BlogPost.jsx";
+
+const HomePage = () => (
+  <main className="main">
+    <Home />
+    <About />
+    <Skills />
+    <Services />
+    <Qualification />
+    <Portfolio />
+    <Contact />
+  </main>
+);
 
 const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-
-      <main className="main">
-        <Home />
-        <About />
-        <Skills />
-        <Services />
-        <Qualification />
-        <Portfolio />
-        <Contact />
-      </main>
-
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+      </Routes>
       <Footer />
       <ScrollUp />
-    </>
+    </BrowserRouter>
   );
 };
 
