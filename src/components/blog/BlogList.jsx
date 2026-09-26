@@ -1,11 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import posts from "../../posts/posts";
 import "./Blog.css";
 
 const BlogList = () => {
   return (
     <section className="blog" id="blog">
+      <Helmet>
+        <title>Artigos — Fabio Dorneles</title>
+        <meta
+          name="description"
+          content="Artigos sobre desenvolvimento web, testes e qualidade de software, escritos por Fabio Dorneles."
+        />
+        <meta property="og:title" content="Artigos — Fabio Dorneles" />
+        <meta
+          property="og:description"
+          content="Artigos sobre desenvolvimento web, testes e qualidade de software, escritos por Fabio Dorneles."
+        />
+        <meta property="og:url" content="https://fabiodorneles.com.br/blog" />
+      </Helmet>
+
       <h2 className="blog__title">Artigos</h2>
       <ul className="blog__list">
         {posts.map((post) => (
