@@ -36,6 +36,6 @@ export const softSkills = {
   title: "QA (Quality Assurance)",
   groups: [
     { groupItems: [{ name: "Test Automation" }, { name: "API Testing" }, { name: "Manual Testing" }] },
-    { groupItems: [{ name: "Bug Tracking" }, { name: "Mobile, Web, and Desktop" }, { name: "Bug Tracking" }] },
+    { groupItems: [{ name: "Bug Tracking" }, { name: "Mobile, Web, and Desktop" }, { name: "Continuous Improvement" }] },
   ],
 };
