@@ -13,6 +13,7 @@ import Footer from "./components/footer/Footer.jsx";
 import ScrollUp from "./components/scrollup/ScrollUp.jsx";
 import BlogList from "./components/blog/BlogList.jsx";
 import BlogPost from "./components/blog/BlogPost.jsx";
+import Admin from "./components/admin/Admin.jsx";
 
 const HomePage = () => (
   <main className="main">
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<BlogList />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
       <ScrollUp />

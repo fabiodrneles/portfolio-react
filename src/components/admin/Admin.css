@@ -1,0 +1,46 @@
+.admin {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+}
+.admin h1 {
+  margin-bottom: 1.5rem;
+}
+.admin__label {
+  display: block;
+  font-weight: 600;
+  margin: 1.25rem 0 0.4rem;
+}
+.admin__input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.admin .ql-container {
+  min-height: 260px;
+  font-size: 1rem;
+}
+.admin__button {
+  margin-top: 1.25rem;
+  padding: 0.7rem 1.4rem;
+  background: #242424;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.admin__output {
+  margin-top: 2rem;
+}
+.admin__output textarea {
+  width: 100%;
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

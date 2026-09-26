@@ -29,11 +29,18 @@ const BlogPost = () => {
           year: "numeric",
         })}
       </span>
-      <div className="blog-post__content">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {post.content}
-        </ReactMarkdown>
-      </div>
+      {post.contentHtml ? (
+        <div
+          className="blog-post__content"
+          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+        />
+      ) : (
+        <div className="blog-post__content">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {post.content}
+          </ReactMarkdown>
+        </div>
+      )}
     </article>
   );
 };
