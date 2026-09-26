@@ -16,7 +16,7 @@ const portfolio = () => {
     <section className="portfolio container section" id="portfolio">
       <h2 className="section__title">My Portfolio</h2>
       <span className="section__subtitle">
-      Loading... Something awesome is coming!
+      Novos projetos em desenvolvimento — em breve, mais itens por aqui.
 
         {/* Browse my showcase of study and skill development projects. */}
       </span>
