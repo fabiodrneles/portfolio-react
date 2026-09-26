@@ -1,65 +1,24 @@
 import React from "react";
+import { softSkills } from "../../data/skills";
 
 const SoftSkills = () => {
   return (
     <div className="skills__content">
-      <h3 className="skills__title">QA (Quality Assurance)</h3>
+      <h3 className="skills__title">{softSkills.title}</h3>
 
       <div className="skills__box">
-            <div className="skills__group">
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
+        {softSkills.groups.map((group, i) => (
+          <div className="skills__group" key={i}>
+            {group.groupItems.map((item, j) => (
+              <div className="skills__data" key={`${item.name}-${j}`}>
+                <i class="bx bx-badge-check"></i>
                 <div>
-                    <h3 className="skills__name">Test Automation</h3>
+                  <h3 className="skills__name">{item.name}</h3>
                 </div>
-                </div>
-
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">API Testing</h3>
-                </div>
-                </div>
-
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">Manual Testing</h3>
-                </div>
-                </div>
-            </div>
-
-            <div className="skills__group">
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">Bug Tracking</h3>
-                </div>
-                </div>
-
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">Mobile, Web, and Desktop</h3>
-                </div>
-                </div>
-
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">Bug Tracking</h3>
-                </div>
-                </div>
-            </div>
-
-
-
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

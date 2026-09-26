@@ -1,77 +1,25 @@
 import React from "react";
+import { backendSkills } from "../../data/skills";
 
 const Backend = () => {
   return (
     <div className="skills__content">
-      <h3 className="skills__title">Backend</h3>
+      <h3 className="skills__title">{backendSkills.title}</h3>
 
       <div className="skills__box">
-            <div className="skills__group">
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
+        {backendSkills.groups.map((group, i) => (
+          <div className="skills__group" key={i}>
+            {group.groupItems.map((item, j) => (
+              <div className="skills__data" key={`${item.name}-${j}`}>
+                <i class="bx bx-badge-check"></i>
                 <div>
-                    <h3 className="skills__name">Java</h3>
-                    <br></br>
-                    {/**<span className="skills__level">Intermediate</span> */}
+                  <h3 className="skills__name">{item.name}</h3>
+                  <br />
                 </div>
-                </div>
-
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">Kotlin</h3>
-                    <br></br>
-                    {/**<span className="skills__level">Intermediate</span> */}
-                </div>
-                </div>
-
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">Spring Framework</h3>
-                    <br></br>
-                    {/**<span className="skills__level">Intermediate</span> */}
-                </div>
-                </div>
-            </div>
-
-            <div className="skills__group">
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">Golang</h3>
-                    <br></br>
-                    {/**<span className="skills__level">Intermediate</span> */}
-                </div>
-                </div>
-
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">Database</h3>
-                    <br></br>
-                   {/**<span className="skills__level">Intermediate</span> */}
-                </div>
-                </div>
-
-                <div className="skills__data">
-                <i class='bx bx-badge-check'></i>
-
-                <div>
-                    <h3 className="skills__name">Developing REST APIs</h3>
-                    <br></br>
-                    {/**<span className="skills__level">Intermediate</span> */}
-                </div>
-                </div>
-            </div>
-
-
-
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );
