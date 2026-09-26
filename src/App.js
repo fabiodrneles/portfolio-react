@@ -31,13 +31,17 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/blog" element={<BlogList />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
-      <Footer />
+      <div className="app-shell">
+        <div className="page-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/admin" element={<Admin />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
       <ScrollUp />
     </BrowserRouter>
   );
