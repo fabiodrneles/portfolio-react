@@ -29,12 +29,12 @@ const Footer = () => {
 
         <div className="footer__social">
           <a
-            href="https://instagram.com"
+            href="https://youtube.com"
             className="footer__social-link"
             rel="noreferrer"
             target="_blank"
           >
-            <i class="bx bxl-instagram"></i>
+            <i class="bx bxl-youtube"></i>
           </a>
 
           <a
