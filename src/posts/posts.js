@@ -1,3 +1,7 @@
+/**
+ * @typedef {{ slug: string, title: string, date: string, excerpt: string, content?: string, contentHtml?: string }} Post
+ * @type {Post[]}
+ */
 const posts = [
   {
     slug: "como-organizei-minha-area-de-artigos",

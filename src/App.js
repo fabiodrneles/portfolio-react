@@ -14,6 +14,7 @@ import ScrollUp from "./components/scrollup/ScrollUp.jsx";
 import BlogList from "./components/blog/BlogList.jsx";
 import BlogPost from "./components/blog/BlogPost.jsx";
 import Admin from "./components/admin/Admin.jsx";
+import useScrollToHash from "./hooks/useScrollToHash";
 
 const HomePage = () => (
   <main className="main">
@@ -27,9 +28,11 @@ const HomePage = () => (
   </main>
 );
 
-const App = () => {
+const AppContent = () => {
+  useScrollToHash();
+
   return (
-    <BrowserRouter>
+    <>
       <Header />
       <div className="app-shell">
         <div className="page-content">
@@ -43,6 +46,14 @@ const App = () => {
         <Footer />
       </div>
       <ScrollUp />
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 };
