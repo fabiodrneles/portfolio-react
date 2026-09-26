@@ -3,6 +3,7 @@ import "./about.css";
 import AboutImg from "../../assets/about3.jpg";
 import CV from "../../assets/CV-FABIO-DARCI-DORNELES.pdf";
 import Info from "./Info";
+import { aboutData } from "../../data/profile";
 
 const About = () => {
   return (
@@ -16,11 +17,7 @@ const About = () => {
         <div className="about__data">
           <Info />
 
-          <p className="about__description">
-            As a Full Stack Developer, I have accumulated experience playing an
-            integral role in collaborative teams, contributing to the
-            development and delivery of robust and efficient solutions.
-          </p>
+          <p className="about__description">{aboutData.description}</p>
           <a download="" href={CV} className="button button--flex">
             Download CV
             <svg

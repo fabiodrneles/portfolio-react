@@ -1,13 +1,12 @@
 import React from "react";
+import { homeData } from "../../data/profile";
 
 const Data = () => {
   return (
     <div className="home__data">
-      <h1 className="home__title">Fabio Dorneles</h1>
-      <h3 className="home__subtitle">QA Engineer and Developer</h3>
-      <p className="home__description">
-        QA Engineer and Full Stack Developer, covering the entire project lifecycle from front-end and back-end implementation to rigorous test automation and code coverage analysis.
-      </p>
+      <h1 className="home__title">{homeData.name}</h1>
+      <h3 className="home__subtitle">{homeData.title}</h3>
+      <p className="home__description">{homeData.description}</p>
 
       <a href="#contact" className="button button--flex">
         Contact

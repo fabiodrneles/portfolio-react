@@ -1,34 +1,20 @@
 import React from "react";
+import { socialLinks } from "../../data/profile";
 
 const Social = () => {
   return (
     <div className="home__social">
-      <a
-        href="https://instagram.com"
-        className="home__social-icon"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <i class="uil uil-instagram"></i>
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/fabiodrneles/"
-        className="home__social-icon"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <i class="uil uil-linkedin"></i>
-      </a>
-
-      <a
-        href="https://github.com/fabiodrneles"
-        className="home__social-icon"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <i class="uil uil-github-alt"></i>
-      </a>
+      {socialLinks.map((link) => (
+        <a
+          key={link.platform}
+          href={link.url}
+          className="home__social-icon"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <i class={link.icon}></i>
+        </a>
+      ))}
     </div>
   );
 };
