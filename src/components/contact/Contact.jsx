@@ -9,6 +9,12 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    // Honeypot: campo invisível que só bots preenchem
+    if (form.current.website.value) {
+      e.target.reset();
+      return;
+    }
+
     emailjs.sendForm(
       process.env.REACT_APP_EMAILJS_SERVICE_ID,
       process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
@@ -76,6 +82,15 @@ const Contact = () => {
                 placeholder="Write me your project"
               ></textarea>
             </div>
+
+            {/* Honeypot — campo invisível para humanos, visível para bots */}
+            <input
+              type="text"
+              name="website"
+              tabIndex="-1"
+              autoComplete="off"
+              style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+            />
 
             <button className="button button--flex">
               Send Message
