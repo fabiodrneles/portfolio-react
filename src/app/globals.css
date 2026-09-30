@@ -300,6 +300,36 @@ img {
   font-weight: 500;
 }
 
+/*=============== FILTROS (projetos e trajetória) ===============*/
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter {
+  min-height: 2.75rem;
+  padding: 0 1.125rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-3);
+  color: #c9d4cf;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.filter:hover {
+  border-color: var(--subtle);
+  color: #fff;
+}
+
+.filter--active,
+.filter--active:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+
 /*=============== UTILITÁRIOS ===============*/
 .chip {
   display: inline-flex;

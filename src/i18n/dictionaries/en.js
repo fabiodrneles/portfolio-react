@@ -1,10 +1,10 @@
 // Site copy in English. Same structure as pt.js.
 const en = {
   meta: {
-    title: "Fabio Dorneles — QA Engineer & Full Stack Developer",
+    title: "Fabio Dorneles | QA Engineer & Full Stack Developer",
     description:
-      "Fabio Dorneles — QA Engineer and Full Stack Developer. Test automation, APIs and web and mobile apps, with quality from start to finish.",
-    ogSubtitle: "QA Engineer & Full Stack Developer — projects, portfolio and technical articles",
+      "Fabio Dorneles, QA Engineer and Full Stack Developer. Test automation, APIs and web and mobile apps, with quality from start to finish.",
+    ogSubtitle: "QA Engineer & Full Stack Developer: projects, portfolio and technical articles",
     jobTitle: "QA Engineer and Full Stack Developer",
   },
   nav: {
@@ -25,7 +25,7 @@ const en = {
     eyebrow: "// QA Engineer · Full Stack Developer",
     titleStart: "Software that passes",
     titleHighlight: "every test",
-    titleEnd: "— before your users do.",
+    titleEnd: "before your users do.",
     lead: "I build front-end and back-end, then prove it works: test automation, API validation and code coverage across the whole project lifecycle.",
     primary: "Start a project",
     secondary: "See my work",
@@ -35,7 +35,7 @@ const en = {
     ],
   },
   runner: {
-    title: "fabio.cy.js — cypress run",
+    title: "fabio.cy.js · cypress run",
     it: "ships reliable software",
     visit: "/your-product",
     specs: ["writes clean front-end", "designs reliable APIs", "automates the test suite", "ships through CI/CD"],
@@ -45,7 +45,7 @@ const en = {
   stack: { label: "Daily stack" },
   services: {
     eyebrow: "01 / services",
-    title: "One engineer for the build — and the proof it works.",
+    title: "One engineer to build it and prove it works.",
     lead: "Quality is the core, not an afterthought. Pick one area or bring me in for the full lifecycle.",
     core: "Core specialty",
     items: [
@@ -106,7 +106,8 @@ const en = {
     title: "Where this experience comes from.",
     experience: "Experience",
     education: "Education",
-    present: "present",
+    range: "{from} to {to}",
+    since: "since {from}",
     experienceItems: {
       pismo: "Software Engineer · Golang",
       stone: "Developer Intern · Kotlin · Back-end",
@@ -139,13 +140,12 @@ const en = {
   about: {
     eyebrow: "05 / about",
     role: "QA Engineer & Full Stack · Brazil",
-    bio: "As a Full Stack Developer, I have built experience as an integral part of collaborative teams, contributing to the development and delivery of robust and efficient solutions — now focused on making quality measurable.",
+    bio: "As a Full Stack Developer, I have built experience as an integral part of collaborative teams, contributing to the development and delivery of robust and efficient solutions. Today, my focus is making quality measurable.",
     cv: "Download CV",
   },
   writing: {
     eyebrow: "06 / writing",
     all: "All articles",
-    note: "Articles are written in Portuguese.",
   },
   contact: {
     eyebrow: "07 / contact",
@@ -176,11 +176,11 @@ const en = {
   },
   blog: {
     title: "Articles",
-    metaTitle: "Articles — Fabio Dorneles",
+    metaTitle: "Articles | Fabio Dorneles",
     description: "Articles on web development, testing and software quality, written by Fabio Dorneles.",
     back: "← All articles",
-    ptOnly: "Articles are written in Portuguese.",
-    notFound: "Article not found — Fabio Dorneles",
+    untranslated: "This article is only available in Portuguese for now.",
+    notFound: "Article not found | Fabio Dorneles",
     fallbackDescription: "Article from Fabio Dorneles' blog.",
     share: {
       title: "Enjoyed it? Share this article",

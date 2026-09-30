@@ -2,10 +2,10 @@
 // en.js e fr.js seguem exatamente a mesma estrutura.
 const pt = {
   meta: {
-    title: "Fabio Dorneles — Engenheiro de QA e Desenvolvedor Full Stack",
+    title: "Fabio Dorneles | Engenheiro de QA e Desenvolvedor Full Stack",
     description:
-      "Fabio Dorneles — Engenheiro de QA e Desenvolvedor Full Stack. Automação de testes, APIs e aplicações web e mobile, com qualidade do início ao fim.",
-    ogSubtitle: "Engenheiro de QA e Desenvolvedor Full Stack — projetos, portfólio e artigos técnicos",
+      "Fabio Dorneles, Engenheiro de QA e Desenvolvedor Full Stack. Automação de testes, APIs e aplicações web e mobile, com qualidade do início ao fim.",
+    ogSubtitle: "Engenheiro de QA e Desenvolvedor Full Stack: projetos, portfólio e artigos técnicos",
     jobTitle: "Engenheiro de QA e Desenvolvedor Full Stack",
   },
   nav: {
@@ -26,7 +26,7 @@ const pt = {
     eyebrow: "// Engenheiro de QA · Desenvolvedor Full Stack",
     titleStart: "Software que passa em",
     titleHighlight: "todos os testes",
-    titleEnd: "— antes dos seus usuários.",
+    titleEnd: "antes dos seus usuários.",
     lead: "Desenvolvo front-end e back-end e provo que funciona: automação de testes, validação de APIs e cobertura de código em todo o ciclo de vida do projeto.",
     primary: "Iniciar um projeto",
     secondary: "Ver projetos",
@@ -36,7 +36,7 @@ const pt = {
     ],
   },
   runner: {
-    title: "fabio.cy.js — cypress run",
+    title: "fabio.cy.js · cypress run",
     it: "entrega software confiável",
     visit: "/seu-produto",
     specs: ["escreve front-end limpo", "projeta APIs confiáveis", "automatiza a suíte de testes", "entrega via CI/CD"],
@@ -46,7 +46,7 @@ const pt = {
   stack: { label: "Stack do dia a dia" },
   services: {
     eyebrow: "01 / serviços",
-    title: "Um engenheiro para construir — e provar que funciona.",
+    title: "Um engenheiro para construir e provar que funciona.",
     lead: "Qualidade é o centro, não um detalhe no fim. Escolha uma área ou conte comigo no ciclo completo.",
     core: "Especialidade principal",
     items: [
@@ -107,7 +107,8 @@ const pt = {
     title: "Onde construí essa experiência.",
     experience: "Experiência",
     education: "Formação",
-    present: "atual",
+    range: "{from} a {to}",
+    since: "desde {from}",
     experienceItems: {
       pismo: "Engenheiro de Software · Golang",
       stone: "Estágio em Desenvolvimento · Kotlin · Back-end",
@@ -140,13 +141,12 @@ const pt = {
   about: {
     eyebrow: "05 / sobre",
     role: "Engenheiro de QA e Full Stack · Brasil",
-    bio: "Como Desenvolvedor Full Stack, acumulei experiência como parte integrante de equipes colaborativas, contribuindo para o desenvolvimento e a entrega de soluções robustas e eficientes — hoje com foco em tornar a qualidade mensurável.",
+    bio: "Como Desenvolvedor Full Stack, acumulei experiência como parte integrante de equipes colaborativas, contribuindo para o desenvolvimento e a entrega de soluções robustas e eficientes. Hoje, meu foco é tornar a qualidade mensurável.",
     cv: "Baixar currículo",
   },
   writing: {
     eyebrow: "06 / artigos",
     all: "Todos os artigos",
-    note: "",
   },
   contact: {
     eyebrow: "07 / contato",
@@ -177,11 +177,11 @@ const pt = {
   },
   blog: {
     title: "Artigos",
-    metaTitle: "Artigos — Fabio Dorneles",
+    metaTitle: "Artigos | Fabio Dorneles",
     description: "Artigos sobre desenvolvimento web, testes e qualidade de software, escritos por Fabio Dorneles.",
     back: "← Todos os artigos",
-    ptOnly: "",
-    notFound: "Artigo não encontrado — Fabio Dorneles",
+    untranslated: "",
+    notFound: "Artigo não encontrado | Fabio Dorneles",
     fallbackDescription: "Artigo do blog de Fabio Dorneles.",
     share: {
       title: "Gostou? Compartilhe este artigo",

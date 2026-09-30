@@ -44,7 +44,7 @@ const Work = ({ dict }) => {
                   className="card project"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`${project.title} — ${dict.open}`}
+                  aria-label={`${project.title}: ${dict.open}`}
                 >
                   <div className="project__terminal" aria-hidden="true">
                     <span className="project__cmd">$ {project.cmd}</span>

@@ -11,7 +11,7 @@ const body = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "600"], display
 const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400"], display: "swap", variable: "--font-mono" });
 
 export const metadata = {
-  title: "404 — Fabio Dorneles",
+  title: "404 | Fabio Dorneles",
 };
 
 // Endereços que não existem em nenhum idioma. O idioma vem do proxy (cabeçalho interno).

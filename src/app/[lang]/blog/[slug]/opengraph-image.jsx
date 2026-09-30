@@ -1,4 +1,5 @@
 import posts from "@/posts/posts";
+import { localizePost } from "@/posts/localize";
 import { formatPostDate } from "@/lib/site";
 import { ogSize, renderOgImage } from "@/lib/og";
 
@@ -12,7 +13,8 @@ export function generateStaticParams() {
 
 export default async function Image({ params }) {
   const { lang, slug } = await params;
-  const post = posts.find((p) => p.slug === slug);
+  const original = posts.find((p) => p.slug === slug);
+  const post = original && localizePost(original, lang);
 
   return renderOgImage({
     eyebrow: "$ cat blog/artigo.md",

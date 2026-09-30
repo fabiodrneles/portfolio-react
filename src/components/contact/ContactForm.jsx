@@ -135,7 +135,7 @@ const ContactForm = ({ dict }) => {
         ></textarea>
       </div>
 
-      {/* Honeypot — campo invisível para humanos, visível para bots */}
+      {/* Honeypot: campo invisível para humanos, visível para bots */}
       <input
         type="text"
         name="website"

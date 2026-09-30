@@ -12,7 +12,10 @@ const Journey = ({ lang, dict }) => {
   ];
   const current = tabs.find((t) => t.id === tab);
 
-  const period = ({ from, to }) => `${formatMonth(from, lang)} — ${to ? formatMonth(to, lang) : dict.present}`;
+  const period = ({ from, to }) =>
+    to
+      ? dict.range.replace("{from}", formatMonth(from, lang)).replace("{to}", formatMonth(to, lang))
+      : dict.since.replace("{from}", formatMonth(from, lang));
 
   return (
     <section className="section journey" id="qualification">
