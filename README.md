@@ -1,4 +1,4 @@
-# Portfolio — Fabio Dorneles
+# Portfolio | Fabio Dorneles
 
 Portfólio pessoal e blog construídos com [Next.js](https://nextjs.org) (App Router) e React.
 
@@ -14,16 +14,18 @@ npm run lint
 
 ## Estrutura
 
-- `src/app/[lang]/` — rotas (`/`, `/blog`, `/blog/[slug]`, `/admin`) e metadata/SEO, em cada idioma
-- `src/proxy.js` — escolhe o idioma de cada visita (veja abaixo)
-- `src/i18n/` — configuração dos idiomas e textos traduzidos (`dictionaries/pt.js`, `en.js`, `fr.js`)
-- `src/components/` — componentes das seções e páginas
-- `src/data/portfolio.js` e `src/posts/posts.js` — dados do portfólio (links, projetos, trajetória) e artigos
-- `public/` — arquivos estáticos (CV, robots, favicon)
+- `src/app/[lang]/`: rotas (`/`, `/blog`, `/blog/[slug]`, `/admin`) e metadata/SEO, em cada idioma
+- `src/proxy.js`: escolhe o idioma de cada visita (veja abaixo)
+- `src/i18n/`: configuração dos idiomas e textos traduzidos (`dictionaries/pt.js`, `en.js`, `fr.js`)
+- `src/components/`: componentes das seções e páginas
+- `src/data/portfolio.js` e `src/posts/posts.js`: dados do portfólio (links, projetos, trajetória) e artigos
+- `public/`: arquivos estáticos (CV, robots, favicon)
 
 Os artigos em `src/posts/posts.js` são gerados estaticamente no build (SSG). Para criar um novo,
 use a página `/admin`, copie o código gerado e cole como primeiro item do array `posts`.
-Os artigos são escritos em português; nas versões em inglês e francês aparece um aviso.
+Cada artigo pode ter as versões em inglês e francês no campo `translations` (o `/admin` tem abas
+Português, English e Français para escrever as três). Sem tradução, o artigo aparece em português
+com um aviso para quem está lendo em outro idioma.
 
 ## Idiomas
 

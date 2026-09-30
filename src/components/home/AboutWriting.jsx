@@ -1,13 +1,17 @@
 import Link from "next/link";
 import Icon from "@/components/ui/Icon";
 import posts from "@/posts/posts";
+import { localizePost } from "@/posts/localize";
 import { CV_URL } from "@/data/portfolio";
 import { formatPostDate } from "@/lib/site";
-import { localePath } from "@/i18n/config";
+import { localeInfo, localePath } from "@/i18n/config";
 
 const AboutWriting = ({ lang, dict }) => {
   const { about, writing } = dict;
-  const latest = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
+  const latest = [...posts]
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .slice(0, 3)
+    .map((post) => localizePost(post, lang));
 
   return (
     <section className="section about-writing" id="about">
@@ -35,13 +39,12 @@ const AboutWriting = ({ lang, dict }) => {
               {writing.all} →
             </Link>
           </div>
-          {writing.note && <p className="writing__note">{writing.note}</p>}
           <ul className="writing__list">
             {latest.map((post) => (
               <li key={post.slug}>
                 <Link href={localePath(lang, `/blog/${post.slug}`)} className="writing__item">
                   <span className="writing__date">{formatPostDate(post.date, lang)}</span>
-                  <span className="writing__title" lang="pt-BR">{post.title}</span>
+                  <span className="writing__title" lang={localeInfo[post.lang].htmlLang}>{post.title}</span>
                 </Link>
               </li>
             ))}

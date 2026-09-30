@@ -41,6 +41,14 @@ describe("Idiomas do site", () => {
     cy.contains("h1", "Articles").should("be.visible");
   });
 
+  it("mostra o artigo traduzido no idioma escolhido", () => {
+    cy.setCookie("lang", "fr");
+    cy.visit(`${baseUrl}/fr/blog`);
+    cy.get(".blog__card a").first().click();
+    cy.get(".blog-post h1").should("have.attr", "lang", "fr").and("contain", "Du CRUD");
+    cy.get(".blog-post__content").should("contain", "marché des paiements");
+  });
+
   it("mostra os três serviços traduzidos", () => {
     cy.visit(`${baseUrl}/en#services`);
     ["QA Engineering", "Back-End", "Front-End"].forEach((title) => {

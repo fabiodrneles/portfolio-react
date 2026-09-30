@@ -415,36 +415,6 @@
   font-family: var(--font-mono-stack);
 }
 
-/*=============== FILTROS (projetos e trajetória) ===============*/
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.filter {
-  min-height: 2.75rem;
-  padding: 0 1.125rem;
-  border-radius: 999px;
-  border: 1px solid var(--line-3);
-  color: #c9d4cf;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-}
-
-.filter:hover {
-  border-color: var(--subtle);
-  color: #fff;
-}
-
-.filter--active,
-.filter--active:hover {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
-}
-
 /*=============== PROJETOS ===============*/
 .work {
   background: var(--bg-2);
@@ -562,7 +532,10 @@
   font-family: var(--font-mono-stack);
   font-size: 0.8125rem;
   color: var(--faint);
-  text-transform: capitalize;
+}
+
+.timeline__period::first-letter {
+  text-transform: uppercase;
 }
 
 .timeline__item--current .timeline__period {
@@ -716,12 +689,6 @@
 
 .writing__all {
   font-size: 0.875rem;
-}
-
-.writing__note {
-  margin-bottom: 0.75rem;
-  font-size: 0.8125rem;
-  color: var(--faint);
 }
 
 .writing__item {

@@ -13,7 +13,7 @@ function slugify(text) {
     .toString()
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[̀-ͯ]/g, "")
     .replace(/[^a-z0-9\s-]/g, "")
     .trim()
     .replace(/\s+/g, "-")
@@ -31,23 +31,48 @@ const modules = {
   ],
 };
 
+const LANGS = [
+  { id: "pt", label: "Português", hint: "Texto principal do artigo (obrigatório)." },
+  { id: "en", label: "English", hint: "Tradução em inglês (opcional). Sem ela, quem lê em inglês vê o texto em português com um aviso." },
+  { id: "fr", label: "Français", hint: "Tradução em francês (opcional). Sem ela, quem lê em francês vê o texto em português com um aviso." },
+];
+
+const emptyText = { title: "", excerpt: "", contentHtml: "" };
+
 const Admin = () => {
-  const [title, setTitle] = useState("");
-  const [excerpt, setExcerpt] = useState("");
-  const [contentHtml, setContentHtml] = useState("");
+  const [lang, setLang] = useState("pt");
+  const [texts, setTexts] = useState({ pt: emptyText, en: emptyText, fr: emptyText });
   const [output, setOutput] = useState("");
   const [copied, setCopied] = useState(false);
 
+  const current = texts[lang];
+  const update = (field) => (value) => setTexts((prev) => ({ ...prev, [lang]: { ...prev[lang], [field]: value } }));
+
   const handleGenerate = () => {
+    const { title, excerpt, contentHtml } = texts.pt;
     const slug = slugify(title || "novo-artigo");
     const date = new Date().toISOString().slice(0, 10);
+
+    const translated = ["en", "fr"].filter((l) => texts[l].title.trim() && texts[l].contentHtml.trim());
+    const translations = translated.length
+      ? `    translations: {\n${translated
+          .map(
+            (l) => `      ${l}: {
+        title: ${JSON.stringify(texts[l].title)},
+        excerpt: ${JSON.stringify(texts[l].excerpt)},
+        contentHtml: ${JSON.stringify(texts[l].contentHtml)},
+      },\n`
+          )
+          .join("")}    },\n`
+      : "";
+
     const code = `  {
     slug: "${slug}",
     title: ${JSON.stringify(title)},
     date: "${date}",
     excerpt: ${JSON.stringify(excerpt)},
     contentHtml: ${JSON.stringify(contentHtml)},
-  },`;
+${translations}  },`;
     setOutput(code);
     setCopied(false);
   };
@@ -61,33 +86,48 @@ const Admin = () => {
     }
   };
 
+  const hint = LANGS.find((l) => l.id === lang).hint;
+
   return (
     <section className="admin">
       <h1>Novo artigo</h1>
 
-      <label className="admin__label">Título</label>
+      <div className="admin__tabs" role="group" aria-label="Idioma do texto">
+        {LANGS.map(({ id, label }) => (
+          <button
+            key={id}
+            type="button"
+            className={lang === id ? "filter filter--active" : "filter"}
+            aria-pressed={lang === id}
+            onClick={() => setLang(id)}
+          >
+            {label}
+            {id !== "pt" && texts[id].title.trim() ? " ✓" : ""}
+          </button>
+        ))}
+      </div>
+      <p className="admin__hint">{hint}</p>
+
+      <label className="admin__label" htmlFor="admin-title">Título</label>
       <input
+        id="admin-title"
         className="admin__input"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        value={current.title}
+        onChange={(e) => update("title")(e.target.value)}
         placeholder="Título do artigo"
       />
 
-      <label className="admin__label">Resumo (aparece na lista)</label>
+      <label className="admin__label" htmlFor="admin-excerpt">Resumo (aparece na lista)</label>
       <input
+        id="admin-excerpt"
         className="admin__input"
-        value={excerpt}
-        onChange={(e) => setExcerpt(e.target.value)}
+        value={current.excerpt}
+        onChange={(e) => update("excerpt")(e.target.value)}
         placeholder="Resumo curto"
       />
 
-      <label className="admin__label">Conteúdo</label>
-      <ReactQuill
-        theme="snow"
-        value={contentHtml}
-        onChange={setContentHtml}
-        modules={modules}
-      />
+      <span className="admin__label">Conteúdo</span>
+      <ReactQuill key={lang} theme="snow" value={current.contentHtml} onChange={update("contentHtml")} modules={modules} />
 
       <button className="admin__button" onClick={handleGenerate}>
         Gerar código do artigo

@@ -56,3 +56,15 @@
   background: #f4f7f5;
   color: #141413;
 }
+
+.admin__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.admin__hint {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--subtle);
+}

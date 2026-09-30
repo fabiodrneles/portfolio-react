@@ -1,7 +1,7 @@
 import Admin from "@/components/admin/Admin";
 
 export const metadata = {
-  title: "Admin — Fabio Dorneles",
+  title: "Admin | Fabio Dorneles",
   robots: { index: false, follow: false },
 };
 
