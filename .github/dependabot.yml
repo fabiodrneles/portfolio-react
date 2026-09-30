@@ -8,6 +8,11 @@ updates:
     groups:
       minor-and-patch:
         update-types: [minor, patch]
+    ignore:
+      # Cypress 16 ou maior quebra o `npm ci`: o cypress-axe (testes de acessibilidade) só declara
+      # suporte até o Cypress 15. Reavaliar quando o cypress-axe suportar a 16.
+      - dependency-name: cypress
+        versions: [">=16"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
