@@ -20,6 +20,7 @@ const fr = {
     openMenu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
     main: "Navigation principale",
+    skip: "Aller au contenu",
   },
   hero: {
     eyebrow: "// Ingénieur QA · Développeur Full Stack",
@@ -167,12 +168,15 @@ const fr = {
     errorLong: "Votre message est trop long.",
     errorCooldown: "Veuillez patienter une minute avant d'envoyer un autre message.",
     errorSend: "Une erreur s'est produite. Réessayez ou écrivez-moi par e-mail.",
+    privacyNotice: "En envoyant ce message, vous acceptez que vos données servent uniquement à vous répondre. Lisez la",
+    privacyLink: "Politique de confidentialité",
   },
   footer: {
     rights: "Tous droits réservés.",
     build: "build",
     passing: "réussi",
     backToTop: "Retour en haut",
+    privacy: "Politique de confidentialité",
   },
   blog: {
     title: "Articles",
@@ -192,6 +196,112 @@ const fr = {
       more: "Plus d'options de partage",
       moreShort: "Plus d'options",
     },
+  },
+  privacy: {
+    "metaTitle": "Politique de confidentialité",
+    "metaDescription": "Quelles données personnelles ce site collecte, à quoi elles servent et quels sont vos droits (LGPD).",
+    "title": "Politique de confidentialité",
+    "updated": "Dernière mise à jour : 30 septembre 2026",
+    "intro": "Cette politique explique simplement quelles données personnelles ce site collecte, à quoi elles servent et quels sont vos droits, selon la loi brésilienne de protection des données (LGPD, loi nº 13.709/2018).",
+    "sections": [
+      {
+        "heading": "Qui est le responsable",
+        "paragraphs": [
+          "Le responsable du traitement est Fabio Dorneles, personne physique, propriétaire de ce site. Pour toute question de confidentialité, écrivez à fabiodrneles@gmail.com."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Quelles données nous collectons",
+        "paragraphs": [
+          "Ce site n'utilise ni cookies publicitaires, ni outil d'analyse d'audience, ni suivi, et charge polices et icônes depuis le site lui-même. Les seules données traitées sont :"
+        ],
+        "list": [
+          "Formulaire de contact : votre nom, votre e-mail et le message que vous écrivez. Ils ne sont envoyés que lorsque vous cliquez sur envoyer.",
+          "Cookie de langue (lang) : mémorise la langue choisie, jusqu'à 1 an. Il est fonctionnel et ne vous identifie pas.",
+          "Stockage de session du navigateur : un horaire servant à limiter les messages répétés. Il disparaît à la fermeture de l'onglet.",
+          "Journaux techniques de l'hébergeur (Vercel) : adresse IP, navigateur et heure d'accès, nécessaires pour fournir et protéger le site."
+        ]
+      },
+      {
+        "heading": "À quoi servent les données",
+        "paragraphs": [],
+        "list": [
+          "Répondre au message envoyé par le formulaire.",
+          "Maintenir le site sûr et dans votre langue."
+        ]
+      },
+      {
+        "heading": "Base légale",
+        "paragraphs": [
+          "Nous traitons les données du formulaire sur la base de votre consentement (LGPD, art. 7, I), donné en envoyant le message, et pour effectuer des démarches préalables à un éventuel contrat, à votre demande (art. 7, V). Le cookie de langue et les journaux techniques sont nécessaires au fonctionnement et à la sécurité du site."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Avec qui nous partageons",
+        "paragraphs": [
+          "Les messages du formulaire passent par EmailJS, qui les remet à ma boîte e-mail. Le site est hébergé sur Vercel. Nous ne vendons pas vos données et ne les cédons pas à des tiers pour d'autres finalités."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Transfert international",
+        "paragraphs": [
+          "EmailJS et Vercel peuvent traiter des données sur des serveurs situés hors du Brésil. Cela se fait selon les conditions et garanties que ces prestataires offrent et que la LGPD admet (art. 33)."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Durée de conservation",
+        "paragraphs": [
+          "Les messages restent dans ma boîte e-mail le temps nécessaire pour répondre et suivre la conversation puis, ensuite, tant qu'il existe un intérêt légitime ou une obligation légale. Vous pouvez demander la suppression à tout moment. Le cookie de langue expire après 1 an."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Vos droits",
+        "paragraphs": [
+          "Selon la LGPD (art. 18), vous pouvez demander :"
+        ],
+        "list": [
+          "la confirmation du traitement de vos données et l'accès à celles-ci ;",
+          "la correction de données incomplètes, inexactes ou périmées ;",
+          "l'anonymisation, le blocage ou la suppression de données inutiles ou traitées en violation de la loi ;",
+          "la portabilité des données ;",
+          "des informations sur les destinataires des données ;",
+          "le retrait du consentement, à tout moment."
+        ]
+      },
+      {
+        "heading": "Comment exercer vos droits",
+        "paragraphs": [
+          "Écrivez à fabiodrneles@gmail.com. Vous pouvez aussi déposer une réclamation auprès de l'Autorité nationale brésilienne de protection des données (ANPD), sur gov.br/anpd."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Enfants et adolescents",
+        "paragraphs": [
+          "Ce site ne s'adresse pas aux enfants ni aux adolescents et ne collecte pas intentionnellement leurs données."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Sécurité",
+        "paragraphs": [
+          "Le site utilise HTTPS et des en-têtes de sécurité, et ses dépendances sont surveillées pour détecter les vulnérabilités connues. Aucun système n'est totalement à l'abri des failles. Si vous trouvez une vulnérabilité, consultez les instructions sur /.well-known/security.txt."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Modifications",
+        "paragraphs": [
+          "Cette politique peut être mise à jour. La date de la dernière mise à jour figure en haut de cette page."
+        ],
+        "list": []
+      }
+    ]
   },
 };
 

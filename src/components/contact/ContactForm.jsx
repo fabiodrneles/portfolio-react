@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import emailjs from "@emailjs/browser";
 import Icon from "@/components/ui/Icon";
 
@@ -28,7 +29,7 @@ const setLastSentAt = (time) => {
   }
 };
 
-const ContactForm = ({ dict }) => {
+const ContactForm = ({ dict, privacyHref }) => {
   const form = useRef();
   const loadedAt = useRef(0);
   const lastSentAt = useRef(0);
@@ -144,6 +145,10 @@ const ContactForm = ({ dict }) => {
         autoComplete="off"
         style={{ position: "absolute", left: "-9999px", opacity: 0 }}
       />
+
+      <p className="contact__privacy">
+        {dict.privacyNotice} <Link href={privacyHref}>{dict.privacyLink}</Link>.
+      </p>
 
       <button type="submit" className="button button--primary contact__submit" disabled={status.type === "sending"}>
         {status.type === "sending" ? dict.sending : dict.send}

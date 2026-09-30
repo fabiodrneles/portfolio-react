@@ -192,3 +192,14 @@
     align-self: stretch;
   }
 }
+
+.contact__privacy {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.contact__privacy a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

@@ -44,6 +44,9 @@ const Footer = ({ lang, dict }) => {
         <span>
           © {new Date().getFullYear()} Fabio Dorneles · {dict.footer.rights}
         </span>
+        <Link href={localePath(lang, "/privacy")} className="footer__link">
+          {dict.footer.privacy}
+        </Link>
         <span>
           {dict.footer.build} <span className="footer__passing">{dict.footer.passing}</span>
         </span>

@@ -21,6 +21,7 @@ const pt = {
     openMenu: "Abrir menu",
     closeMenu: "Fechar menu",
     main: "Navegação principal",
+    skip: "Pular para o conteúdo",
   },
   hero: {
     eyebrow: "// Engenheiro de QA · Desenvolvedor Full Stack",
@@ -168,12 +169,15 @@ const pt = {
     errorLong: "Sua mensagem está longa demais.",
     errorCooldown: "Aguarde um minuto antes de enviar outra mensagem.",
     errorSend: "Algo deu errado. Tente de novo ou me chame por e-mail.",
+    privacyNotice: "Ao enviar, você concorda que seus dados sejam usados apenas para responder à sua mensagem. Leia a",
+    privacyLink: "Política de Privacidade",
   },
   footer: {
     rights: "Todos os direitos reservados.",
     build: "build",
     passing: "passando",
     backToTop: "Voltar ao topo",
+    privacy: "Política de Privacidade",
   },
   blog: {
     title: "Artigos",
@@ -193,6 +197,112 @@ const pt = {
       more: "Mais opções de compartilhamento",
       moreShort: "Mais opções",
     },
+  },
+  privacy: {
+    "metaTitle": "Política de Privacidade",
+    "metaDescription": "Quais dados pessoais este site coleta, para que servem e quais são os seus direitos (LGPD).",
+    "title": "Política de Privacidade",
+    "updated": "Última atualização: 30 de setembro de 2026",
+    "intro": "Esta política explica, de forma direta, quais dados pessoais este site coleta, para que servem e quais são os seus direitos, conforme a Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018).",
+    "sections": [
+      {
+        "heading": "Quem é o responsável",
+        "paragraphs": [
+          "O responsável pelo tratamento dos dados é Fabio Dorneles, pessoa física, titular deste site. Para qualquer assunto de privacidade, escreva para fabiodrneles@gmail.com."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Quais dados coletamos",
+        "paragraphs": [
+          "Este site não usa cookies de publicidade, ferramentas de análise de audiência nem rastreamento, e carrega fontes e ícones do próprio site. Os únicos dados tratados são:"
+        ],
+        "list": [
+          "Formulário de contato: nome, e-mail e a mensagem que você escrever. Só são enviados quando você clica em enviar.",
+          "Cookie de idioma (lang): guarda o idioma que você escolheu, por até 1 ano. É funcional e não identifica você.",
+          "Armazenamento da sessão do navegador: um horário usado para limitar o envio de mensagens repetidas. Some quando você fecha a aba.",
+          "Registros técnicos do provedor de hospedagem (Vercel): endereço IP, navegador e data e hora do acesso, necessários para entregar e proteger o site."
+        ]
+      },
+      {
+        "heading": "Para que usamos os dados",
+        "paragraphs": [],
+        "list": [
+          "Responder à mensagem enviada pelo formulário.",
+          "Manter o site funcionando com segurança e no seu idioma."
+        ]
+      },
+      {
+        "heading": "Base legal",
+        "paragraphs": [
+          "Tratamos os dados do formulário com base no seu consentimento (LGPD, art. 7º, I), dado ao enviar a mensagem, e para dar andamento a procedimentos preliminares relacionados a um possível contrato, a seu pedido (art. 7º, V). O cookie de idioma e os registros técnicos são necessários para o funcionamento e a segurança do site."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Com quem compartilhamos",
+        "paragraphs": [
+          "As mensagens do formulário passam pelo EmailJS, que as entrega à minha caixa de e-mail. O site é hospedado na Vercel. Não vendemos seus dados nem os cedemos a terceiros para outros fins."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Transferência internacional",
+        "paragraphs": [
+          "EmailJS e Vercel podem tratar dados em servidores fora do Brasil. Isso ocorre conforme as condições e garantias que esses provedores oferecem e que a LGPD admite (art. 33)."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Por quanto tempo guardamos",
+        "paragraphs": [
+          "As mensagens ficam na minha caixa de e-mail pelo tempo necessário para responder e acompanhar a conversa e, depois, enquanto houver interesse legítimo ou obrigação legal. Você pode pedir a exclusão a qualquer momento. O cookie de idioma expira em 1 ano."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Seus direitos",
+        "paragraphs": [
+          "Pela LGPD (art. 18), você pode pedir:"
+        ],
+        "list": [
+          "confirmação de que tratamos seus dados e acesso a eles;",
+          "correção de dados incompletos, inexatos ou desatualizados;",
+          "anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desacordo com a lei;",
+          "portabilidade dos dados;",
+          "informação sobre com quem os dados são compartilhados;",
+          "revogação do consentimento, a qualquer momento."
+        ]
+      },
+      {
+        "heading": "Como exercer seus direitos",
+        "paragraphs": [
+          "Escreva para fabiodrneles@gmail.com. Você também pode reclamar à Autoridade Nacional de Proteção de Dados (ANPD), em gov.br/anpd."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Crianças e adolescentes",
+        "paragraphs": [
+          "Este site não é direcionado a crianças e adolescentes e não coleta dados deles de forma intencional."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Segurança",
+        "paragraphs": [
+          "O site usa HTTPS e cabeçalhos de segurança, e suas dependências são monitoradas contra vulnerabilidades conhecidas. Nenhum sistema é totalmente imune a falhas. Se você encontrar uma vulnerabilidade, veja as instruções em /.well-known/security.txt."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Alterações",
+        "paragraphs": [
+          "Esta política pode ser atualizada. A data da última atualização fica no topo desta página."
+        ],
+        "list": []
+      }
+    ]
   },
 };
 

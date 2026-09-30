@@ -1,0 +1,68 @@
+name: UI/UX
+
+# Usabilidade automatizada (proxies de ISO 9241-11 e ISO/IEC 25010): responsividade, alvos de toque,
+# estrutura das páginas, links, formulário, SEO e orçamentos de desempenho (Core Web Vitals).
+on:
+  push:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  interface:
+    name: Interface e conteúdo (Cypress)
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Testes de UI/UX
+        uses: cypress-io/github-action@v6
+        env:
+          CYPRESS_BASE_URL: http://localhost:3000
+          # Chaves falsas do EmailJS, só para exercitar os fluxos do formulário (a rede é simulada).
+          CYPRESS_EMAILJS_CONFIGURED: "true"
+          NEXT_PUBLIC_EMAILJS_SERVICE_ID: ci_service
+          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ci_template
+          NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ci_public_key
+        with:
+          build: npm run build
+          start: npm run start
+          wait-on: http://localhost:3000
+          wait-on-timeout: 180
+          spec: cypress/e2e/{uiux,contact-flow,content}.cy.js
+      - name: Guarda as capturas de tela da falha
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uiux-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
+
+  desempenho:
+    name: Lighthouse (${{ matrix.dispositivo }})
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        dispositivo: [celular, desktop]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+        env:
+          CYPRESS_INSTALL_BINARY: "0"
+      - run: npm run build
+      - name: Lighthouse CI com metas de nota e Core Web Vitals
+        run: npx --yes @lhci/cli@0.14.0 autorun --config=lighthouserc.${{ matrix.dispositivo }}.json
+      - name: Guarda os relatórios
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-${{ matrix.dispositivo }}
+          path: .lighthouseci
+          if-no-files-found: ignore

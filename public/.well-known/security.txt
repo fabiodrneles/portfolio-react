@@ -1,0 +1,6 @@
+# Como relatar uma vulnerabilidade neste site (RFC 9116)
+Contact: mailto:fabiodrneles@gmail.com
+Expires: 2027-09-29T23:59:59.000Z
+Preferred-Languages: pt, en, fr
+Canonical: https://fabiodorneles.com.br/.well-known/security.txt
+Policy: https://github.com/fabiodrneles/portfolio-react/security/policy

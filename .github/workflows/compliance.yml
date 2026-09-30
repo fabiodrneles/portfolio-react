@@ -1,0 +1,49 @@
+name: Conformidade
+
+# LGPD (Lei nº 13.709/2018), transparência e minimização de dados, licenças de código aberto.
+# Mapa dos controles (LGPD, LBI, ISO/IEC 27001, 27701, 25010, 40500, 9241): docs/compliance/README.md
+on:
+  push:
+  schedule:
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+jobs:
+  lgpd:
+    name: LGPD e privacidade (Cypress)
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Testes de conformidade
+        uses: cypress-io/github-action@v6
+        env:
+          CYPRESS_BASE_URL: http://localhost:3000
+        with:
+          build: npm run build
+          start: npm run start
+          wait-on: http://localhost:3000
+          wait-on-timeout: 180
+          spec: cypress/e2e/compliance.cy.js
+
+  licencas:
+    name: Licenças das dependências de produção
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+        env:
+          CYPRESS_INSTALL_BINARY: "0"
+      # Exceção única e justificada: os binários LGPL do libvips (via sharp) são usados pelo Next só no
+      # servidor, para otimizar imagens, e não são enviados ao navegador dos visitantes.
+      - name: Só licenças permissivas ou de uso comum são aceitas
+        run: >
+          npx --yes license-checker-rseidelsohn@4 --production --excludePrivatePackages
+          --excludePackagesStartingWith "@img/sharp-libvips"
+          --onlyAllow "$(cat .license-allowlist)"

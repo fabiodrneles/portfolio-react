@@ -1,0 +1,20 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 60000,
+    "wait": 800,
+    "chromeLaunchConfig": {
+      "executablePath": "/usr/bin/google-chrome",
+      "args": ["--no-sandbox"]
+    }
+  },
+  "urls": [
+    "http://localhost:3000/en",
+    "http://localhost:3000/fr",
+    "http://localhost:3000/en/blog",
+    "http://localhost:3000/en/blog/o-teto-tecnico-do-qa-por-que-pular-os-fundamentos-custa-caro",
+    "http://localhost:3000/fr/blog/o-teto-tecnico-do-qa-por-que-pular-os-fundamentos-custa-caro",
+    "http://localhost:3000/en/privacy",
+    "http://localhost:3000/fr/privacy"
+  ]
+}

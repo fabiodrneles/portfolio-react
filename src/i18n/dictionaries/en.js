@@ -20,6 +20,7 @@ const en = {
     openMenu: "Open menu",
     closeMenu: "Close menu",
     main: "Main navigation",
+    skip: "Skip to content",
   },
   hero: {
     eyebrow: "// QA Engineer · Full Stack Developer",
@@ -167,12 +168,15 @@ const en = {
     errorLong: "Your message is too long.",
     errorCooldown: "Please wait a minute before sending another message.",
     errorSend: "Something went wrong. Please try again or reach me by email.",
+    privacyNotice: "By sending, you agree that your data is used only to reply to your message. Read the",
+    privacyLink: "Privacy Policy",
   },
   footer: {
     rights: "All rights reserved.",
     build: "build",
     passing: "passing",
     backToTop: "Back to top",
+    privacy: "Privacy Policy",
   },
   blog: {
     title: "Articles",
@@ -192,6 +196,112 @@ const en = {
       more: "More sharing options",
       moreShort: "More options",
     },
+  },
+  privacy: {
+    "metaTitle": "Privacy Policy",
+    "metaDescription": "Which personal data this site collects, what it is for and what your rights are (LGPD).",
+    "title": "Privacy Policy",
+    "updated": "Last updated: September 30, 2026",
+    "intro": "This policy explains, plainly, which personal data this site collects, what it is for and what your rights are, under Brazil's General Data Protection Law (LGPD, Law No. 13,709/2018).",
+    "sections": [
+      {
+        "heading": "Who is responsible",
+        "paragraphs": [
+          "The data controller is Fabio Dorneles, an individual, owner of this site. For any privacy matter, write to fabiodrneles@gmail.com."
+        ],
+        "list": []
+      },
+      {
+        "heading": "What data we collect",
+        "paragraphs": [
+          "This site uses no advertising cookies, no audience analytics and no tracking, and it loads fonts and icons from the site itself. The only data processed is:"
+        ],
+        "list": [
+          "Contact form: your name, email and the message you write. They are sent only when you click send.",
+          "Language cookie (lang): stores the language you chose, for up to 1 year. It is functional and does not identify you.",
+          "Browser session storage: a timestamp used to limit repeated messages. It disappears when you close the tab.",
+          "Technical logs from the hosting provider (Vercel): IP address, browser and time of access, needed to deliver and protect the site."
+        ]
+      },
+      {
+        "heading": "What we use the data for",
+        "paragraphs": [],
+        "list": [
+          "To reply to the message sent through the form.",
+          "To keep the site running securely and in your language."
+        ]
+      },
+      {
+        "heading": "Legal basis",
+        "paragraphs": [
+          "We process form data based on your consent (LGPD, art. 7, I), given when you send the message, and to take preliminary steps related to a possible contract, at your request (art. 7, V). The language cookie and the technical logs are necessary for the operation and security of the site."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Who we share it with",
+        "paragraphs": [
+          "Form messages go through EmailJS, which delivers them to my mailbox. The site is hosted on Vercel. We do not sell your data or hand it to third parties for other purposes."
+        ],
+        "list": []
+      },
+      {
+        "heading": "International transfer",
+        "paragraphs": [
+          "EmailJS and Vercel may process data on servers outside Brazil. This happens under the terms and safeguards those providers offer and that the LGPD allows (art. 33)."
+        ],
+        "list": []
+      },
+      {
+        "heading": "How long we keep it",
+        "paragraphs": [
+          "Messages stay in my mailbox for as long as needed to reply and follow the conversation and, afterwards, while there is a legitimate interest or a legal obligation. You can ask for deletion at any time. The language cookie expires after 1 year."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Your rights",
+        "paragraphs": [
+          "Under the LGPD (art. 18), you can ask for:"
+        ],
+        "list": [
+          "confirmation that we process your data, and access to it;",
+          "correction of incomplete, inaccurate or outdated data;",
+          "anonymization, blocking or deletion of unnecessary data or data processed in breach of the law;",
+          "data portability;",
+          "information about who the data is shared with;",
+          "withdrawal of consent, at any time."
+        ]
+      },
+      {
+        "heading": "How to exercise your rights",
+        "paragraphs": [
+          "Write to fabiodrneles@gmail.com. You may also file a complaint with Brazil's National Data Protection Authority (ANPD), at gov.br/anpd."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Children and teenagers",
+        "paragraphs": [
+          "This site is not aimed at children or teenagers and does not intentionally collect their data."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Security",
+        "paragraphs": [
+          "The site uses HTTPS and security headers, and its dependencies are monitored for known vulnerabilities. No system is completely immune to flaws. If you find a vulnerability, see the instructions at /.well-known/security.txt."
+        ],
+        "list": []
+      },
+      {
+        "heading": "Changes",
+        "paragraphs": [
+          "This policy may be updated. The date of the last update is at the top of this page."
+        ],
+        "list": []
+      }
+    ]
   },
 };
 
