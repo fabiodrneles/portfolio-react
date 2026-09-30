@@ -15,7 +15,8 @@ export const homeData = {
 
 /** @type {SocialLink[]} */
 export const socialLinks = [
-  { platform: "instagram", url: "https://instagram.com", icon: "uil uil-instagram" },
+  // TODO: trocar pela URL do canal quando ele for criado
+  { platform: "youtube", url: "https://www.youtube.com", icon: "uil uil-youtube" },
   { platform: "linkedin", url: "https://www.linkedin.com/in/fabiodrneles/", icon: "uil uil-linkedin" },
   { platform: "github", url: "https://github.com/fabiodrneles", icon: "uil uil-github-alt" },
 ];

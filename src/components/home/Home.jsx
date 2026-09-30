@@ -3,6 +3,7 @@ import "./home.css";
 import Social from './Social';
 import Data from './Data';
 import ScrollDown from './ScrollDown';
+import HeroArt from './HeroArt';
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
             <div className="home__content grid">
                 <Social />
 
-                <div className="home__img"></div>
+                <HeroArt />
 
                 <Data />
             </div>
