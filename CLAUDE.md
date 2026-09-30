@@ -23,7 +23,7 @@
 - A spec nunca autoriza mexer em teste existente: os testes seguem soberanos.
 
 ## Journal (memória permanente, fora do repositório)
-- O journal é um documento do Claude Docs chamado "Journal do portfolio-react", **não um arquivo do repositório**: https://claude.ai/code/artifact/9da325e8-cf18-48fb-9c6c-b213de3ab107
+- O journal é um documento do Claude Docs chamado "Journal: memória permanente do Claude" (vale para todos os projetos), **não um arquivo do repositório**: https://claude.ai/code/artifact/9da325e8-cf18-48fb-9c6c-b213de3ab107
 - No **início** de toda sessão, leia esse doc com as ferramentas do Claude Docs (`read`; nunca com web fetch): as pendências e as últimas entradas do histórico.
 - No **fim** de toda sessão, e a cada entrega importante, acrescente uma entrada no topo do histórico: data e horário em UTC, o que foi pedido, o que foi feito (com PRs e commits), decisões, pendências e medições. Mantenha a lista de pendências em dia.
 - Registre decisões e regras novas do dono também no doc, não só no `CLAUDE.md`.
