@@ -13,6 +13,8 @@ export const localizePost = (post, lang) => {
     ...post,
     title: translation.title,
     excerpt: translation.excerpt,
+    seoTitle: translation.seoTitle,
+    seoDescription: translation.seoDescription,
     content: translation.content,
     contentHtml: translation.contentHtml,
     lang,
