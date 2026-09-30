@@ -2,7 +2,8 @@ import React from "react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { formatPostDate } from "../../lib/site";
+import { SITE_URL, formatPostDate } from "../../lib/site";
+import ShareButtons from "./ShareButtons";
 import "./Blog.css";
 
 const BlogPost = ({ post }) => {
@@ -23,6 +24,8 @@ const BlogPost = ({ post }) => {
           </ReactMarkdown>
         </div>
       )}
+
+      <ShareButtons url={`${SITE_URL}/blog/${post.slug}`} title={post.title} />
     </article>
   );
 };
