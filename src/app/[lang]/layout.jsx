@@ -4,12 +4,12 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import ScrollUp from "@/components/scrollup/ScrollUp";
 import MobileCta from "@/components/footer/MobileCta";
-import { SITE_URL } from "@/lib/site";
+import { PERSON_ID, SITE_NAME, SITE_URL } from "@/lib/site";
 import { display, body, mono } from "@/lib/fonts";
 import { getDictionary } from "@/i18n/dictionaries";
 import { hasLocale, localeInfo, locales } from "@/i18n/config";
 import { alternatesFor } from "@/i18n/metadata";
-import { GITHUB_URL, LINKEDIN_URL } from "@/data/portfolio";
+import { GITHUB_URL, LINKEDIN_URL, stack } from "@/data/portfolio";
 
 // Só existem as páginas dos idiomas configurados; qualquer outro prefixo vira 404.
 export const dynamicParams = false;
@@ -56,13 +56,25 @@ export default async function RootLayout({ children, params }) {
   if (!hasLocale(lang)) notFound();
   const dict = getDictionary(lang);
 
+  // Scripts separados (não @graph): cada objeto é lido sozinho por buscadores e testes.
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": PERSON_ID,
     name: "Fabio Dorneles",
     jobTitle: dict.meta.jobTitle,
     url: SITE_URL,
+    knowsAbout: stack,
     sameAs: [LINKEDIN_URL, GITHUB_URL],
+  };
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    inLanguage: localeInfo[lang].htmlLang,
+    publisher: { "@id": PERSON_ID },
   };
 
   return (
@@ -71,6 +83,10 @@ export default async function RootLayout({ children, params }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c") }}
         />
         <a href="#conteudo" className="skip-link">
           {dict.nav.skip}

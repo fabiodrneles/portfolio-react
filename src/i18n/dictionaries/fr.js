@@ -15,7 +15,7 @@ const fr = {
     about: "À propos",
     blog: "Blog",
     cta: "Discutons",
-    available: "disponible pour des projets",
+    available: "ouvert aux opportunités",
     language: "Langue",
     openMenu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
@@ -28,7 +28,7 @@ const fr = {
     titleHighlight: "tous les tests",
     titleEnd: "avant vos utilisateurs.",
     lead: "Je développe le front-end et le back-end, puis je prouve que tout fonctionne : automatisation des tests, validation des API et couverture de code sur tout le cycle de vie du projet.",
-    primary: "Démarrer un projet",
+    primary: "Me contacter",
     secondary: "Voir mes projets",
     stats: [
       { value: "4+ ans", label: "à livrer du logiciel" },
@@ -151,7 +151,7 @@ const fr = {
   contact: {
     eyebrow: "07 / contact",
     title: "Un produit qui ne doit pas tomber en panne ?",
-    lead: "Parlez-moi de votre projet par le canal de votre choix.",
+    lead: "Un poste, un projet ou une question technique : écrivez-moi par le canal de votre choix.",
     emailLabel: "e-mail · de préférence",
     formTitle: "Ou écrivez ici",
     name: "Nom",

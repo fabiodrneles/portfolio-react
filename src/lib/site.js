@@ -2,6 +2,8 @@ import { localeInfo } from "@/i18n/config";
 
 export const SITE_URL = "https://fabiodorneles.com.br";
 export const SITE_NAME = "Fabio Dorneles";
+/** Identificador estável da pessoa nos dados estruturados (o mesmo em todos os idiomas e páginas). */
+export const PERSON_ID = `${SITE_URL}/#person`;
 /** Nome de autor usado no feed RSS (decisão do dono, 2026-09-30). */
 export const FEED_AUTHOR = "Fábio D. Dorneles";
 
