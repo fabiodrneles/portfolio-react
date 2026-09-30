@@ -41,10 +41,20 @@ describe("Idiomas do site", () => {
     cy.contains("h1", "Articles").should("be.visible");
   });
 
-  it("mostra o artigo traduzido no idioma escolhido", () => {
+  it("nenhum artigo do blog fica sem tradução em francês e inglês", () => {
+    ["fr", "en"].forEach((lang) => {
+      cy.visit(`${baseUrl}/${lang}/blog`);
+      cy.get(".blog__card").should("have.length.greaterThan", 0);
+      // o selo "PT" só aparece no cartão de um artigo que não foi traduzido para o idioma
+      cy.get(".blog__lang").should("not.exist");
+    });
+  });
+
+  it("abre um artigo conhecido traduzido em francês", () => {
     cy.setCookie("lang", "fr");
-    cy.visit(`${baseUrl}/fr/blog`);
-    cy.get(".blog__card a").first().click();
+    cy.visit(
+      `${baseUrl}/fr/blog/do-crud-a-alta-disponibilidade-a-realidade-da-engenharia-de-software-no-mercado-de-pagamentos-brasileiro`
+    );
     cy.get(".blog-post h1").should("have.attr", "lang", "fr").and("contain", "Du CRUD");
     cy.get(".blog-post__content").should("contain", "marché des paiements");
   });
