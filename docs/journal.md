@@ -20,6 +20,7 @@ Modelo de entrada:
 - **Feito:** pasta `specs/` (README, modelo, 001 a 006), regras de SDD e de journal no `CLAUDE.md`, este arquivo.
 - **Decisões:** specs curtas (uma tela), cada critério aponta para o teste que o prova; leitura do journal no início e escrita no fim de toda sessão.
 - **CI da master (dde53bd):** ci.yml, Segurança e UI/UX verdes. Conformidade falhou 1 teste novo (campo do formulário desabilitado no instante da digitação, corrida na hidratação; passou no PR) e Pa11y falhou no `npm run build` ao baixar a fonte do Google (rede do runner). Corrigi a espera nos meus testes novos (`should("not.be.disabled")`) e re-executei o Pa11y uma vez.
+- **Fechamento (09:12 UTC):** PR #21 mergeado (`57454ce`). Pa11y da `dde53bd` passou na re-execução (a falha foi rede do runner ao baixar a fonte do Google). CI da master em `57454ce` todo verde: End-to-end, Acessibilidade, Segurança, Conformidade e UI/UX. Se o erro do campo desabilitado voltar, corrigir o site (hidratação do formulário), não o teste.
 - **Pendências:** medir o site publicado no PageSpeed Insights, Mozilla Observatory, securityheaders.com, SSL Labs e W3C (spec 006); revisão da política de privacidade por advogado ou encarregado de dados.
 - **Medições:** ver spec 006 (Lighthouse a11y, boas práticas e SEO em 100; desempenho celular 91 a 93, desktop 100).
 
