@@ -1,6 +1,6 @@
 /**
  * @typedef {{ name: string, title: string, description: string }} HomeData
- * @typedef {{ platform: string, url: string, icon: string }} SocialLink
+ * @typedef {{ platform: string, label: string, url: string, icon: string }} SocialLink
  * @typedef {{ description: string }} AboutData
  * @typedef {{ icon: string, title: string, subtitle: string }} InfoBox
  */
@@ -16,9 +16,9 @@ export const homeData = {
 /** @type {SocialLink[]} */
 export const socialLinks = [
   // TODO: trocar pela URL do canal quando ele for criado
-  { platform: "youtube", url: "https://www.youtube.com", icon: "uil uil-youtube" },
-  { platform: "linkedin", url: "https://www.linkedin.com/in/fabiodrneles/", icon: "uil uil-linkedin" },
-  { platform: "github", url: "https://github.com/fabiodrneles", icon: "uil uil-github-alt" },
+  { platform: "youtube", label: "YouTube", url: "https://www.youtube.com", icon: "uil uil-youtube" },
+  { platform: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/fabiodrneles/", icon: "uil uil-linkedin" },
+  { platform: "github", label: "GitHub", url: "https://github.com/fabiodrneles", icon: "uil uil-github-alt" },
 ];
 
 /** @type {AboutData} */

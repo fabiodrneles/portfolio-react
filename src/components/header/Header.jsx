@@ -31,7 +31,7 @@ const Header = () => {
           Fabio D. Dorneles
         </Link>
 
-        <div className={Toggle ? "nav__menu show-menu" : "nav__menu"}>
+        <div id="nav-menu" className={Toggle ? "nav__menu show-menu" : "nav__menu"}>
           <ul className="nav__list grid">
             <li className="nav__item">
               <Link
@@ -116,15 +116,26 @@ const Header = () => {
             </li>
           </ul>
 
-          <i
-            className="uil uil-times nav__close"
+          <button
+            type="button"
+            className="nav__close"
+            aria-label="Fechar menu"
             onClick={() => showMenu(!Toggle)}
-          ></i>
+          >
+            <i className="uil uil-times" aria-hidden="true"></i>
+          </button>
         </div>
 
-        <div className="nav__toggle" onClick={() => showMenu(!Toggle)}>
-          <i className="uil uil-apps"></i>
-        </div>
+        <button
+          type="button"
+          className="nav__toggle"
+          aria-label="Abrir menu"
+          aria-expanded={Toggle}
+          aria-controls="nav-menu"
+          onClick={() => showMenu(!Toggle)}
+        >
+          <i className="uil uil-apps" aria-hidden="true"></i>
+        </button>
       </nav>
     </header>
   );

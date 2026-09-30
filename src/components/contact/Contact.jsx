@@ -125,9 +125,10 @@ const Contact = () => {
           <h3 className="contact__title">Write me your project</h3>
           <form ref={form} onSubmit={sendEmail} className="contact__form">
             <div className="contact__form-div">
-              <label className="contact__form-tag">Name</label>
+              <label className="contact__form-tag" htmlFor="contact-name">Name</label>
               <input
                 type="text"
+                id="contact-name"
                 name="name"
                 required
                 maxLength={LIMITS.name}
@@ -138,9 +139,10 @@ const Contact = () => {
             </div>
 
             <div className="contact__form-div">
-              <label className="contact__form-tag">Mail</label>
+              <label className="contact__form-tag" htmlFor="contact-email">Mail</label>
               <input
                 type="email"
+                id="contact-email"
                 name="email"
                 required
                 maxLength={LIMITS.email}
@@ -151,8 +153,9 @@ const Contact = () => {
             </div>
 
             <div className="contact__form-div contact__form-area">
-              <label className="contact__form-tag">Project</label>
+              <label className="contact__form-tag" htmlFor="contact-project">Project</label>
               <textarea
+                id="contact-project"
                 name="project"
                 required
                 maxLength={LIMITS.project}
@@ -167,6 +170,7 @@ const Contact = () => {
             <input
               type="text"
               name="website"
+              aria-hidden="true"
               tabIndex="-1"
               autoComplete="off"
               style={{ position: "absolute", left: "-9999px", opacity: 0 }}

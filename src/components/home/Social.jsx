@@ -9,10 +9,11 @@ const Social = () => {
           key={link.platform}
           href={link.url}
           className="home__social-icon"
+          aria-label={link.label}
           rel="noreferrer"
           target="_blank"
         >
-          <i className={link.icon}></i>
+          <i className={link.icon} aria-hidden="true"></i>
         </a>
       ))}
     </div>

@@ -3,8 +3,6 @@ import BlogPost from "@/components/blog/BlogPost";
 import posts from "@/posts/posts";
 import { SITE_URL } from "@/lib/site";
 
-const DEFAULT_IMAGE = `${SITE_URL}/logo512.png`;
-
 const getPost = (slug) => posts.find((p) => p.slug === slug);
 
 // Gera todas as páginas de artigos estaticamente no build (SSG).
@@ -25,14 +23,15 @@ export async function generateMetadata({ params }) {
   const title = `${post.title} — Fabio Dorneles`;
   const description = post.excerpt || "Artigo do blog de Fabio Dorneles.";
   const url = `${SITE_URL}/blog/${post.slug}`;
-  const image = post.image ? `${SITE_URL}${post.image}` : DEFAULT_IMAGE;
+  // Sem imagem própria, vale a gerada em ./opengraph-image.jsx (não passar `images`)
+  const images = post.image ? { images: [`${SITE_URL}${post.image}`] } : {};
 
   return {
     title,
     description,
     alternates: { canonical: url },
-    openGraph: { type: "article", title, description, images: [image], url },
-    twitter: { card: "summary_large_image", title, description, images: [image] },
+    openGraph: { type: "article", title, description, url, publishedTime: post.date, authors: ["Fabio Dorneles"], ...images },
+    twitter: { card: "summary_large_image", title, description, ...images },
   };
 }
 
@@ -42,5 +41,24 @@ export default async function BlogPostPage({ params }) {
 
   if (!post) notFound();
 
-  return <BlogPost post={post} />;
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    url: `${SITE_URL}/blog/${post.slug}`,
+    inLanguage: "pt-BR",
+    author: { "@type": "Person", name: "Fabio Dorneles", url: SITE_URL },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd).replace(/</g, "\\u003c") }}
+      />
+      <BlogPost post={post} />
+    </>
+  );
 }
