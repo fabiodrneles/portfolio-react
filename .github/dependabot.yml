@@ -13,6 +13,10 @@ updates:
       # suporte até o Cypress 15. Reavaliar quando o cypress-axe suportar a 16.
       - dependency-name: cypress
         versions: [">=16"]
+      # ESLint 10 quebra o `npm run lint` (`scopeManager.addGlobals is not a function`): os plugins do
+      # eslint-config-next ainda não suportam a v10. Reavaliar quando suportarem.
+      - dependency-name: eslint
+        versions: [">=10"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
