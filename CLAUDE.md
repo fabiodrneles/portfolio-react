@@ -15,3 +15,15 @@
 ## Cada leitor lê o artigo no idioma dele
 - O site tem PT, EN e FR. Quem abre um artigo em francês deve ler em francês, e em inglês, em inglês, mesmo que o artigo tenha sido escrito em português.
 - Todo artigo novo do blog deve ser publicado **com as traduções EN e FR** (`translations` em `src/posts/posts.js`). Um artigo só em português não pode ir para produção.
+
+## Desenvolvimento guiado por spec (SDD)
+- Antes de mexer em qualquer área, leia só a spec dela em `specs/` (índice em `specs/README.md`). Isso economiza tokens: não explore o repositório inteiro à toa.
+- Mudança nova ou de comportamento: crie ou atualize a spec primeiro (modelo em `specs/_template.md`), implemente até os critérios de aceite passarem e feche atualizando a spec.
+- Toda feature nova ganha uma spec numerada. Spec curta, uma tela.
+- A spec nunca autoriza mexer em teste existente: os testes seguem soberanos.
+
+## Journal (memória permanente)
+- No **início** de toda sessão, leia as últimas entradas de `docs/journal.md` para recuperar o contexto.
+- No **fim** de toda sessão, e a cada entrega importante, acrescente uma entrada no topo do journal: data e horário em UTC, o que foi pedido, o que foi feito (com PRs e commits), decisões, pendências e medições.
+- Registre decisões e regras novas do dono também aqui, não só no `CLAUDE.md`.
+- Nunca registre segredos, chaves ou dados pessoais de terceiros no journal.
