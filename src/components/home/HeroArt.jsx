@@ -1,38 +1,44 @@
 import React from "react";
+import CodeWindow from "../codewindow/CodeWindow";
 
-/* Arte da home: janela de editor com um "perfil em código" e um selo de testes,
-   sobre o blob animado. Feita só com HTML/CSS (sem imagem para carregar). */
+/* Arte da home: um teste Cypress "rodando" no próprio Fabio, sobre o blob animado.
+   Feita só com HTML/CSS (sem imagem para carregar). */
+const lines = [
+  [["fn", "describe"], ["", "("], ["str", '"Fabio Dorneles"'], ["", ", () => {"]],
+  [["", "  "], ["fn", "it"], ["", "("], ["str", '"is a skilled engineer"'], ["", ", () => {"]],
+  [["", "    "], ["prop", "cy"], ["", "."], ["fn", "visit"], ["", "("], ["str", '"/fabio"'], ["", ")"]],
+  [["", "    "], ["prop", "cy"], ["", "."], ["fn", "get"], ["", "("], ["str", '"@stack"'], ["", ")"]],
+  [["", "      ."], ["fn", "should"], ["", "("], ["str", '"include"'], ["", ", "], ["str", '"Go"'], ["", ")"]],
+  [["", "      ."], ["fn", "and"], ["", "("], ["str", '"include"'], ["", ", "], ["str", '"Cypress"'], ["", ")"]],
+  [["", "    "], ["prop", "cy"], ["", "."], ["fn", "hire"], ["", "()."], ["fn", "should"], ["", "("], ["str", '"be.ok"'], ["", ")"]],
+  [["", "  })"]],
+  [["", "})"]],
+];
+
 const HeroArt = () => {
   return (
     <div
       className="home__img"
       role="img"
-      aria-label="Ilustração de um editor de código com testes passando"
+      aria-label="Ilustração de um teste Cypress verificando as habilidades de Fabio, com todos os testes passando"
     >
-      <div className="home__code">
-        <div className="home__code-bar">
-          <span className="home__code-dot"></span>
-          <span className="home__code-dot"></span>
-          <span className="home__code-dot"></span>
-          <span className="home__code-file">fabio.js</span>
-        </div>
-
-        <pre className="home__code-body">
-          <code>
-            <span className="tk-key">const</span> <span className="tk-var">fabio</span> = {"{\n"}
-            {"  "}<span className="tk-prop">role</span>: <span className="tk-str">&quot;QA &amp; Dev&quot;</span>,{"\n"}
-            {"  "}<span className="tk-prop">stack</span>: [<span className="tk-str">&quot;Go&quot;</span>, <span className="tk-str">&quot;Java&quot;</span>,{"\n"}
-            {"          "}<span className="tk-str">&quot;React&quot;</span>],{"\n"}
-            {"  "}<span className="tk-prop">focus</span>: <span className="tk-str">&quot;quality&quot;</span>,{"\n"}
-            {"};"}<span className="home__code-cursor"></span>
-          </code>
-        </pre>
-      </div>
-
-      <div className="home__badge">
-        <i className="uil uil-check-circle home__badge-icon"></i>
-        <span>all tests passed</span>
-      </div>
+      <CodeWindow
+        className="home__code"
+        file="fabio.cy.js"
+        lines={lines}
+        footer={
+          <>
+            <span className="home__result">
+              <span className="tk-ok">✓</span> is a skilled engineer{" "}
+              <span className="tk-muted">(42ms)</span>
+            </span>
+            <span className="home__result">
+              <span className="tk-ok">All specs passed!</span>{" "}
+              <span className="tk-muted">1 of 1</span>
+            </span>
+          </>
+        }
+      />
     </div>
   );
 };

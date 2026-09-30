@@ -5,9 +5,10 @@
     margin-top: 2rem;
 }
 
-.about__img {
-    width: 350px;
-    border-radius: 1.5rem;
+.about__art {
+    --code-size: 3.3cqw;
+    width: 100%;
+    max-width: 400px;
     justify-self: center;
 }
 
@@ -54,9 +55,6 @@
         row-gap: 2.5rem;
     }
 
-    .about__img {
-        width: 220px;
-    }
 
     .about__box {
         padding: 0.75rem 0.5rem;

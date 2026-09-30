@@ -70,96 +70,39 @@
     animation: profile__animate 8s ease-in-out infinite 1s;
 }
 
-/*=============== HERO ART (editor de código) ===============*/
+/*=============== HERO ART (teste Cypress) ===============*/
 .home__code {
+    --code-size: 3.9cqw;
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 84%;
+    width: 88%;
     transform: translate(-50%, -50%);
-    background-color: hsl(220, 13%, 10%);
-    border: 1px solid rgb(255 255 255 / 10%);
-    border-radius: 3cqw;
-    box-shadow: 0 1.5rem 2.5rem rgb(0 0 0 / 35%);
-    overflow: hidden;
     animation: code__float 6s ease-in-out infinite;
 }
 
-.home__code-bar {
-    display: flex;
-    align-items: center;
-    gap: 1.8cqw;
-    padding: 3cqw 4cqw;
-    background-color: hsl(220, 13%, 15%);
+/* Resultado do "cypress run" aparece em sequência, como no terminal */
+.home__result {
+    display: block;
+    opacity: 0;
+    animation: result__show 0.4s ease forwards;
+    animation-delay: 1s;
 }
 
-.home__code-dot {
-    width: 3cqw;
-    height: 3cqw;
-    border-radius: 50%;
-    background-color: #ff5f57;
+.home__result + .home__result {
+    animation-delay: 1.6s;
 }
 
-.home__code-dot:nth-child(2) {
-    background-color: #febc2e;
-}
+@keyframes result__show {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
 
-.home__code-dot:nth-child(3) {
-    background-color: #28c840;
-}
-
-.home__code-file {
-    margin-left: auto;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 3.6cqw;
-    color: hsl(220, 10%, 60%);
-}
-
-.home__code-body {
-    margin: 0;
-    padding: 4.5cqw 5cqw 5.5cqw;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 4.3cqw;
-    line-height: 1.6;
-    color: hsl(220, 14%, 80%);
-    white-space: pre;
-}
-
-.tk-key { color: #c792ea; }
-.tk-var { color: #82aaff; }
-.tk-prop { color: #89ddff; }
-.tk-str { color: #c3e88d; }
-
-.home__code-cursor {
-    display: inline-block;
-    width: 0.55em;
-    height: 1.1em;
-    margin-left: 0.15em;
-    vertical-align: text-bottom;
-    background-color: hsl(220, 14%, 80%);
-    animation: cursor__blink 1.1s steps(1) infinite;
-}
-
-.home__badge {
-    position: absolute;
-    left: -4%;
-    bottom: 6%;
-    display: flex;
-    align-items: center;
-    gap: 1.8cqw;
-    padding: 2.4cqw 4cqw;
-    background-color: var(--container-color);
-    border-radius: 10cqw;
-    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 15%);
-    font-size: 4cqw;
-    font-weight: var(--font-medium);
-    color: var(--title-color);
-    white-space: nowrap;
-}
-
-.home__badge-icon {
-    font-size: 5.5cqw;
-    color: #28a745;
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 @keyframes code__float {
@@ -172,17 +115,12 @@
     }
 }
 
-@keyframes cursor__blink {
-    50% {
-        opacity: 0;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     .home__img,
     .home__code,
-    .home__code-cursor {
+    .home__result {
         animation: none;
+        opacity: 1;
     }
 }
 

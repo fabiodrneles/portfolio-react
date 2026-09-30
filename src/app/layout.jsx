@@ -53,17 +53,18 @@ const personJsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <head>
+      <body>
+        {/* Com `precedence`, o React move as folhas de estilo para o <head> sozinho.
+            Assim o <head> não depende da ordem dos nós na hidratação (scripts
+            injetados por ferramentas como o Cypress deixavam o React em erro). */}
         {/* ====================== BOXICONS ====================== */}
-        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" precedence="default" />
         {/* ====================== UNICONS ======================= */}
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" precedence="default" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
         />
-      </head>
-      <body>
         <Header />
         <div className="app-shell">
           <div className="page-content">{children}</div>

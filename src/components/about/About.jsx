@@ -1,8 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import "./about.css";
-import AboutImg from "../../assets/about3.jpg";
 import Info from "./Info";
+import AboutArt from "./AboutArt";
 import { aboutData } from "../../data/profile";
 
 const About = () => {
@@ -12,7 +11,7 @@ const About = () => {
       <span className="section__subtitle">My introduction</span>
 
       <div className="about__container container grid">
-        <Image src={AboutImg} alt="Foto de Fabio Dorneles" className="about__img" />
+        <AboutArt />
 
         <div className="about__data">
           <Info />
