@@ -10,9 +10,9 @@ const SEND_API = "https://api.emailjs.com/api/v1.0/email/send";
 const PERSON = { name: "Maria", email: "maria@example.com", project: "Quero um site" };
 
 const fill = () => {
-  cy.get('.contact__form input[name="name"]').type(PERSON.name, { delay: 0 });
-  cy.get('.contact__form input[name="email"]').type(PERSON.email, { delay: 0 });
-  cy.get('.contact__form textarea[name="project"]').type(PERSON.project, { delay: 0 });
+  cy.get('.contact__form input[name="name"]').should("not.be.disabled").type(PERSON.name, { delay: 0 });
+  cy.get('.contact__form input[name="email"]').should("not.be.disabled").type(PERSON.email, { delay: 0 });
+  cy.get('.contact__form textarea[name="project"]').should("not.be.disabled").type(PERSON.project, { delay: 0 });
 };
 const submit = () => cy.get('.contact__form button[type="submit"]').click();
 const status = () => cy.get(".contact__status");
