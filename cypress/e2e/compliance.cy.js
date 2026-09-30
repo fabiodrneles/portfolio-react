@@ -95,9 +95,9 @@ describe("Conformidade: minimização de dados e ausência de rastreamento", () 
   it("nenhum dado é enviado a terceiros antes de o visitante clicar em enviar", () => {
     cy.intercept("POST", "https://api.emailjs.com/**", cy.spy().as("emailjs"));
     cy.visit(`${baseUrl}/en#contact`);
-    cy.get('.contact__form input[name="name"]').type("Maria");
-    cy.get('.contact__form input[name="email"]').type("maria@example.com");
-    cy.get('.contact__form textarea[name="project"]').type("Quero um site");
+    cy.get('.contact__form input[name="name"]').should("not.be.disabled").type("Maria");
+    cy.get('.contact__form input[name="email"]').should("not.be.disabled").type("maria@example.com");
+    cy.get('.contact__form textarea[name="project"]').should("not.be.disabled").type("Quero um site");
     cy.wait(500);
     cy.get("@emailjs").should("not.have.been.called");
   });

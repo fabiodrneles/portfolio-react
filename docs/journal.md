@@ -19,6 +19,7 @@ Modelo de entrada:
 - **Pedido:** responder se o site tem nota máxima em avaliadores externos; criar specs para desenvolver guiado por spec e economizar tokens; criar este journal; registrar tudo de hoje.
 - **Feito:** pasta `specs/` (README, modelo, 001 a 006), regras de SDD e de journal no `CLAUDE.md`, este arquivo.
 - **Decisões:** specs curtas (uma tela), cada critério aponta para o teste que o prova; leitura do journal no início e escrita no fim de toda sessão.
+- **CI da master (dde53bd):** ci.yml, Segurança e UI/UX verdes. Conformidade falhou 1 teste novo (campo do formulário desabilitado no instante da digitação, corrida na hidratação; passou no PR) e Pa11y falhou no `npm run build` ao baixar a fonte do Google (rede do runner). Corrigi a espera nos meus testes novos (`should("not.be.disabled")`) e re-executei o Pa11y uma vez.
 - **Pendências:** medir o site publicado no PageSpeed Insights, Mozilla Observatory, securityheaders.com, SSL Labs e W3C (spec 006); revisão da política de privacidade por advogado ou encarregado de dados.
 - **Medições:** ver spec 006 (Lighthouse a11y, boas práticas e SEO em 100; desempenho celular 91 a 93, desktop 100).
 
