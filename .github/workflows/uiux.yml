@@ -13,8 +13,8 @@ jobs:
     name: Interface e conteúdo (Cypress)
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
       - name: Testes de UI/UX
@@ -34,7 +34,7 @@ jobs:
           spec: cypress/e2e/{uiux,contact-flow,content}.cy.js
       - name: Guarda as capturas de tela da falha
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: uiux-screenshots
           path: cypress/screenshots
@@ -48,8 +48,8 @@ jobs:
       matrix:
         dispositivo: [celular, desktop]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -61,7 +61,7 @@ jobs:
         run: npx --yes @lhci/cli@0.14.0 autorun --config=lighthouserc.${{ matrix.dispositivo }}.json
       - name: Guarda os relatórios
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lighthouse-${{ matrix.dispositivo }}
           path: .lighthouseci
