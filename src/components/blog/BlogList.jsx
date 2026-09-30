@@ -10,6 +10,9 @@ const BlogList = ({ lang, dict }) => {
     <section className="blog" id="blog">
       <span className="eyebrow">$ ls blog/</span>
       <h1 className="blog__title">{dict.title}</h1>
+      <a href={localePath(lang, "/feed.xml")} className="text-link blog__rss">
+        {dict.feed.link}
+      </a>
       <ul className="blog__list">
         {posts.map((original) => {
           const post = localizePost(original, lang);

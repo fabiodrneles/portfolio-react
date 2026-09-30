@@ -5,12 +5,12 @@ import { alternatesFor } from "@/i18n/metadata";
 export async function generateMetadata({ params }) {
   const { lang } = await params;
   const { metaTitle: title, description } = getDictionary(lang).blog;
-  const { canonical, languages } = alternatesFor(lang, "/blog");
+  const { canonical, languages, types } = alternatesFor(lang, "/blog");
 
   return {
     title,
     description,
-    alternates: { canonical, languages },
+    alternates: { canonical, languages, types },
     openGraph: { title, description, url: canonical },
     twitter: { title, description },
   };

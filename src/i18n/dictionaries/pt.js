@@ -183,6 +183,7 @@ const pt = {
     title: "Artigos",
     metaTitle: "Artigos | Fabio Dorneles",
     description: "Artigos sobre desenvolvimento web, testes e qualidade de software, escritos por Fabio Dorneles.",
+    feed: { title: "Fabio D. Dorneles | Artigos", description: "Artigos sobre testes, qualidade de software e engenharia de software, escritos por Fábio D. Dorneles.", link: "RSS" },
     back: "← Todos os artigos",
     untranslated: "",
     notFound: "Artigo não encontrado | Fabio Dorneles",
