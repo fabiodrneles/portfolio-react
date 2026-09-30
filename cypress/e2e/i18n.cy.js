@@ -44,8 +44,7 @@ describe("Idiomas do site", () => {
   it("mostra o artigo traduzido no idioma escolhido", () => {
     cy.setCookie("lang", "fr");
     cy.visit(`${baseUrl}/fr/blog`);
-    // procura pelo título traduzido em vez de "o primeiro da lista", que muda a cada artigo novo
-    cy.contains(".blog__card a", "Du CRUD").click();
+    cy.get(".blog__card a").first().click();
     cy.get(".blog-post h1").should("have.attr", "lang", "fr").and("contain", "Du CRUD");
     cy.get(".blog-post__content").should("contain", "marché des paiements");
   });
