@@ -182,6 +182,7 @@ const en = {
     title: "Articles",
     metaTitle: "Articles | Fabio Dorneles",
     description: "Articles on web development, testing and software quality, written by Fabio Dorneles.",
+    feed: { title: "Fabio D. Dorneles | Articles", description: "Articles on testing, software quality and software engineering, written by Fábio D. Dorneles.", link: "RSS" },
     back: "← All articles",
     untranslated: "This article is only available in Portuguese for now.",
     notFound: "Article not found | Fabio Dorneles",

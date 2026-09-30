@@ -30,14 +30,14 @@ export async function generateMetadata({ params }) {
 
   const title = `${post.seoTitle || post.title} | Fabio Dorneles`;
   const description = post.seoDescription || post.excerpt || dict.fallbackDescription;
-  const { canonical, languages } = alternatesFor(lang, `/blog/${post.slug}`);
+  const { canonical, languages, types } = alternatesFor(lang, `/blog/${post.slug}`);
   // Sem imagem própria, vale a gerada em ./opengraph-image.jsx (não passar `images`)
   const images = post.image ? { images: [`${SITE_URL}${post.image}`] } : {};
 
   return {
     title,
     description,
-    alternates: { canonical, languages },
+    alternates: { canonical, languages, types },
     openGraph: {
       type: "article",
       title,
