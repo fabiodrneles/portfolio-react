@@ -7,7 +7,7 @@ Toda mudança começa numa spec curta e termina com a spec atualizada. Assim o c
 1. **Antes de mexer**, leia só a spec da área (um arquivo pequeno) em vez de explorar o repositório.
 2. **Mudança nova ou de comportamento**: crie ou atualize a spec primeiro (copie `_template.md`), com critérios de aceite verificáveis.
 3. **Implemente** até os critérios passarem. Cada critério aponta para o teste que o prova. Se não houver teste, crie um novo (nunca altere os existentes sem autorização, veja `CLAUDE.md`).
-4. **Feche**: marque o status, ajuste a spec ao que foi feito e registre a sessão em `docs/journal.md`.
+4. **Feche**: marque o status, ajuste a spec ao que foi feito e registre a sessão no journal (documento do Claude Docs, fora do repositório; veja `CLAUDE.md`).
 
 ## Por que economiza tokens
 

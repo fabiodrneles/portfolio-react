@@ -21,7 +21,7 @@ Chegar à nota máxima nas ferramentas públicas que avaliam sites, para o portf
 ## Lacunas conhecidas
 1. **Desempenho no celular abaixo de 100.** Investigar LCP e o peso do JavaScript.
 2. **CSP com `'unsafe-inline'` em scripts.** Tirá-lo exige nonces (renderização dinâmica, que piora o desempenho) ou hashes; avaliar o custo antes.
-3. **Ferramentas externas sem medição.** Rodar cada uma no site publicado e registrar a nota no `docs/journal.md`.
+3. **Ferramentas externas sem medição.** Rodar cada uma no site publicado e registrar a nota no journal (documento do Claude Docs, fora do repositório).
 
 ## Critérios de aceite
 | # | Critério | Teste que prova |
