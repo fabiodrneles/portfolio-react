@@ -130,7 +130,9 @@
   color: var(--text);
   padding: 1rem 1.25rem;
   border-radius: 10px;
-  overflow-x: auto;
+  /* quebra a linha em vez de rolar: região rolável exigiria foco de teclado (axe) */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
   font-size: 0.9375rem;
 }
 

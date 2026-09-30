@@ -23,7 +23,7 @@ function slugify(text) {
 const modules = {
   toolbar: [
     [{ header: [2, 3, false] }],
-    ["bold", "italic", "underline"],
+    ["bold", "italic", "underline", "code"],
     ["blockquote", "code-block"],
     [{ list: "ordered" }, { list: "bullet" }],
     ["link", "image"],
@@ -129,6 +129,25 @@ ${translations}  },`;
       />
 
       <span className="admin__label">Conteúdo</span>
+      <details className="admin__help">
+        <summary>Como inserir código</summary>
+        <ul>
+          <li>
+            <strong>Bloco de código:</strong> escreva ou cole o código, clique dentro dele e use o botão de código que fica logo
+            depois do botão de citação (aspas), no segundo grupo da barra. Para sair do bloco, aperte Enter três vezes seguidas na
+            última linha, ou aperte Enter uma vez e clique de novo no mesmo botão.
+          </li>
+          <li>
+            <strong>Código em linha:</strong> selecione só a palavra (por exemplo, <code>cy.wait</code>) e use o botão de código
+            que fica ao lado do sublinhado, no primeiro grupo da barra. Os dois botões usam o mesmo ícone de sinais &lt; /&gt;.
+          </li>
+          <li>
+            No código gerado, o bloco sai como <code>{'<pre data-language="plain">'}</code> e o site exibe em fonte mono, com quebra de
+            linha.
+          </li>
+          <li>Não use a tecla Tab para alinhar (o foco sai do editor). Use espaços.</li>
+        </ul>
+      </details>
       <ReactQuill key={lang} theme="snow" value={current.contentHtml} onChange={update("contentHtml")} modules={modules} />
 
       <button className="admin__button" onClick={handleGenerate}>
