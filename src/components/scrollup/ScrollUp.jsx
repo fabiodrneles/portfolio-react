@@ -23,8 +23,8 @@ const ScrollUp = () => {
   };
 
   return (
-    <a href="#home" className="scrollup" onClick={scrollToTop}>
-      <i className="uil uil-arrow-up scrollup_icon"></i>
+    <a href="#home" className="scrollup" aria-label="Voltar ao topo" onClick={scrollToTop}>
+      <i className="uil uil-arrow-up scrollup_icon" aria-hidden="true"></i>
     </a>
   );
 };

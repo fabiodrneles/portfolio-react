@@ -39,7 +39,7 @@
     font-size: var(--h3-font-size);
     padding-left: 5.4rem;
     font-weight: var(--font-normal);
-    margin-botton: var(--mb-1);
+    margin-bottom: var(--mb-1);
 }
 
 .home__subtitle::before {

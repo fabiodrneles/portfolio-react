@@ -1,8 +1,17 @@
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import ScrollUp from "@/components/scrollup/ScrollUp";
 import { DEFAULT_TITLE, SITE_URL } from "@/lib/site";
+
+// Fonte servida pelo próprio site (sem requisição bloqueante ao Google Fonts)
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-poppins",
+});
 
 const description =
   "Fabio Dorneles — QA Engineer e Full Stack Developer. Portfólio, projetos e artigos sobre desenvolvimento web, testes e qualidade de software.";
@@ -24,7 +33,6 @@ export const metadata = {
     type: "website",
     title: DEFAULT_TITLE,
     description: socialDescription,
-    images: ["/favicon.svg"],
     url: SITE_URL,
     locale: "pt_BR",
   },
@@ -32,7 +40,6 @@ export const metadata = {
     card: "summary_large_image",
     title: DEFAULT_TITLE,
     description: socialDescription,
-    images: ["/favicon.svg"],
   },
 };
 
@@ -52,7 +59,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={poppins.variable}>
       <body>
         {/* Com `precedence`, o React move as folhas de estilo para o <head> sozinho.
             Assim o <head> não depende da ordem dos nós na hidratação (scripts

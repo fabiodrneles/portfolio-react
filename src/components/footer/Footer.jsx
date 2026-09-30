@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import "./footer.css";
 
 const Footer = () => {
@@ -9,55 +10,58 @@ const Footer = () => {
 
         <ul className="footer__list">
           <li>
-            <a href="#about" className="footer__link">
+            <Link href="/#about" className="footer__link">
               About
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#qualification" className="footer__link">
+            <Link href="/#qualification" className="footer__link">
               Qualifications
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#portfolio" className="footer__link">
+            <Link href="/#portfolio" className="footer__link">
               Projects
-            </a>
+            </Link>
           </li>
         </ul>
 
         <div className="footer__social">
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com"
             className="footer__social-link"
+            aria-label="YouTube"
             rel="noreferrer"
             target="_blank"
           >
-            <i className="bx bxl-youtube"></i>
+            <i className="bx bxl-youtube" aria-hidden="true"></i>
           </a>
 
           <a
             href="https://www.linkedin.com/in/fabiodrneles/"
             className="footer__social-link"
+            aria-label="LinkedIn"
             rel="noreferrer"
             target="_blank"
           >
-            <i className="bx bxl-linkedin"></i>
+            <i className="bx bxl-linkedin" aria-hidden="true"></i>
           </a>
 
           <a
-            href="https://github.com"
+            href="https://github.com/fabiodrneles"
             className="footer__social-link"
+            aria-label="GitHub"
             rel="noreferrer"
             target="_blank"
           >
-            <i className="bx bxl-github"></i>
+            <i className="bx bxl-github" aria-hidden="true"></i>
           </a>
         </div>
 
         <span className="footer__copy">
-          &#169; Fabio Dorneles. <strong>Made in React.JS</strong> - All rigths reserved
+          &#169; Fabio Dorneles. <strong>Made with Next.js</strong> - All rights reserved
         </span>
       </div>
     </footer>

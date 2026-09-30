@@ -9,6 +9,7 @@ export const metadata = {
   description,
   alternates: { canonical: "/blog" },
   openGraph: { title, description, url: "/blog" },
+  twitter: { title, description },
 };
 
 export default function BlogPage() {
