@@ -49,7 +49,9 @@ const Admin = () => {
   const update = (field) => (value) => setTexts((prev) => ({ ...prev, [lang]: { ...prev[lang], [field]: value } }));
 
   const handleGenerate = () => {
-    const { title, excerpt, contentHtml } = texts.pt;
+    const { title, excerpt } = texts.pt;
+    // o Quill converte espaços em &nbsp; ao colar; isso impede a quebra de linha no artigo
+    const contentHtml = texts.pt.contentHtml.replace(/&nbsp;/g, " ");
     const slug = slugify(title || "novo-artigo");
     const date = new Date().toISOString().slice(0, 10);
 
