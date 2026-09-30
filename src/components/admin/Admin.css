@@ -1,7 +1,7 @@
 .admin {
   max-width: 800px;
   margin: 0 auto;
-  padding: 8rem 1.5rem 6rem;
+  padding: 4rem 1.5rem 6rem;
 }
 .admin h1 {
   margin-bottom: 1.5rem;
@@ -14,8 +14,10 @@
 .admin__input {
   width: 100%;
   padding: 0.6rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid var(--line-3);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
   font-size: 1rem;
 }
 .admin .ql-container {
@@ -25,8 +27,9 @@
 .admin__button {
   margin-top: 1.25rem;
   padding: 0.7rem 1.4rem;
-  background: #242424;
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -41,6 +44,15 @@
   padding: 0.75rem;
   font-family: monospace;
   font-size: 0.85rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  border-radius: 8px;
+  border: 1px solid var(--line-3);
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* Editor (Quill) com fundo claro, para o texto continuar legível no tema escuro */
+.admin .ql-toolbar,
+.admin .ql-container {
+  background: #f4f7f5;
+  color: #141413;
 }

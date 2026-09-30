@@ -1,19 +1,16 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Icon from "@/components/ui/Icon";
 import "./scrollup.css";
 
-const ScrollUp = () => {
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollUp = document.querySelector(".scrollup");
-      // when the scroll is higher than 560 viewport height, add the show-scroll class to a tag with the scroll-top class
-      if (window.scrollY >= 560) scrollUp.classList.add("show-scroll");
-      else scrollUp.classList.remove("show-scroll");
-    };
+const ScrollUp = ({ label }) => {
+  const [visible, setVisible] = useState(false);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY >= 560);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Volta ao topo em qualquer página (home, blog, admin...), não só onde existe #home.
@@ -23,8 +20,14 @@ const ScrollUp = () => {
   };
 
   return (
-    <a href="#home" className="scrollup" aria-label="Voltar ao topo" onClick={scrollToTop}>
-      <i className="uil uil-arrow-up scrollup_icon" aria-hidden="true"></i>
+    <a
+      href="#home"
+      className={visible ? "scrollup scrollup--visible" : "scrollup"}
+      aria-label={label}
+      tabIndex={visible ? undefined : -1}
+      onClick={scrollToTop}
+    >
+      <Icon name="arrowUp" size={20} />
     </a>
   );
 };

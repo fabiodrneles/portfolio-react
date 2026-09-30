@@ -1,20 +1,29 @@
 .notfound {
-  min-height: 60vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.25rem;
+  padding: 4rem var(--gutter);
   text-align: center;
-  padding: 4rem 1.5rem;
+}
+
+.notfound__cmd {
+  font-family: var(--font-mono-stack);
+  font-size: 0.8125rem;
+  color: var(--faint);
+  overflow-wrap: anywhere;
 }
 
 .notfound__code {
-  font-size: 5rem;
-  color: var(--title-color);
-  margin-bottom: 0.5rem;
+  font-size: clamp(5rem, 3rem + 10vw, 9rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--accent);
 }
 
 .notfound__message {
-  color: var(--text-color);
-  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  color: var(--muted);
 }

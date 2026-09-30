@@ -14,7 +14,7 @@ export function renderOgImage({ eyebrow, title, subtitle }) {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          background: "linear-gradient(135deg, #3a3a3a 0%, #111111 100%)",
+          background: "#0a0d0c",
           color: "#ffffff",
           fontFamily: "sans-serif",
         }}
@@ -23,7 +23,7 @@ export function renderOgImage({ eyebrow, title, subtitle }) {
           <div style={{ width: 20, height: 20, borderRadius: 10, background: "#ff5f57" }} />
           <div style={{ width: 20, height: 20, borderRadius: 10, background: "#febc2e" }} />
           <div style={{ width: 20, height: 20, borderRadius: 10, background: "#28c840" }} />
-          <div style={{ marginLeft: 20, fontSize: 30, color: "#c3e88d", fontFamily: "monospace" }}>
+          <div style={{ marginLeft: 20, fontSize: 30, color: "#3ddc97", fontFamily: "monospace" }}>
             {eyebrow}
           </div>
         </div>
@@ -32,10 +32,10 @@ export function renderOgImage({ eyebrow, title, subtitle }) {
           <div style={{ fontSize: title.length > 70 ? 54 : 68, fontWeight: 700, lineHeight: 1.15 }}>
             {title}
           </div>
-          {subtitle && <div style={{ fontSize: 32, color: "#b0b0b0" }}>{subtitle}</div>}
+          {subtitle && <div style={{ fontSize: 32, color: "#a9b7b1" }}>{subtitle}</div>}
         </div>
 
-        <div style={{ display: "flex", fontSize: 28, color: "#89ddff", fontFamily: "monospace" }}>
+        <div style={{ display: "flex", fontSize: 28, color: "#3ddc97", fontFamily: "monospace" }}>
           fabiodorneles.com.br
         </div>
       </div>

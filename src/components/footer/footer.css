@@ -1,66 +1,109 @@
 .footer {
-    background-color: var(--container-color);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 5rem;
+  border-top: 1px solid var(--line);
+  background: var(--bg-2);
 }
 
-.footer__container {
-    padding: 1rem 0 2rem;
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 2.5rem;
+  padding-block: 2.5rem;
 }
 
-.footer__title,
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer__name {
+  font-family: var(--font-display-stack);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-strong);
+}
+
+.footer__role {
+  font-size: 0.875rem;
+  color: var(--subtle);
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.75rem;
+}
+
 .footer__link {
-    color: var(--title-color);
-}
-
-.footer__title {
-    text-align: center;
-    margin-bottom: var(--mb-1);
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: #b7c4be;
+  font-size: 0.9375rem;
 }
 
 .footer__link:hover {
-    color: var(--title-color-dark);
-}
-
-.footer__list {
-    display: flex;
-    justify-content: center;
-    column-gap: 1.5rem;
-    margin-bottom: var(--mb-2);
+  color: #fff;
 }
 
 .footer__social {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono-stack);
+  font-size: 0.75rem;
+  color: var(--faint);
+}
+
+.footer__passing {
+  color: var(--accent);
+}
+
+/*=============== BARRA DE CONTATO NO CELULAR ===============*/
+.mobile-cta {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-fixed);
     display: flex;
-    justify-content: center;
-    column-gap: 1.25rem;
-}
-
-.footer__social-link {
-    background-color: var(--title-color);
-    color: var(--container-color);
-    font-size: 1.125rem;
-    padding: 0.4rem;
-    border-radius: 0.5rem;
-    display: inline-flex;
-}
-
-.footer__social-link:hover {
-    background-color: var(--title-color-dark);
-}
-
-.footer__copy {
-    display: block;
-    margin-top: 1rem;
-    color: var(--title-color);
-    text-align: center;
-    font-size: var(--smaller-font-size);
-}
-
-/*================= BREAKPOINTS ===========================*/
-/* for large devices */
-@media screen and (max-width: 992px) {
-    .footer__social-link {
-        padding: 0.25rem;
-        border-radius: 0.25rem;
-        font-size: 1rem;
-    }
+    gap: 0.625rem;
+    padding: 0.75rem var(--gutter) calc(0.75rem + env(safe-area-inset-bottom));
+    background: rgba(10, 13, 12, 0.94);
+    border-top: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
+
+  .mobile-cta__whatsapp {
+    width: 3.25rem;
+    height: 3.25rem;
+    flex-shrink: 0;
+  }
+
+  .mobile-cta__main {
+    flex: 1;
+    min-height: 3.25rem;
+  }
+
+  /* Espaço para a barra fixa não cobrir o fim da página */
+  .footer {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+}
