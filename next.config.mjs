@@ -9,6 +9,11 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // 404 própria para endereços que não existem (o layout principal fica em app/[lang],
+  // então o not-found de lá não é renderizado no servidor para essas URLs).
+  experimental: {
+    globalNotFound: true,
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

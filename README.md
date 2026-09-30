@@ -14,13 +14,28 @@ npm run lint
 
 ## Estrutura
 
-- `src/app/` — rotas (`/`, `/blog`, `/blog/[slug]`, `/admin`) e metadata/SEO
+- `src/app/[lang]/` — rotas (`/`, `/blog`, `/blog/[slug]`, `/admin`) e metadata/SEO, em cada idioma
+- `src/proxy.js` — escolhe o idioma de cada visita (veja abaixo)
+- `src/i18n/` — configuração dos idiomas e textos traduzidos (`dictionaries/pt.js`, `en.js`, `fr.js`)
 - `src/components/` — componentes das seções e páginas
-- `src/data/` e `src/posts/posts.js` — conteúdo do site e dos artigos
-- `public/` — arquivos estáticos (CV, sitemap, robots, favicon)
+- `src/data/portfolio.js` e `src/posts/posts.js` — dados do portfólio (links, projetos, trajetória) e artigos
+- `public/` — arquivos estáticos (CV, robots, favicon)
 
 Os artigos em `src/posts/posts.js` são gerados estaticamente no build (SSG). Para criar um novo,
 use a página `/admin`, copie o código gerado e cole como primeiro item do array `posts`.
+Os artigos são escritos em português; nas versões em inglês e francês aparece um aviso.
+
+## Idiomas
+
+O site existe em português do Brasil (padrão, sem prefixo: `/`), inglês (`/en`) e francês (`/fr`).
+
+- **Primeira visita:** o `proxy.js` lê o idioma do navegador (`Accept-Language`). Se for inglês ou
+  francês, redireciona para `/en` ou `/fr`; qualquer outro idioma fica em português.
+- **Escolha manual:** o seletor PT · EN · FR no topo grava o cookie `lang` por 1 ano. A partir daí
+  a escolha do visitante vale mais que o idioma do navegador.
+- **SEO:** cada página tem URL própria por idioma, `hreflang` e sitemap com as três versões.
+
+Para mudar um texto, edite a mesma chave nos três arquivos de `src/i18n/dictionaries/`.
 
 ## Variáveis de ambiente (EmailJS)
 

@@ -1,23 +1,26 @@
 import posts from "@/posts/posts";
-import { SITE_URL } from "@/lib/site";
+import { alternatesFor } from "@/i18n/metadata";
+import { locales } from "@/i18n/config";
 
-// Gerado no build: inclui automaticamente cada novo artigo do blog.
+// Gerado no build: inclui automaticamente cada novo artigo do blog, em todos os idiomas.
 export default function sitemap() {
   const latestPost = posts.reduce((latest, p) => (p.date > latest ? p.date : latest), "");
 
-  return [
-    { url: `${SITE_URL}/`, changeFrequency: "monthly", priority: 1 },
-    {
-      url: `${SITE_URL}/blog`,
-      lastModified: latestPost || undefined,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+  const pages = [
+    { path: "/", changeFrequency: "monthly", priority: 1 },
+    { path: "/blog", lastModified: latestPost || undefined, changeFrequency: "weekly", priority: 0.8 },
     ...posts.map((post) => ({
-      url: `${SITE_URL}/blog/${post.slug}`,
+      path: `/blog/${post.slug}`,
       lastModified: post.date,
       changeFrequency: "yearly",
       priority: 0.6,
     })),
   ];
+
+  return pages.flatMap(({ path, ...entry }) =>
+    locales.map((lang) => {
+      const { canonical, languages } = alternatesFor(lang, path);
+      return { url: canonical, alternates: { languages }, ...entry };
+    })
+  );
 }

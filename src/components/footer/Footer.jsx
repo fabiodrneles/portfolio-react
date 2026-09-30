@@ -1,67 +1,51 @@
-import React from "react";
 import Link from "next/link";
+import Icon from "@/components/ui/Icon";
+import { socialLinks } from "@/data/portfolio";
+import { localePath } from "@/i18n/config";
 import "./footer.css";
 
-const Footer = () => {
+const Footer = ({ lang, dict }) => {
+  const home = localePath(lang, "/");
+  const links = [
+    { href: `${home}#services`, label: dict.nav.services },
+    { href: `${home}#portfolio`, label: dict.nav.work },
+    { href: `${home}#qualification`, label: dict.nav.journey },
+    { href: localePath(lang, "/blog"), label: dict.nav.blog },
+  ];
+
   return (
     <footer className="footer">
-      <div className="footer__container container">
-        <h1 className="footer__title">Fabio Dorneles</h1>
+      <div className="footer__inner container">
+        <div className="footer__brand">
+          <span className="footer__name">Fabio Dorneles</span>
+          <span className="footer__role">{dict.meta.jobTitle}</span>
+        </div>
 
-        <ul className="footer__list">
-          <li>
-            <Link href="/#about" className="footer__link">
-              About
-            </Link>
-          </li>
-
-          <li>
-            <Link href="/#qualification" className="footer__link">
-              Qualifications
-            </Link>
-          </li>
-
-          <li>
-            <Link href="/#portfolio" className="footer__link">
-              Projects
-            </Link>
-          </li>
+        <ul className="footer__links">
+          {links.map(({ href, label }) => (
+            <li key={href}>
+              <Link href={href} className="footer__link">
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <div className="footer__social">
-          <a
-            href="https://www.youtube.com"
-            className="footer__social-link"
-            aria-label="YouTube"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <i className="bx bxl-youtube" aria-hidden="true"></i>
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/fabiodrneles/"
-            className="footer__social-link"
-            aria-label="LinkedIn"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <i className="bx bxl-linkedin" aria-hidden="true"></i>
-          </a>
-
-          <a
-            href="https://github.com/fabiodrneles"
-            className="footer__social-link"
-            aria-label="GitHub"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <i className="bx bxl-github" aria-hidden="true"></i>
-          </a>
+          {socialLinks.map(({ platform, label, url }) => (
+            <a key={platform} href={url} className="icon-button" aria-label={label} target="_blank" rel="noreferrer">
+              <Icon name={platform} size={18} strokeWidth={1.8} />
+            </a>
+          ))}
         </div>
+      </div>
 
-        <span className="footer__copy">
-          &#169; Fabio Dorneles. <strong>Made with Next.js</strong> - All rights reserved
+      <div className="footer__bottom container">
+        <span>
+          © {new Date().getFullYear()} Fabio Dorneles · {dict.footer.rights}
+        </span>
+        <span>
+          {dict.footer.build} <span className="footer__passing">{dict.footer.passing}</span>
         </span>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useSyncExternalStore } from "react";
+import Icon from "@/components/ui/Icon";
 
 const XIcon = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
@@ -14,18 +15,18 @@ const hasNativeShare = () => typeof navigator.share === "function";
 const noNativeShare = () => false;
 
 /** Botões para o leitor compartilhar o artigo nas redes sociais. */
-const ShareButtons = ({ url, title }) => {
+const ShareButtons = ({ url, title, dict }) => {
   const [copied, setCopied] = useState(false);
   const canNativeShare = useSyncExternalStore(subscribe, hasNativeShare, noNativeShare);
 
   const u = encodeURIComponent(url);
   const t = encodeURIComponent(title);
   const networks = [
-    { name: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`, icon: <i className="bx bxl-linkedin" aria-hidden="true"></i> },
+    { name: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`, icon: <Icon name="linkedin" size={18} strokeWidth={1.8} /> },
     { name: "X", href: `https://x.com/intent/post?text=${t}&url=${u}`, icon: <XIcon /> },
-    { name: "WhatsApp", href: `https://wa.me/?text=${t}%20${u}`, icon: <i className="bx bxl-whatsapp" aria-hidden="true"></i> },
-    { name: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${u}`, icon: <i className="bx bxl-facebook" aria-hidden="true"></i> },
-    { name: "Telegram", href: `https://t.me/share/url?url=${u}&text=${t}`, icon: <i className="bx bxl-telegram" aria-hidden="true"></i> },
+    { name: "WhatsApp", href: `https://wa.me/?text=${t}%20${u}`, icon: <Icon name="whatsapp" size={18} strokeWidth={1.8} /> },
+    { name: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${u}`, icon: <Icon name="facebook" size={18} strokeWidth={1.8} /> },
+    { name: "Telegram", href: `https://t.me/share/url?url=${u}&text=${t}`, icon: <Icon name="telegram" size={18} strokeWidth={1.8} /> },
   ];
 
   const copyLink = async () => {
@@ -47,8 +48,8 @@ const ShareButtons = ({ url, title }) => {
   };
 
   return (
-    <section className="share" aria-label="Compartilhar artigo">
-      <p className="share__title">Gostou? Compartilhe este artigo</p>
+    <section className="share" aria-label={dict.label}>
+      <p className="share__title">{dict.title}</p>
       <div className="share__buttons">
         {networks.map(({ name, href, icon }) => (
           <a
@@ -57,23 +58,23 @@ const ShareButtons = ({ url, title }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="share__button"
-            aria-label={`Compartilhar no ${name}`}
-            title={`Compartilhar no ${name}`}
+            aria-label={`${dict.on} ${name}`}
+            title={`${dict.on} ${name}`}
           >
             {icon}
           </a>
         ))}
-        <button type="button" className="share__button" onClick={copyLink} aria-label="Copiar link do artigo" title="Copiar link">
-          <i className={copied ? "bx bx-check" : "bx bx-link"} aria-hidden="true"></i>
+        <button type="button" className="share__button" onClick={copyLink} aria-label={dict.copy} title={dict.copyShort}>
+          <Icon name={copied ? "check" : "link"} size={18} />
         </button>
         {canNativeShare && (
-          <button type="button" className="share__button" onClick={nativeShare} aria-label="Mais opções de compartilhamento" title="Mais opções">
-            <i className="bx bx-share-alt" aria-hidden="true"></i>
+          <button type="button" className="share__button" onClick={nativeShare} aria-label={dict.more} title={dict.moreShort}>
+            <Icon name="share" size={18} />
           </button>
         )}
       </div>
       <p className="share__status" role="status" aria-live="polite">
-        {copied ? "Link copiado!" : ""}
+        {copied ? dict.copied : ""}
       </p>
     </section>
   );
