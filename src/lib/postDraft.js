@@ -22,9 +22,12 @@ export function slugify(text) {
 // o Quill converte espaços em &nbsp; ao colar; isso impede a quebra de linha no artigo
 export const cleanHtml = (html) => html.replace(/&nbsp;/g, " ");
 
-// o Quill vazio devolve <p><br></p>; só conta como conteúdo se houver texto ou imagem
-export const hasContent = (html) =>
-  /<img\b/i.test(html) || html.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " ").trim().length > 0;
+// o Quill vazio devolve <p><br></p>; só conta como conteúdo se houver texto ou imagem.
+// O DOMParser lê o texto sem executar nada e sem depender de regex para remover tags.
+export const hasContent = (html) => {
+  const body = new DOMParser().parseFromString(html, "text/html").body;
+  return Boolean(body.querySelector("img")) || body.textContent.replace(/\u00a0/g, " ").trim().length > 0;
+};
 
 const isFilled = (t) => Boolean(t.title.trim()) && hasContent(t.contentHtml);
 const isEmpty = (t) => !t.title.trim() && !hasContent(t.contentHtml);
