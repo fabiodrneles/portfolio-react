@@ -28,8 +28,8 @@ export async function generateMetadata({ params }) {
     return { title: dict.notFound };
   }
 
-  const title = `${post.title} | Fabio Dorneles`;
-  const description = post.excerpt || dict.fallbackDescription;
+  const title = `${post.seoTitle || post.title} | Fabio Dorneles`;
+  const description = post.seoDescription || post.excerpt || dict.fallbackDescription;
   const { canonical, languages } = alternatesFor(lang, `/blog/${post.slug}`);
   // Sem imagem própria, vale a gerada em ./opengraph-image.jsx (não passar `images`)
   const images = post.image ? { images: [`${SITE_URL}${post.image}`] } : {};
