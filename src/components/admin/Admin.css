@@ -88,3 +88,35 @@
 .admin__help li + li {
   margin-top: 0.4rem;
 }
+
+textarea.admin__input {
+  font-family: inherit;
+  resize: vertical;
+}
+.admin__count {
+  margin-left: 0.5rem;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--subtle);
+}
+.admin__count--over {
+  color: #ff8a8a;
+  font-weight: 600;
+}
+.admin__checks {
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line-3);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.admin__checks ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+.admin__checks li + li {
+  margin-top: 0.3rem;
+}
+.admin__ok {
+  color: var(--accent-hover);
+}
