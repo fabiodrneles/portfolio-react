@@ -1,30 +1,100 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./contact.css";
 import { contactCards } from "../../data/contact";
 
+// Proteções anti-spam/abuso do formulário (camada do navegador).
+// A proteção principal fica no painel do EmailJS (domínios permitidos e limite de envio).
+const MIN_FILL_TIME_MS = 3000; // bots costumam enviar instantaneamente
+const COOLDOWN_MS = 60000; // intervalo mínimo entre dois envios
+const COOLDOWN_KEY = "contact:lastSentAt";
+const LIMITS = { name: 100, email: 254, project: 5000 };
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const getLastSentAt = () => {
+  try {
+    return Number(sessionStorage.getItem(COOLDOWN_KEY)) || 0;
+  } catch {
+    return 0;
+  }
+};
+
+const setLastSentAt = (time) => {
+  try {
+    sessionStorage.setItem(COOLDOWN_KEY, String(time));
+  } catch {
+    // sessionStorage indisponível (ex.: modo privado): segue só com o estado em memória
+  }
+};
+
 const Contact = () => {
   const form = useRef();
+  const loadedAt = useRef(0);
+  const lastSentAt = useRef(0);
+  const [status, setStatus] = useState({ type: "idle", message: "" });
 
-  const sendEmail = (e) => {
+  useEffect(() => {
+    loadedAt.current = Date.now();
+    lastSentAt.current = getLastSentAt();
+  }, []);
+
+  const sendEmail = async (e) => {
     e.preventDefault();
+    if (status.type === "sending") return;
 
-    // Honeypot: campo invisível que só bots preenchem
-    if (form.current.website.value) {
-      e.target.reset();
+    const formEl = form.current;
+    const field = (fieldName) => formEl.elements.namedItem(fieldName).value.trim();
+    const now = Date.now();
+
+    // Honeypot (campo invisível que só bots preenchem) ou envio rápido demais:
+    // finge sucesso para não dar pistas ao bot, mas não envia nada.
+    if (field("website") || now - loadedAt.current < MIN_FILL_TIME_MS) {
+      formEl.reset();
+      setStatus({ type: "success", message: "Message sent! I'll get back to you soon." });
       return;
     }
 
-    emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-      form.current,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-    );
+    const name = field("name");
+    const email = field("email");
+    const project = field("project");
 
-    e.target.reset();
+    if (!name || !email || !project) {
+      setStatus({ type: "error", message: "Please fill in all fields." });
+      return;
+    }
+    if (!EMAIL_RE.test(email)) {
+      setStatus({ type: "error", message: "Please enter a valid email." });
+      return;
+    }
+    if (name.length > LIMITS.name || email.length > LIMITS.email || project.length > LIMITS.project) {
+      setStatus({ type: "error", message: "Your message is too long." });
+      return;
+    }
+    if (now - lastSentAt.current < COOLDOWN_MS) {
+      setStatus({ type: "error", message: "Please wait a minute before sending another message." });
+      return;
+    }
+
+    setStatus({ type: "sending", message: "Sending..." });
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        { name, email, project },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+      lastSentAt.current = Date.now();
+      setLastSentAt(lastSentAt.current);
+      formEl.reset();
+      setStatus({ type: "success", message: "Message sent! I'll get back to you soon." });
+    } catch {
+      setStatus({
+        type: "error",
+        message: "Something went wrong. Please try again or reach me by email.",
+      });
+    }
   };
 
   return (
@@ -59,6 +129,9 @@ const Contact = () => {
               <input
                 type="text"
                 name="name"
+                required
+                maxLength={LIMITS.name}
+                autoComplete="name"
                 className="contact__form-input"
                 placeholder="Insert your name"
               />
@@ -69,6 +142,9 @@ const Contact = () => {
               <input
                 type="email"
                 name="email"
+                required
+                maxLength={LIMITS.email}
+                autoComplete="email"
                 className="contact__form-input"
                 placeholder="Insert your email"
               />
@@ -78,6 +154,8 @@ const Contact = () => {
               <label className="contact__form-tag">Project</label>
               <textarea
                 name="project"
+                required
+                maxLength={LIMITS.project}
                 cols="30"
                 rows="10"
                 className="contact__form-input"
@@ -94,8 +172,12 @@ const Contact = () => {
               style={{ position: "absolute", left: "-9999px", opacity: 0 }}
             />
 
-            <button className="button button--flex">
-              Send Message
+            <button
+              type="submit"
+              className="button button--flex"
+              disabled={status.type === "sending"}
+            >
+              {status.type === "sending" ? "Sending..." : "Send Message"}
               <svg
                 className="button__icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,6 +196,14 @@ const Contact = () => {
                 ></path>
               </svg>
             </button>
+
+            <p
+              className={`contact__status contact__status--${status.type}`}
+              role="status"
+              aria-live="polite"
+            >
+              {status.type !== "sending" && status.message}
+            </p>
           </form>
         </div>
       </div>
