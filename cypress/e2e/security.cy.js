@@ -108,7 +108,9 @@ describe("Segurança: cookies, links e superfície de ataque", () => {
   });
 
   it("o /admin não é indexado", () => {
-    cy.visit(`${baseUrl}/en/admin`);
+    // O /admin só existe em português (o proxy reescreve /admin para /pt/admin).
+    cy.setCookie("lang", "pt");
+    cy.visit(`${baseUrl}/admin`);
     cy.get('meta[name="robots"]').should("have.attr", "content").and("include", "noindex");
   });
 
