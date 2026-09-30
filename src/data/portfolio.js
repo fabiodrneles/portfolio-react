@@ -10,8 +10,8 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/fabiodrneles/";
 export const socialLinks = [
   { platform: "github", label: "GitHub", url: GITHUB_URL },
   { platform: "linkedin", label: "LinkedIn", url: LINKEDIN_URL },
-  // TODO: trocar pela URL do canal quando ele for criado
-  { platform: "youtube", label: "YouTube", url: "https://www.youtube.com" },
+  // YouTube escondido até existir um canal de verdade (antes apontava para youtube.com).
+  // Para reativar: { platform: "youtube", label: "YouTube", url: "<URL do canal>" },
 ];
 
 export const stack = ["Cypress", "Selenium", "Java", "Kotlin", "Spring", "Go", "TypeScript", "React", "Angular", "React Native"];

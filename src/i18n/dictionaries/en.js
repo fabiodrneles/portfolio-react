@@ -28,7 +28,7 @@ const en = {
     titleHighlight: "every test",
     titleEnd: "before your users do.",
     lead: "I build front-end and back-end, then prove it works: test automation, API validation and code coverage across the whole project lifecycle.",
-    primary: "Start a project",
+    primary: "Get in touch",
     secondary: "See my work",
     stats: [
       { value: "4+ yrs", label: "shipping software" },
@@ -151,7 +151,7 @@ const en = {
   contact: {
     eyebrow: "07 / contact",
     title: "Have a product that can't break?",
-    lead: "Tell me about your project through whichever channel you prefer.",
+    lead: "A role, a project or a technical question: tell me through whichever channel you prefer.",
     emailLabel: "email · preferred",
     formTitle: "Or write here",
     name: "Name",

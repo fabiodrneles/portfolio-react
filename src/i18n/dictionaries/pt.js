@@ -16,7 +16,7 @@ const pt = {
     about: "Sobre",
     blog: "Blog",
     cta: "Vamos conversar",
-    available: "disponível para projetos",
+    available: "aberto a oportunidades",
     language: "Idioma",
     openMenu: "Abrir menu",
     closeMenu: "Fechar menu",
@@ -29,7 +29,7 @@ const pt = {
     titleHighlight: "todos os testes",
     titleEnd: "antes dos seus usuários.",
     lead: "Desenvolvo front-end e back-end e provo que funciona: automação de testes, validação de APIs e cobertura de código em todo o ciclo de vida do projeto.",
-    primary: "Iniciar um projeto",
+    primary: "Entrar em contato",
     secondary: "Ver projetos",
     stats: [
       { value: "4+ anos", label: "entregando software" },
@@ -152,7 +152,7 @@ const pt = {
   contact: {
     eyebrow: "07 / contato",
     title: "Tem um produto que não pode quebrar?",
-    lead: "Me conte sobre o seu projeto pelo canal que preferir.",
+    lead: "Uma vaga, um projeto ou uma dúvida técnica: me conte pelo canal que preferir.",
     emailLabel: "e-mail · preferencial",
     formTitle: "Ou escreva aqui",
     name: "Nome",
