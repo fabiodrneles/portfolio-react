@@ -44,7 +44,6 @@ const Work = ({ dict }) => {
                   className="card project"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`${project.title}: ${dict.open}`}
                 >
                   <div className="project__terminal" aria-hidden="true">
                     <span className="project__cmd">$ {project.cmd}</span>
@@ -55,6 +54,7 @@ const Work = ({ dict }) => {
                     <div className="project__head">
                       <h3 className="project__title">{project.title}</h3>
                       <Icon name="arrowUpRight" size={22} className="project__arrow" />
+                      <span className="visually-hidden">{dict.open}</span>
                     </div>
                     <p className="project__desc">{text.desc}</p>
                     <div className="project__tags">

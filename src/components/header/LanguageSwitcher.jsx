@@ -27,7 +27,7 @@ const LanguageSwitcher = ({ lang, label }) => {
             hrefLang={htmlLang}
             lang={htmlLang}
             title={name}
-            aria-label={name}
+            aria-label={`${short}, ${name}`}
             aria-current={current ? "true" : undefined}
             className={current ? "lang__option lang__option--active" : "lang__option"}
             onClick={() => rememberLocale(code)}

@@ -1,9 +1,10 @@
 import Icon from "@/components/ui/Icon";
 import ContactForm from "./ContactForm";
 import { EMAIL, LINKEDIN_URL, WHATSAPP_URL } from "@/data/portfolio";
+import { localePath } from "@/i18n/config";
 import "./contact.css";
 
-const Contact = ({ dict }) => (
+const Contact = ({ lang, dict }) => (
   <section className="section contact" id="contact">
     <div className="contact__grid container">
       <div className="contact__cta">
@@ -31,7 +32,7 @@ const Contact = ({ dict }) => (
         </div>
       </div>
 
-      <ContactForm dict={dict} />
+      <ContactForm dict={dict} privacyHref={localePath(lang, "/privacy")} />
     </div>
   </section>
 );

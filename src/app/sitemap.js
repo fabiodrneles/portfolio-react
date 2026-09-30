@@ -8,6 +8,7 @@ export default function sitemap() {
 
   const pages = [
     { path: "/", changeFrequency: "monthly", priority: 1 },
+    { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
     { path: "/blog", lastModified: latestPost || undefined, changeFrequency: "weekly", priority: 0.8 },
     ...posts.map((post) => ({
       path: `/blog/${post.slug}`,

@@ -368,3 +368,25 @@ img {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* Link para pular direto ao conteúdo (WCAG 2.4.1): só aparece quando recebe o foco do teclado */
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+main:focus {
+  outline: none;
+}

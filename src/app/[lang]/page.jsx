@@ -13,7 +13,7 @@ export default async function HomePage({ params }) {
   const dict = getDictionary(lang);
 
   return (
-    <main className="main">
+    <div className="main">
       <Hero dict={dict} />
       <StackStrip label={dict.stack.label} />
       <Services dict={dict.services} />
@@ -21,7 +21,7 @@ export default async function HomePage({ params }) {
       <Journey lang={lang} dict={dict.journey} />
       <Process dict={dict.process} />
       <AboutWriting lang={lang} dict={dict} />
-      <Contact dict={dict.contact} />
-    </main>
+      <Contact lang={lang} dict={dict.contact} />
+    </div>
   );
 }

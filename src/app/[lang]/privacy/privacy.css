@@ -1,0 +1,41 @@
+.legal {
+  max-width: 46rem;
+  padding-block: 4rem 5rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.legal__title {
+  margin-bottom: 0.5rem;
+  color: var(--text-strong);
+}
+
+.legal__updated {
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.legal__section {
+  margin-top: 2rem;
+}
+
+.legal__section h2 {
+  margin-bottom: 0.75rem;
+  color: var(--text-strong);
+  font-size: 1.25rem;
+}
+
+.legal__section p + p,
+.legal__section p + ul {
+  margin-top: 0.75rem;
+}
+
+.legal__section ul {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.legal__section li + li {
+  margin-top: 0.4rem;
+}

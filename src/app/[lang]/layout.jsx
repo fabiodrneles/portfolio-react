@@ -92,9 +92,14 @@ export default async function RootLayout({ children, params }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
         />
+        <a href="#conteudo" className="skip-link">
+          {dict.nav.skip}
+        </a>
         <Header lang={lang} dict={dict.nav} />
         <div className="app-shell">
-          <div className="page-content">{children}</div>
+          <main id="conteudo" className="page-content" tabIndex={-1}>
+            {children}
+          </main>
           <Footer lang={lang} dict={dict} />
         </div>
         <ScrollUp label={dict.footer.backToTop} />

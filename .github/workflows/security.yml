@@ -1,0 +1,89 @@
+name: Segurança
+
+# Alinhado ao OWASP (cabeçalhos seguros, gestão de dependências, segredos) e aos controles
+# técnicos da ISO/IEC 27001:2022 (A.8.8, A.8.12, A.8.24, A.8.28). Veja docs/compliance/README.md.
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dependencias:
+    name: Auditoria de dependências
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+        env:
+          CYPRESS_INSTALL_BINARY: "0"
+      - name: Vulnerabilidades altas ou críticas em produção
+        run: npm audit --omit=dev --audit-level=high
+      - name: Assinaturas e procedência dos pacotes
+        run: npm audit signatures
+
+  revisao-de-dependencias:
+    name: Revisão das dependências do PR
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: high
+
+  codeql:
+    name: Análise estática (CodeQL)
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+          build-mode: none
+      - uses: github/codeql-action/analyze@v3
+
+  segredos:
+    name: Detecção de segredos (Gitleaks)
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  cabecalhos:
+    name: Cabeçalhos HTTP, cookies e superfície de ataque (Cypress)
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Testes de segurança
+        uses: cypress-io/github-action@v6
+        env:
+          CYPRESS_BASE_URL: http://localhost:3000
+        with:
+          build: npm run build
+          start: npm run start
+          wait-on: http://localhost:3000
+          wait-on-timeout: 180
+          spec: cypress/e2e/security.cy.js
