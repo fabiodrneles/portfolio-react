@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import "./qualification.css";
 
@@ -60,7 +62,7 @@ const Qualification = () => {
               </div>
 
               <div>
-                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__rounder"></span>
                 <span className="qualification__line"></span>
               </div>
             </div>
@@ -75,7 +77,7 @@ const Qualification = () => {
 
               <div>
                 <h3 className="qualification__title">
-                  Associate's Degree in Analysis and Systems Development
+                  Associate&apos;s Degree in Analysis and Systems Development
                 </h3>
                 <span className="qualification__subtitle">
                   Brazil - Estácio
@@ -90,7 +92,7 @@ const Qualification = () => {
             <div className="qualification__data">
               <div>
                 <h3 className="qualification__title">
-                  Bachelor's Degree in Software Engineering
+                  Bachelor&apos;s Degree in Software Engineering
                 </h3>
                 <span className="qualification__subtitle">Brazil</span>
                 <div className="qualification__calender">
@@ -99,7 +101,7 @@ const Qualification = () => {
               </div>
 
               <div>
-                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__rounder"></span>
                 <span className="qualification__line"></span>
               </div>
             </div>
@@ -141,7 +143,7 @@ const Qualification = () => {
               </div>
 
               <div>
-                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__rounder"></span>
                 <span className="qualification__line"></span>
               </div>
             </div>
@@ -199,7 +201,7 @@ const Qualification = () => {
               </div>
 
               <div>
-                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__rounder"></span>
                 <span className="qualification__line"></span>
               </div>
             </div>
@@ -238,7 +240,7 @@ const Qualification = () => {
               </div>
 
               <div>
-                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__rounder"></span>
                 <span className="qualification__line"></span>
               </div>
             </div>
@@ -280,7 +282,7 @@ const Qualification = () => {
               </div>
 
               <div>
-                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__rounder"></span>
                 <span className="qualification__line"></span>
               </div>
             </div>
@@ -324,7 +326,7 @@ const Qualification = () => {
               </div>
 
               <div>
-                <sapn className="qualification__rounder"></sapn>
+                <span className="qualification__rounder"></span>
                 <span className="qualification__line"></span>
               </div>
             </div>

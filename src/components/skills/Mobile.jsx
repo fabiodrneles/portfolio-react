@@ -11,7 +11,7 @@ const Mobile = () => {
           <div className="skills__group" key={i}>
             {group.groupItems.map((item, j) => (
               <div className="skills__data" key={`${item.name}-${j}`}>
-                <i class="bx bx-badge-check"></i>
+                <i className="bx bx-badge-check"></i>
                 <div>
                   <h3 className="skills__name">{item.name}</h3>
                   <br />

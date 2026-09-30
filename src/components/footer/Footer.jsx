@@ -34,7 +34,7 @@ const Footer = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <i class="bx bxl-youtube"></i>
+            <i className="bx bxl-youtube"></i>
           </a>
 
           <a
@@ -43,7 +43,7 @@ const Footer = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <i class="bx bxl-linkedin"></i>
+            <i className="bx bxl-linkedin"></i>
           </a>
 
           <a
@@ -52,7 +52,7 @@ const Footer = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <i class="bx bxl-github"></i>
+            <i className="bx bxl-github"></i>
           </a>
         </div>
 

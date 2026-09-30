@@ -1,3 +1,39 @@
+# Portfolio — Fabio Dorneles
+
+Portfólio pessoal e blog construídos com [Next.js](https://nextjs.org) (App Router) e React.
+
+## Rodando localmente
+
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # build de produção
+npm run start    # serve o build de produção
+npm run lint
+```
+
+## Estrutura
+
+- `src/app/` — rotas (`/`, `/blog`, `/blog/[slug]`, `/admin`) e metadata/SEO
+- `src/components/` — componentes das seções e páginas
+- `src/data/` e `src/posts/posts.js` — conteúdo do site e dos artigos
+- `public/` — arquivos estáticos (CV, sitemap, robots, favicon)
+
+Os artigos em `src/posts/posts.js` são gerados estaticamente no build (SSG). Para criar um novo,
+use a página `/admin`, copie o código gerado e cole como primeiro item do array `posts`.
+
+## Variáveis de ambiente (EmailJS)
+
+```
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=
+```
+
+Por compatibilidade, as antigas `REACT_APP_EMAILJS_*` continuam sendo aceitas (veja `next.config.mjs`).
+
+## Screenshots
+
 ![image](https://github.com/fabiodrneles/portfolio-react/assets/42509240/5e53708e-7560-40cb-8c93-a5f6715661a5)
 ![image](https://github.com/fabiodrneles/portfolio-react/assets/42509240/7b082a0f-343e-4d8e-8067-d7de7e670d98)
 ![image](https://github.com/fabiodrneles/portfolio-react/assets/42509240/ebed7718-b59a-4bb1-a53a-4b51597e3aa3)
