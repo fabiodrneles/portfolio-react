@@ -4,21 +4,10 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import "react-quill-new/dist/quill.snow.css";
 import "./Admin.css";
+import { SEO_DESCRIPTION_MAX, SEO_TITLE_MAX, buildPostCode, collectWarnings } from "../../lib/postDraft";
 
 // O Quill acessa `document` ao ser carregado, então só roda no navegador.
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
-
-function slugify(text) {
-  return text
-    .toString()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
-}
 
 const modules = {
   toolbar: [
@@ -37,45 +26,31 @@ const LANGS = [
   { id: "fr", label: "Français", hint: "Tradução em francês (opcional). Sem ela, quem lê em francês vê o texto em português com um aviso." },
 ];
 
-const emptyText = { title: "", excerpt: "", contentHtml: "" };
+const emptyText = { title: "", excerpt: "", seoTitle: "", seoDescription: "", contentHtml: "" };
+
+const Counter = ({ id, value, max }) => {
+  const over = value.trim().length > max;
+  return (
+    <span id={id} className={over ? "admin__count admin__count--over" : "admin__count"}>
+      {value.trim().length}/{max}
+      {over ? " (passou do limite)" : ""}
+    </span>
+  );
+};
 
 const Admin = () => {
   const [lang, setLang] = useState("pt");
   const [texts, setTexts] = useState({ pt: emptyText, en: emptyText, fr: emptyText });
   const [output, setOutput] = useState("");
   const [copied, setCopied] = useState(false);
+  const [warnings, setWarnings] = useState(null);
 
   const current = texts[lang];
   const update = (field) => (value) => setTexts((prev) => ({ ...prev, [lang]: { ...prev[lang], [field]: value } }));
 
   const handleGenerate = () => {
-    const { title, excerpt } = texts.pt;
-    // o Quill converte espaços em &nbsp; ao colar; isso impede a quebra de linha no artigo
-    const contentHtml = texts.pt.contentHtml.replace(/&nbsp;/g, " ");
-    const slug = slugify(title || "novo-artigo");
-    const date = new Date().toISOString().slice(0, 10);
-
-    const translated = ["en", "fr"].filter((l) => texts[l].title.trim() && texts[l].contentHtml.trim());
-    const translations = translated.length
-      ? `    translations: {\n${translated
-          .map(
-            (l) => `      ${l}: {
-        title: ${JSON.stringify(texts[l].title)},
-        excerpt: ${JSON.stringify(texts[l].excerpt)},
-        contentHtml: ${JSON.stringify(texts[l].contentHtml)},
-      },\n`
-          )
-          .join("")}    },\n`
-      : "";
-
-    const code = `  {
-    slug: "${slug}",
-    title: ${JSON.stringify(title)},
-    date: "${date}",
-    excerpt: ${JSON.stringify(excerpt)},
-    contentHtml: ${JSON.stringify(contentHtml)},
-${translations}  },`;
-    setOutput(code);
+    setOutput(buildPostCode(texts));
+    setWarnings(collectWarnings(texts));
     setCopied(false);
   };
 
@@ -128,6 +103,35 @@ ${translations}  },`;
         placeholder="Resumo curto"
       />
 
+      <label className="admin__label" htmlFor="admin-seo-title">
+        Título para buscadores <Counter id="admin-seo-title-count" value={current.seoTitle} max={SEO_TITLE_MAX} />
+      </label>
+      <input
+        id="admin-seo-title"
+        className="admin__input"
+        value={current.seoTitle}
+        onChange={(e) => update("seoTitle")(e.target.value)}
+        aria-describedby="admin-seo-title-hint admin-seo-title-count"
+        placeholder="Versão curta do título, até 43 caracteres"
+      />
+      <p id="admin-seo-title-hint" className="admin__hint">
+        O site acrescenta &quot; | Fabio Dorneles&quot; e o título da página fica em até 60 caracteres.
+      </p>
+
+      <label className="admin__label" htmlFor="admin-seo-description">
+        Descrição para buscadores{" "}
+        <Counter id="admin-seo-description-count" value={current.seoDescription} max={SEO_DESCRIPTION_MAX} />
+      </label>
+      <textarea
+        id="admin-seo-description"
+        className="admin__input"
+        rows={3}
+        value={current.seoDescription}
+        onChange={(e) => update("seoDescription")(e.target.value)}
+        aria-describedby="admin-seo-description-count"
+        placeholder="Até 160 caracteres"
+      />
+
       <span className="admin__label">Conteúdo</span>
       <details className="admin__help">
         <summary>Como inserir código</summary>
@@ -154,13 +158,30 @@ ${translations}  },`;
         Gerar código do artigo
       </button>
 
+      {warnings && (
+        <div className="admin__checks" role="status">
+          {warnings.length === 0 ? (
+            <p className="admin__ok">Tudo certo: os três idiomas e o SEO estão dentro das regras.</p>
+          ) : (
+            <>
+              <p>Antes de publicar, corrija:</p>
+              <ul>
+                {warnings.map((w) => (
+                  <li key={w}>{w}</li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+      )}
+
       {output && (
         <div className="admin__output">
           <p>
             Copie o bloco abaixo e cole dentro do array <code>posts</code> em{" "}
             <code>src/posts/posts.js</code> (como primeiro item da lista):
           </p>
-          <textarea readOnly value={output} rows={12} />
+          <textarea readOnly value={output} rows={12} aria-label="Código do artigo gerado" />
           <button className="admin__button" onClick={handleCopy}>
             {copied ? "Copiado!" : "Copiar código"}
           </button>
