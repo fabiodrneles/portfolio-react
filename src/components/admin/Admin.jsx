@@ -1,7 +1,12 @@
+"use client";
+
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+import "react-quill-new/dist/quill.snow.css";
 import "./Admin.css";
+
+// O Quill acessa `document` ao ser carregado, então só roda no navegador.
+const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 function slugify(text) {
   return text

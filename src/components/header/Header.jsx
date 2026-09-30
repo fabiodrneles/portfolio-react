@@ -1,117 +1,129 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import "./header.css";
 
 const Header = () => {
   /*================= Chance Background Header ===========================*/
-  window.addEventListener("scroll", function () {
-    const header = document.querySelector("header");
-    // when the scroll is higher than 200 viewport height, add the scroll-header class to a tag with the header tag.
-    if (this.scrollY >= 80) header.classList.add("scroll-header");
-    else header.classList.remove("scroll-header");
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector("header");
+      if (window.scrollY >= 80) header.classList.add("scroll-header");
+      else header.classList.remove("scroll-header");
+    };
 
-  /*================= Toggle Menu ===========================*/
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const pathname = usePathname();
   const [Toggle, showMenu] = useState(false);
   const [activeNav, setActiveNav] = useState("#home");
+
+  const isBlogActive = pathname.startsWith("/blog");
 
   return (
     <header className="header">
       <nav className="nav container">
-        <a href="index.html" className="nav__logo">
+        <Link href="/" className="nav__logo">
           Fabio D. Dorneles
-        </a>
+        </Link>
 
         <div className={Toggle ? "nav__menu show-menu" : "nav__menu"}>
           <ul className="nav__list grid">
             <li className="nav__item">
-              <a
-                href="#home"
+              <Link
+                href="/#home"
                 onClick={() => setActiveNav("#home")}
                 className={
-                  activeNav === "#home" ? "nav__link active-link" : "nav__link"
+                  !isBlogActive && activeNav === "#home" ? "nav__link active-link" : "nav__link"
                 }
               >
                 <i className="uil uil-estate nav__icon"></i> Home
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a
-                href="#about"
+              <Link
+                href="/#about"
                 onClick={() => setActiveNav("#about")}
                 className={
-                  activeNav === "#about" ? "nav__link active-link" : "nav__link"
+                  !isBlogActive && activeNav === "#about" ? "nav__link active-link" : "nav__link"
                 }
               >
                 <i className="uil uil-user nav__icon"></i> About
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a
-                href="#skills"
+              <Link
+                href="/#skills"
                 onClick={() => setActiveNav("#skills")}
                 className={
-                  activeNav === "#skills"
-                    ? "nav__link active-link"
-                    : "nav__link"
+                  !isBlogActive && activeNav === "#skills" ? "nav__link active-link" : "nav__link"
                 }
               >
                 <i className="uil uil-file-alt nav__icon"></i> Skills
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a
-                href="#services"
+              <Link
+                href="/#services"
                 onClick={() => setActiveNav("#services")}
                 className={
-                  activeNav === "#services"
-                    ? "nav__link active-link"
-                    : "nav__link"
+                  !isBlogActive && activeNav === "#services" ? "nav__link active-link" : "nav__link"
                 }
               >
                 <i className="uil uil-briefcase-alt nav__icon"></i> Services
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a
-                href="#portfolio"
+              <Link
+                href="/#portfolio"
                 onClick={() => setActiveNav("#portfolio")}
                 className={
-                  activeNav === "#portfolio"
-                    ? "nav__link active-link"
-                    : "nav__link"
+                  !isBlogActive && activeNav === "#portfolio" ? "nav__link active-link" : "nav__link"
                 }
               >
                 <i className="uil uil-scenery nav__icon"></i> Portfolio
-              </a>
+              </Link>
             </li>
 
             <li className="nav__item">
-              <a
-                href="#contact"
+              <Link
+                href="/blog"
+                onClick={() => setActiveNav("/blog")}
+                className={isBlogActive ? "nav__link active-link" : "nav__link"}
+              >
+                <i className="uil uil-newspaper nav__icon"></i> Blog
+              </Link>
+            </li>
+
+            <li className="nav__item">
+              <Link
+                href="/#contact"
                 onClick={() => setActiveNav("#contact")}
                 className={
-                  activeNav === "#contact"
-                    ? "nav__link active-link"
-                    : "nav__link"
+                  !isBlogActive && activeNav === "#contact" ? "nav__link active-link" : "nav__link"
                 }
               >
                 <i className="uil uil-message nav__icon"></i> Contact
-              </a>
+              </Link>
             </li>
           </ul>
 
           <i
-            class="uil uil-times nav__close"
+            className="uil uil-times nav__close"
             onClick={() => showMenu(!Toggle)}
           ></i>
         </div>
 
         <div className="nav__toggle" onClick={() => showMenu(!Toggle)}>
-          <i class="uil uil-apps"></i>
+          <i className="uil uil-apps"></i>
         </div>
       </nav>
     </header>

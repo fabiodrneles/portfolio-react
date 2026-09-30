@@ -12,7 +12,7 @@ const Social = () => {
           rel="noreferrer"
           target="_blank"
         >
-          <i class={link.icon}></i>
+          <i className={link.icon}></i>
         </a>
       ))}
     </div>

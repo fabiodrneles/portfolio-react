@@ -1,7 +1,7 @@
 import React from "react";
+import Image from "next/image";
 import "./about.css";
 import AboutImg from "../../assets/about3.jpg";
-import CV from "../../assets/CV-FABIO-DARCI-DORNELES.pdf";
 import Info from "./Info";
 import { aboutData } from "../../data/profile";
 
@@ -12,16 +12,16 @@ const About = () => {
       <span className="section__subtitle">My introduction</span>
 
       <div className="about__container container grid">
-        <img src={AboutImg} alt="Foto de Fabio Dorneles" className="about__img" />
+        <Image src={AboutImg} alt="Foto de Fabio Dorneles" className="about__img" />
 
         <div className="about__data">
           <Info />
 
           <p className="about__description">{aboutData.description}</p>
-          <a download="" href={CV} className="button button--flex">
+          <a download="" href="/CV-FABIO-DARCI-DORNELES.pdf" className="button button--flex">
             Download CV
             <svg
-              class="button__icon"
+              className="button__icon"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"

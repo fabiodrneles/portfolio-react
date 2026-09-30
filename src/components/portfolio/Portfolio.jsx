@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import Image from "next/image";
 import "./portfolio.css";
 import { Data } from "./Data";
 // Import Swiper React components
@@ -43,7 +46,7 @@ const portfolio = () => {
         {Data.map(({ id, image, title, description, link }) => {
           return (
             <SwiperSlide className="portfolio__card" key={id}>
-              <img src={image} alt="" className="portfolio__img" />
+              <Image src={image} alt="" className="portfolio__img" />
 
               <h3 className="portfolio__name">{title}</h3>
               <p className="portfolio__description">{description}</p>
