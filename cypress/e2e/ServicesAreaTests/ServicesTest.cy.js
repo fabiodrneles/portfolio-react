@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 describe('Testing Service FrontEnd area', () => {
-    const baseUrl = 'https://portfolio-react-nine-red.vercel.app';
+    const baseUrl = Cypress.env('BASE_URL') || 'https://portfolio-react-nine-red.vercel.app';
     const servicesPageUrl = '#services';
     const homePageUrl = 'Home';
     const openModal = ':nth-child(1) > .services__modal > .services__modal-content > .services__modal-description';

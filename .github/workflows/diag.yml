@@ -1,0 +1,27 @@
+name: Diagnostico hidratacao (temporario)
+
+on:
+  push:
+    branches: [claude/busy-einstein-qouqwe]
+
+jobs:
+  cypress-local:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [dev, prod]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Cypress (${{ matrix.mode }})
+        uses: cypress-io/github-action@v6
+        env:
+          CYPRESS_BASE_URL: http://localhost:3000
+        with:
+          build: ${{ matrix.mode == 'prod' && 'npm run build' || '' }}
+          start: ${{ matrix.mode == 'prod' && 'npm run start' || 'npm run dev' }}
+          wait-on: http://localhost:3000
+          wait-on-timeout: 180
