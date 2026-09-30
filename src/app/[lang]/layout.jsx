@@ -1,35 +1,15 @@
 import { notFound } from "next/navigation";
-import { Bricolage_Grotesque, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import ScrollUp from "@/components/scrollup/ScrollUp";
 import MobileCta from "@/components/footer/MobileCta";
 import { SITE_URL } from "@/lib/site";
+import { display, body, mono } from "@/lib/fonts";
 import { getDictionary } from "@/i18n/dictionaries";
 import { hasLocale, localeInfo, locales } from "@/i18n/config";
 import { alternatesFor } from "@/i18n/metadata";
 import { GITHUB_URL, LINKEDIN_URL } from "@/data/portfolio";
-
-// Fontes servidas pelo próprio site (sem requisição bloqueante ao Google Fonts)
-const display = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["500", "700", "800"],
-  display: "swap",
-  variable: "--font-display",
-});
-const body = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-  variable: "--font-body",
-});
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  display: "swap",
-  variable: "--font-mono",
-});
 
 // Só existem as páginas dos idiomas configurados; qualquer outro prefixo vira 404.
 export const dynamicParams = false;

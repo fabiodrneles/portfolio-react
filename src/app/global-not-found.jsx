@@ -1,14 +1,10 @@
 import { headers } from "next/headers";
 import Link from "next/link";
-import { Bricolage_Grotesque, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "@/components/notfound/notfound.css";
 import { LOCALE_HEADER, defaultLocale, hasLocale, localeInfo, localePath } from "@/i18n/config";
 import notFoundText from "@/i18n/notFound";
-
-const display = Bricolage_Grotesque({ subsets: ["latin"], weight: ["800"], display: "swap", variable: "--font-display" });
-const body = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "600"], display: "swap", variable: "--font-body" });
-const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400"], display: "swap", variable: "--font-mono" });
+import { display, body, mono } from "@/lib/fonts";
 
 export const metadata = {
   title: "404 | Fabio Dorneles",

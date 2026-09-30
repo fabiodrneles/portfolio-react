@@ -32,3 +32,4 @@ Toda mudança começa numa spec curta e termina com a spec atualizada. Assim o c
 | [004-privacidade-lgpd](004-privacidade-lgpd.md) | Política de privacidade e LGPD | implementada |
 | [005-qualidade-e-pipelines](005-qualidade-e-pipelines.md) | Testes e pipelines de CI | implementada |
 | [006-notas-maximas](006-notas-maximas.md) | Meta: nota máxima em avaliadores externos | rascunho |
+| [007-fontes-locais](007-fontes-locais.md) | Fontes servidas pelo próprio site | implementada |

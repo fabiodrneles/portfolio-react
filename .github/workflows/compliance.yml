@@ -27,6 +27,13 @@ jobs:
           wait-on: http://localhost:3000
           wait-on-timeout: 180
           spec: cypress/e2e/compliance.cy.js
+      - name: Guarda as capturas de tela da falha
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: compliance-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
 
   licencas:
     name: Licenças das dependências de produção
