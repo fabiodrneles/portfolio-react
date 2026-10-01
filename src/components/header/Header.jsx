@@ -15,6 +15,7 @@ const Header = ({ lang, dict }) => {
   const home = localePath(lang, "/");
   const isHome = pathname === "/";
   const isBlog = pathname.startsWith("/blog");
+  const isQuality = pathname.startsWith("/quality");
 
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -92,6 +93,16 @@ const Header = ({ lang, dict }) => {
                 onClick={close}
               >
                 {dict.blog}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={localePath(lang, "/quality")}
+                className={isQuality ? "header__link header__link--active" : "header__link"}
+                aria-current={isQuality ? "page" : undefined}
+                onClick={close}
+              >
+                {dict.quality}
               </Link>
             </li>
           </ul>

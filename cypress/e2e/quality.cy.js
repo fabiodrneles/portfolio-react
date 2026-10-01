@@ -30,6 +30,13 @@ describe("Qualidade deste site", () => {
       cy.visit(`${baseUrl}${prefix}/`);
       cy.get(`footer a[href='${prefix}/quality']`).should("have.length", 1);
     });
+
+    it(`${name}: o menu do topo leva à página`, () => {
+      cy.visit(`${baseUrl}${prefix}/`);
+      cy.get(`header .header__list a[href='${prefix}/quality']`).should("have.length", 1);
+      cy.visit(`${baseUrl}${prefix}/quality`);
+      cy.get(`header .header__list a[href='${prefix}/quality']`).should("have.attr", "aria-current", "page");
+    });
   });
 
   it("está no sitemap nos 3 idiomas", () => {
