@@ -22,6 +22,7 @@ Versão em francês do currículo.
 | 2 | O PDF em português continua disponível | `cypress/e2e/content.cy.js` |
 
 ## Decisões
+- Dono confirmou em 2026-10-01: datas do LinkedIn, estágio da Stone encerrado, telefone público, Go e Cypress como Proficiente, bacharelado na Estácio (CV e trajetória do site).
 - Fonte do conteúdo: LinkedIn do dono. Habilidades e níveis são julgamento do dono e podem ser ajustados no gerador do CV.
 
 ## Arquivos principais
