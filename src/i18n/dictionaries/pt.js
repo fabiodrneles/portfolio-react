@@ -15,6 +15,7 @@ const pt = {
     journey: "Trajetória",
     about: "Sobre",
     blog: "Blog",
+    quality: "Qualidade",
     cta: "Vamos conversar",
     available: "aberto a oportunidades",
     language: "Idioma",
@@ -180,7 +181,6 @@ const pt = {
     privacy: "Política de Privacidade",
   },
   quality: {
-    navLabel: "Qualidade",
     metaTitle: "Qualidade deste site",
     metaDescription:
       "Como este site é testado: testes ponta a ponta, acessibilidade, segurança, desempenho e privacidade, tudo automatizado e aberto no repositório público.",

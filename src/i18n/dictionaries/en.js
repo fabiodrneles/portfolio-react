@@ -14,6 +14,7 @@ const en = {
     journey: "Journey",
     about: "About",
     blog: "Blog",
+    quality: "Quality",
     cta: "Let's talk",
     available: "open to work",
     language: "Language",
@@ -179,7 +180,6 @@ const en = {
     privacy: "Privacy Policy",
   },
   quality: {
-    navLabel: "Quality",
     metaTitle: "Quality of this site",
     metaDescription:
       "How this site is tested: end-to-end tests, accessibility, security, performance and privacy, all automated and open in the public repository.",

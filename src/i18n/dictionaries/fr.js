@@ -14,6 +14,7 @@ const fr = {
     journey: "Parcours",
     about: "À propos",
     blog: "Blog",
+    quality: "Qualité",
     cta: "Discutons",
     available: "ouvert aux opportunités",
     language: "Langue",
@@ -179,7 +180,6 @@ const fr = {
     privacy: "Politique de confidentialité",
   },
   quality: {
-    navLabel: "Qualité",
     metaTitle: "Qualité de ce site",
     metaDescription:
       "Comment ce site est testé : tests de bout en bout, accessibilité, sécurité, performance et confidentialité, le tout automatisé et ouvert dans le dépôt public.",
