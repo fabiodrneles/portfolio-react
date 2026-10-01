@@ -2,7 +2,7 @@ import Link from "next/link";
 import Icon from "@/components/ui/Icon";
 import posts from "@/posts/posts";
 import { localizePost } from "@/posts/localize";
-import { CV_URL } from "@/data/portfolio";
+import { cvUrl } from "@/data/portfolio";
 import { formatPostDate } from "@/lib/site";
 import { localeInfo, localePath } from "@/i18n/config";
 
@@ -26,7 +26,7 @@ const AboutWriting = ({ lang, dict }) => {
             </div>
           </div>
           <p className="about__bio">{about.bio}</p>
-          <a href={CV_URL} className="button button--ghost button--small about__cv" download>
+          <a href={cvUrl(lang)} className="button button--ghost button--small about__cv" download>
             <Icon name="download" size={18} />
             {about.cv}
           </a>

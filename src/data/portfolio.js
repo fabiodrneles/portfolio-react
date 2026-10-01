@@ -3,7 +3,9 @@
 
 export const EMAIL = "fabiodrneles@gmail.com";
 export const WHATSAPP_URL = "https://api.whatsapp.com/send?phone=5555992109068";
-export const CV_URL = "/CV-FABIO-DARCI-DORNELES.pdf";
+// Currículo por idioma: português para quem lê em português, inglês para os demais (en e fr).
+export const CV_URLS = { pt: "/CV-FABIO-DARCI-DORNELES.pdf", en: "/CV-FABIO-DARCI-DORNELES-EN.pdf" };
+export const cvUrl = (lang) => (lang === "pt" ? CV_URLS.pt : CV_URLS.en);
 export const GITHUB_URL = "https://github.com/fabiodrneles";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/fabiodrneles/";
 
@@ -47,8 +49,8 @@ export const projects = [
 
 /** Datas no formato "AAAA-MM" (ou só "AAAA"); `to: null` significa "atual". */
 export const experience = [
-  { id: "pismo", place: "Visa / Pismo", from: "2025-01", to: null },
-  { id: "stone", place: "Stone Co.", from: "2024-02", to: null },
+  { id: "pismo", place: "Visa / Pismo", from: "2025-02", to: null },
+  { id: "stone", place: "Stone Co.", from: "2024-02", to: "2024-11" },
   { id: "soujunior", place: "SouJunior Labs", from: "2023-11", to: null },
   { id: "capgemini", place: "Capgemini", from: "2023-08", to: "2024-04" },
   { id: "ibm-dev", place: "IBM", from: "2022-09", to: "2023-08" },
