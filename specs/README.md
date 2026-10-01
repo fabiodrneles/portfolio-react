@@ -34,3 +34,4 @@ Toda mudança começa numa spec curta e termina com a spec atualizada. Assim o c
 | [006-notas-maximas](006-notas-maximas.md) | Meta: nota máxima em avaliadores externos | rascunho |
 | [007-fontes-locais](007-fontes-locais.md) | Fontes servidas pelo próprio site | implementada |
 | [008-identidade-e-credibilidade](008-identidade-e-credibilidade.md) | Redes, formação no HTML, selo de contato, JSON-LD | aprovada |
+| [009-qualidade-do-site](009-qualidade-do-site.md) | Página "Qualidade deste site" | implementada |

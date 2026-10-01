@@ -178,6 +178,48 @@ const en = {
     backToTop: "Back to top",
     privacy: "Privacy Policy",
   },
+  quality: {
+    navLabel: "Quality",
+    metaTitle: "Quality of this site",
+    metaDescription:
+      "How this site is tested: end-to-end tests, accessibility, security, performance and privacy, all automated and open in the public repository.",
+    title: "Quality of this site",
+    intro:
+      "This site is also an exercise in quality. Every change goes through automated checks before it goes live, and everything can be verified in the public repository.",
+    factSpecs: "end-to-end test specs (Cypress)",
+    factPipelines: "verification pipelines in CI",
+    repo: "View the repository",
+    pipelinesLink: "View the pipelines",
+    sections: [
+      {
+        heading: "What is checked",
+        paragraphs: ["On every change, CI runs these checks:"],
+        list: [
+          "Flows and content: navigation, languages (PT, EN and FR), contact form, blog, SEO, structured data and RSS feeds, with Cypress tests.",
+          "Accessibility: axe-core (WCAG 2.2, levels A and AA) and Pa11y on the main pages, in the three languages, on desktop and mobile screens.",
+          "Security: HTTP headers, cookies and attack surface; secret detection (Gitleaks); static analysis (CodeQL); dependency audit and review; licenses.",
+          "Privacy (LGPD): tests on the data collected and the privacy notice.",
+          "Performance: Lighthouse CI on mobile and desktop, with minimum scores and limits for LCP and CLS.",
+          "Interface: unique and well-structured headings, complete metadata and minimum-size touch targets.",
+        ],
+      },
+      {
+        heading: "How the work is done",
+        paragraphs: [
+          "Each area of the site has a short spec in the specs folder, with acceptance criteria tied to the test that proves them. A change starts with the spec, is implemented until the criteria pass, and ends with the spec updated.",
+          "Tests outrank code: when a test fails, the site is fixed, not the test. New tests are welcome; existing ones are not loosened to make a change pass.",
+        ],
+        list: [],
+      },
+      {
+        heading: "Limits",
+        paragraphs: [
+          "Automated tests do not replace manual evaluation with screen readers or measurements with real visitors. The CI lab scores are targets to prevent regressions, not promises of performance on every device.",
+        ],
+        list: [],
+      },
+    ],
+  },
   blog: {
     title: "Articles",
     metaTitle: "Articles | Fabio Dorneles",
