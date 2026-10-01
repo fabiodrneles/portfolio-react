@@ -12,6 +12,8 @@ const Footer = ({ lang, dict }) => {
     { href: `${home}#qualification`, label: dict.nav.journey },
     { href: localePath(lang, "/blog"), label: dict.nav.blog },
   ];
+  // Feed do idioma da página; é um arquivo XML, não uma rota, então vai num <a> comum
+  const feedHref = localePath(lang, "/feed.xml");
 
   return (
     <footer className="footer">
@@ -29,6 +31,11 @@ const Footer = ({ lang, dict }) => {
               </Link>
             </li>
           ))}
+          <li>
+            <a href={feedHref} className="footer__link" type="application/rss+xml">
+              {dict.blog.feed.link}
+            </a>
+          </li>
         </ul>
 
         <div className="footer__social">
