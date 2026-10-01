@@ -59,7 +59,7 @@ export const experience = [
 ];
 
 export const education = [
-  { id: "bachelor", placeKey: "brazil", from: "2025-01", to: null },
+  { id: "bachelor", place: "Estácio", from: "2025-01", to: null },
   { id: "postgrad-fullstack", place: "Unifecaf", from: "2025-01", to: "2026-01" },
   { id: "postgrad-law", place: "Unifecaf", from: "2025-01", to: "2026-01" },
   { id: "mba", place: "Unifecaf", from: "2025-01", to: "2026-01" },
