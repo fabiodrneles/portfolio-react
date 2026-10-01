@@ -178,6 +178,48 @@ const fr = {
     backToTop: "Retour en haut",
     privacy: "Politique de confidentialité",
   },
+  quality: {
+    navLabel: "Qualité",
+    metaTitle: "Qualité de ce site",
+    metaDescription:
+      "Comment ce site est testé : tests de bout en bout, accessibilité, sécurité, performance et confidentialité, le tout automatisé et ouvert dans le dépôt public.",
+    title: "Qualité de ce site",
+    intro:
+      "Ce site est aussi un exercice de qualité. Chaque modification passe par des vérifications automatiques avant d'être mise en ligne, et tout peut être consulté dans le dépôt public.",
+    factSpecs: "spécifications de test de bout en bout (Cypress)",
+    factPipelines: "pipelines de vérification en CI",
+    repo: "Voir le dépôt",
+    pipelinesLink: "Voir les pipelines",
+    sections: [
+      {
+        heading: "Ce qui est vérifié",
+        paragraphs: ["À chaque modification, la CI exécute ces vérifications :"],
+        list: [
+          "Parcours et contenu : navigation, langues (PT, EN et FR), formulaire de contact, blog, SEO, données structurées et flux RSS, avec des tests Cypress.",
+          "Accessibilité : axe-core (WCAG 2.2, niveaux A et AA) et Pa11y sur les pages principales, dans les trois langues, sur écrans d'ordinateur et de mobile.",
+          "Sécurité : en-têtes HTTP, cookies et surface d'attaque ; détection de secrets (Gitleaks) ; analyse statique (CodeQL) ; audit et revue des dépendances ; licences.",
+          "Confidentialité (LGPD) : tests sur les données collectées et l'avis de confidentialité.",
+          "Performance : Lighthouse CI sur mobile et ordinateur, avec des scores minimaux et des limites pour LCP et CLS.",
+          "Interface : titres uniques et bien hiérarchisés, métadonnées complètes et cibles tactiles de taille minimale.",
+        ],
+      },
+      {
+        heading: "Comment le travail est fait",
+        paragraphs: [
+          "Chaque domaine du site a une courte spécification dans le dossier specs, avec des critères d'acceptation liés au test qui les prouve. Une modification commence par la spécification, est mise en œuvre jusqu'à ce que les critères passent, et se termine par la spécification mise à jour.",
+          "Les tests passent avant le code : quand un test échoue, on corrige le site, pas le test. Les nouveaux tests sont bienvenus ; les existants ne sont pas assouplis pour faire passer une modification.",
+        ],
+        list: [],
+      },
+      {
+        heading: "Limites",
+        paragraphs: [
+          "Les tests automatiques ne remplacent pas l'évaluation manuelle avec des lecteurs d'écran ni les mesures auprès de vrais visiteurs. Les scores de laboratoire de la CI sont des objectifs pour éviter les régressions, pas des promesses de performance sur tous les appareils.",
+        ],
+        list: [],
+      },
+    ],
+  },
   blog: {
     title: "Articles",
     metaTitle: "Articles | Fabio Dorneles",

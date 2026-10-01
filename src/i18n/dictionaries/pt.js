@@ -179,6 +179,48 @@ const pt = {
     backToTop: "Voltar ao topo",
     privacy: "Política de Privacidade",
   },
+  quality: {
+    navLabel: "Qualidade",
+    metaTitle: "Qualidade deste site",
+    metaDescription:
+      "Como este site é testado: testes ponta a ponta, acessibilidade, segurança, desempenho e privacidade, tudo automatizado e aberto no repositório público.",
+    title: "Qualidade deste site",
+    intro:
+      "Este site também é um exercício de qualidade. Cada mudança passa por verificações automáticas antes de ir ao ar, e tudo pode ser conferido no repositório público.",
+    factSpecs: "especificações de teste ponta a ponta (Cypress)",
+    factPipelines: "pipelines de verificação no CI",
+    repo: "Ver o repositório",
+    pipelinesLink: "Ver os pipelines",
+    sections: [
+      {
+        heading: "O que é verificado",
+        paragraphs: ["A cada alteração, o CI roda estas verificações:"],
+        list: [
+          "Fluxos e conteúdo: navegação, idiomas (PT, EN e FR), formulário de contato, blog, SEO, dados estruturados e feeds RSS, com testes Cypress.",
+          "Acessibilidade: axe-core (WCAG 2.2, níveis A e AA) e Pa11y nas páginas principais, nos três idiomas, em telas de computador e de celular.",
+          "Segurança: cabeçalhos HTTP, cookies e superfície de ataque; detecção de segredos (Gitleaks); análise estática (CodeQL); auditoria e revisão de dependências; licenças.",
+          "Privacidade (LGPD): testes sobre os dados coletados e o aviso de privacidade.",
+          "Desempenho: Lighthouse CI no celular e no desktop, com notas mínimas e limites para LCP e CLS.",
+          "Interface: títulos únicos e bem hierarquizados, metadados completos e alvos de toque com tamanho mínimo.",
+        ],
+      },
+      {
+        heading: "Como o trabalho é feito",
+        paragraphs: [
+          "Cada área do site tem uma especificação curta na pasta specs, com critérios de aceite ligados ao teste que os prova. Uma mudança começa pela especificação, é implementada até os critérios passarem e termina com a especificação atualizada.",
+          "Os testes valem mais que o código: se um teste falha, corrige-se o site, e não o teste. Testes novos são bem-vindos; os existentes não são afrouxados para fazer uma mudança passar.",
+        ],
+        list: [],
+      },
+      {
+        heading: "Limites",
+        paragraphs: [
+          "Testes automáticos não substituem a avaliação manual com leitores de tela nem medições com visitantes reais. As notas de laboratório do CI são metas para evitar regressões, não promessas de desempenho em todos os aparelhos.",
+        ],
+        list: [],
+      },
+    ],
+  },
   blog: {
     title: "Artigos",
     metaTitle: "Artigos | Fabio Dorneles",
