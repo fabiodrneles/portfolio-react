@@ -19,16 +19,19 @@ const ScrollUp = ({ label }) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // A região nomeada mantém o botão dentro de um landmark (axe "region"), como a barra de contato do celular.
   return (
-    <a
-      href="#home"
-      className={visible ? "scrollup scrollup--visible" : "scrollup"}
-      aria-label={label}
-      tabIndex={visible ? undefined : -1}
-      onClick={scrollToTop}
-    >
-      <Icon name="arrowUp" size={20} />
-    </a>
+    <div role="region" aria-label={label}>
+      <a
+        href="#home"
+        className={visible ? "scrollup scrollup--visible" : "scrollup"}
+        aria-label={label}
+        tabIndex={visible ? undefined : -1}
+        onClick={scrollToTop}
+      >
+        <Icon name="arrowUp" size={20} />
+      </a>
+    </div>
   );
 };
 
