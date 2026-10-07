@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 22
       - name: Testes de acessibilidade
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         env:
           CYPRESS_BASE_URL: http://localhost:3000
         with:
