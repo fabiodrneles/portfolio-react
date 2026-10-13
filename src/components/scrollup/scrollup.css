@@ -5,7 +5,7 @@
   z-index: var(--z-tooltip);
   width: 2.75rem;
   height: 2.75rem;
-  border-radius: 10px;
+  border-radius: var(--radius);
   border: 1px solid var(--line-3);
   background: var(--surface);
   color: var(--text);
@@ -26,7 +26,7 @@
 
 .scrollup:hover {
   background: var(--surface-2);
-  color: var(--accent);
+  color: var(--shu);
 }
 
 @media screen and (max-width: 768px) {

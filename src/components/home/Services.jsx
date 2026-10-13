@@ -9,25 +9,24 @@ const Services = ({ dict }) => (
         <p className="section__lead">{dict.lead}</p>
       </div>
 
-      <div className="services__grid">
+      <div className="services__list">
         {dict.items.map((service, index) => (
-          <article key={service.title} className={index === 0 ? "card service service--lead" : "card service"}>
-            <div className="service__top">
-              <span className="service__code" aria-hidden="true">
-                {service.code}
-              </span>
+          <article key={service.title} className={index === 0 ? "service service--lead" : "service"}>
+            <span className="service__index" aria-hidden="true">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div className="service__name">
+              <h3 className="service__title">{service.title}</h3>
               {index === 0 && <span className="service__badge">{dict.core}</span>}
             </div>
-            <h3 className="service__title">{service.title}</h3>
-            <p className="service__desc">{service.desc}</p>
-            <ul className="service__points">
-              {service.points.map((point) => (
-                <li key={point}>
-                  <span aria-hidden="true">→</span>
-                  {point}
-                </li>
-              ))}
-            </ul>
+            <div className="service__body">
+              <p className="service__desc">{service.desc}</p>
+              <ul className="service__points">
+                {service.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </div>
           </article>
         ))}
       </div>

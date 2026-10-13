@@ -12,9 +12,9 @@ export function generateStaticParams() {
 
 export default async function Image({ params }) {
   const { lang } = await params;
+  const { hero, meta } = getDictionary(lang);
   return renderOgImage({
-    eyebrow: "$ cypress run  # all specs passed",
-    title: "Fabio Dorneles",
-    subtitle: getDictionary(lang).meta.ogSubtitle,
+    title: `${hero.titleStart} ${hero.titleHighlight}`,
+    subtitle: meta.ogSubtitle,
   });
 }

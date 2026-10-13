@@ -19,7 +19,7 @@
 ![Cypress](https://img.shields.io/badge/Cypress-E2E-17202C?logo=cypress&logoColor=white)
 ![Deploy na Vercel](https://img.shields.io/badge/Vercel-deploy-000000?logo=vercel&logoColor=white)
 
-<img src="docs/images/home-desktop.png" alt="Página inicial do portfólio no modo escuro, com o texto principal e um relatório de testes no estilo do Cypress" width="900">
+<img src="docs/images/home-desktop.png" alt="Página inicial do portfólio: papel e tinta, título em serifa e uma ficha de inspeção com carimbo vermelho" width="900">
 
 </div>
 

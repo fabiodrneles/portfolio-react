@@ -24,10 +24,10 @@ const fr = {
     skip: "Aller au contenu",
   },
   hero: {
-    eyebrow: "// Ingénieur QA · Développeur Full Stack",
-    titleStart: "Un logiciel qui passe",
-    titleHighlight: "tous les tests",
-    titleEnd: "avant vos utilisateurs.",
+    eyebrow: "Ingénieur QA · Développeur Full Stack",
+    titleStart: "Un logiciel qui arrive en production",
+    titleHighlight: "sans surprises.",
+    titleEnd: "",
     lead: "Je développe le front-end et le back-end, puis je prouve que tout fonctionne : automatisation des tests, validation des API et couverture de code sur tout le cycle de vie du projet.",
     primary: "Me contacter",
     secondary: "Voir mes projets",
@@ -37,18 +37,16 @@ const fr = {
     ],
   },
   runner: {
-    title: "fabio.cy.js · cypress run",
-    it: "livre un logiciel fiable",
-    visit: "/votre-produit",
+    title: "Fiche d'inspection",
     specs: ["écrit un front-end propre", "conçoit des API fiables", "automatise la suite de tests", "livre via CI/CD"],
     passed: "Tous les tests sont passés",
     summary: "4 specs sur 4 · 0 échec",
   },
   stack: { label: "Stack au quotidien" },
   services: {
-    eyebrow: "01 / services",
+    eyebrow: "Services",
     title: "Un ingénieur pour construire et prouver que ça marche.",
-    lead: "La qualité est au centre, pas un détail de fin de projet. Choisissez un domaine ou confiez-moi le cycle complet.",
+    lead: "La qualité guide chaque étape du travail. Vous pouvez me confier un domaine ou le cycle complet.",
     core: "Spécialité principale",
     items: [
       {
@@ -77,7 +75,7 @@ const fr = {
     ],
   },
   work: {
-    eyebrow: "02 / projets",
+    eyebrow: "Projets",
     title: "Des outils que j'ai construits et testés.",
     filterLabel: "Filtrer les projets",
     all: "Tous",
@@ -104,7 +102,7 @@ const fr = {
     },
   },
   journey: {
-    eyebrow: "03 / parcours",
+    eyebrow: "Parcours",
     title: "D'où vient cette expérience.",
     experience: "Expérience",
     education: "Formation",
@@ -130,8 +128,8 @@ const fr = {
     places: { freelancer: "Freelance", brazil: "Brésil" },
   },
   process: {
-    eyebrow: "04 / méthode",
-    title: "Un pipeline, pas une supposition.",
+    eyebrow: "Méthode",
+    title: "Ma façon de travailler.",
     steps: [
       { title: "Comprendre", desc: "Cartographier les besoins et les risques. Définir ce que « fonctionner » veut dire avant la première ligne de code." },
       { title: "Construire", desc: "Front-end et back-end en petites livraisons faciles à relire." },
@@ -140,17 +138,17 @@ const fr = {
     ],
   },
   about: {
-    eyebrow: "05 / à propos",
+    eyebrow: "À propos",
     role: "Ingénieur QA et Full Stack · Brésil",
     bio: "En tant que Développeur Full Stack, j'ai acquis de l'expérience au sein d'équipes collaboratives, en contribuant au développement et à la livraison de solutions robustes et efficaces. Aujourd'hui, mon objectif est de rendre la qualité mesurable.",
     cv: "Télécharger le CV",
   },
   writing: {
-    eyebrow: "06 / articles",
+    eyebrow: "Articles",
     all: "Tous les articles",
   },
   contact: {
-    eyebrow: "07 / contact",
+    eyebrow: "Contact",
     title: "Un produit qui ne doit pas tomber en panne ?",
     lead: "Un poste, un projet ou une question technique : écrivez-moi par le canal de votre choix.",
     emailLabel: "e-mail · de préférence",

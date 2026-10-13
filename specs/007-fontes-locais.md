@@ -1,15 +1,15 @@
 # 007 Fontes locais
 
 - **Status:** implementada
-- **Atualizada em:** 2026-09-30
+- **Atualizada em:** 2026-10-13
 
 ## Objetivo
 O build e o site não dependem do Google Fonts. Hoje o CI caiu 3 vezes com `next/font/google` sem conseguir baixar a fonte (rede do runner).
 
 ## Comportamento
-- As três fontes (Bricolage Grotesque, IBM Plex Sans, JetBrains Mono) vêm de `src/fonts/*.woff2`, via `next/font/local`, definidas uma vez em `src/lib/fonts.js`.
-- Só o subconjunto `latin` (cobre PT, EN e FR). Fontes variáveis: uma peça por família.
-- Aparência igual à anterior: mesmas famílias, pesos e variáveis CSS (`--font-display`, `--font-body`, `--font-mono`).
+- As três famílias (Newsreader, IBM Plex Sans, IBM Plex Mono, escolhidas na spec 011) vêm de `src/fonts/*.woff2`, via `next/font/local`, definidas uma vez em `src/lib/fonts.js`.
+- Só o subconjunto `latin` (cobre PT, EN e FR). A Newsreader tem um arquivo normal e um itálico; a Plex Mono, um por peso.
+- As variáveis CSS continuam as mesmas (`--font-display`, `--font-body`, `--font-mono`).
 - Licença SIL OFL 1.1 (uso e redistribuição livres). Detalhes em `src/fonts/README.md`.
 
 ## Fora do escopo

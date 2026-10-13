@@ -20,7 +20,7 @@ export default async function GlobalNotFound() {
     <html lang={localeInfo[lang].htmlLang} className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         <main className="notfound">
-          <span className="notfound__cmd">$ curl -I → 404</span>
+          <span className="seal notfound__seal" aria-hidden="true">FD</span>
           <h1 className="notfound__code">404</h1>
           <p className="notfound__message">{text.message}</p>
           <Link href={localePath(lang, "/")} className="button button--primary">

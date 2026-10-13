@@ -17,7 +17,7 @@ export default async function Image({ params }) {
   const post = original && localizePost(original, lang);
 
   return renderOgImage({
-    eyebrow: "$ cat blog/artigo.md",
+    label: "Blog",
     title: post?.title ?? "Fabio Dorneles",
     subtitle: post ? `Fabio Dorneles · ${formatPostDate(post.date, lang)}` : undefined,
   });
