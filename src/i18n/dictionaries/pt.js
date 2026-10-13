@@ -33,7 +33,7 @@ const pt = {
     primary: "Entrar em contato",
     secondary: "Ver projetos",
     stats: [
-      { value: "4+ anos", label: "entregando software" },
+      { value: "8+ anos", label: "entregando software" },
       { value: "Web · Mobile · API", label: "cobertura de ponta a ponta" },
     ],
   },
