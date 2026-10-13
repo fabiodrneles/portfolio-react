@@ -24,6 +24,8 @@ const LanguageSwitcher = ({ lang, label }) => {
             key={code}
             href={localePath(code, rest)}
             prefetch={false}
+            // Trocar o idioma não deve levar a página ao topo: a pessoa perderia onde estava lendo (specs/012)
+            scroll={false}
             hrefLang={htmlLang}
             lang={htmlLang}
             title={name}
