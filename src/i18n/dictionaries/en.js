@@ -32,7 +32,7 @@ const en = {
     primary: "Get in touch",
     secondary: "See my work",
     stats: [
-      { value: "4+ yrs", label: "shipping software" },
+      { value: "8+ yrs", label: "shipping software" },
       { value: "Web · Mobile · API", label: "end-to-end coverage" },
     ],
   },

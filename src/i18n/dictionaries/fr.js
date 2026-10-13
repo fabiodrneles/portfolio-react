@@ -32,7 +32,7 @@ const fr = {
     primary: "Me contacter",
     secondary: "Voir mes projets",
     stats: [
-      { value: "4+ ans", label: "à livrer du logiciel" },
+      { value: "8+ ans", label: "à livrer du logiciel" },
       { value: "Web · Mobile · API", label: "couverture de bout en bout" },
     ],
   },
