@@ -1,12 +1,11 @@
 /*=============== ENTRADA SUAVE ===============*/
-/* O conteúdo aparece como tinta assentando no papel: curto, uma vez, sem exagero */
+/* O conteúdo assenta no lugar como tinta no papel: curto, uma vez, sem exagero.
+   Só movimento, sem esmaecer: o texto tem contraste total desde o primeiro quadro (WCAG 1.4.3). */
 @keyframes settle {
   from {
-    opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
   to {
-    opacity: 1;
     transform: none;
   }
 }
@@ -28,7 +27,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  animation: settle 0.8s var(--ease) both;
+  animation: settle 0.5s var(--ease) both;
 }
 
 .hero__eyebrow {
@@ -107,7 +106,7 @@
   color: var(--night-text);
   border-radius: var(--radius-lg);
   font-family: var(--font-mono-stack);
-  animation: settle 0.8s 0.15s var(--ease) both;
+  animation: settle 0.5s 0.1s var(--ease) both;
 }
 
 .inspection__head {
@@ -136,7 +135,7 @@
   padding: 0.875rem 0;
   border-bottom: 1px solid var(--night-line);
   font-size: 0.8125rem;
-  animation: settle 0.5s var(--ease) both;
+  animation: settle 0.35s var(--ease) both;
 }
 
 .inspection__index,

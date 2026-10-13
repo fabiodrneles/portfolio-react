@@ -9,7 +9,7 @@ const TestRunner = ({ dict }) => (
 
     <ol className="inspection__list">
       {dict.specs.map((spec, i) => (
-        <li key={spec} style={{ animationDelay: `${0.2 + i * 0.18}s` }}>
+        <li key={spec} style={{ animationDelay: `${0.1 + i * 0.06}s` }}>
           <span className="inspection__index" aria-hidden="true">
             {String(i + 1).padStart(2, "0")}
           </span>
