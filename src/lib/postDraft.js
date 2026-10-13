@@ -1,4 +1,5 @@
 // Regras do rascunho de artigo do /admin. Veja specs/003-blog.md.
+import DOMPurify from "dompurify";
 
 export const SEO_TITLE_MAX = 43; // o <title> inteiro (com o sufixo abaixo) fica em até 60
 export const SEO_DESCRIPTION_MAX = 160;
@@ -19,8 +20,26 @@ export function slugify(text) {
     .replace(/-+/g, "-");
 }
 
-// o Quill converte espaços em &nbsp; ao colar; isso impede a quebra de linha no artigo
-export const cleanHtml = (html) => html.replace(/&nbsp;/g, " ");
+// Só o que o editor produz para um artigo. Tudo o mais (script, iframe, style, on*, javascript:) sai.
+const ALLOWED_TAGS = ["p", "br", "h2", "h3", "strong", "b", "em", "i", "u", "s", "blockquote", "pre", "code", "ol", "ul", "li", "a", "img", "span"];
+const ALLOWED_ATTR = ["href", "target", "rel", "src", "alt", "class", "data-language", "data-list"];
+
+let hooked = false;
+const sanitize = (html) => {
+  if (!hooked) {
+    // link que abre em nova aba não pode controlar a aba de origem
+    DOMPurify.addHook("afterSanitizeAttributes", (node) => {
+      if (node.tagName === "A" && node.getAttribute("target") === "_blank") node.setAttribute("rel", "noopener noreferrer");
+    });
+    hooked = true;
+  }
+  return DOMPurify.sanitize(html, { ALLOWED_TAGS, ALLOWED_ATTR });
+};
+
+// O HTML do Quill vai direto para a página do artigo, então é saneado aqui (o Quill 2.0.3 tem
+// um aviso de XSS na exportação de HTML, GHSA-v3m3-f69x-jf25). Depois, o &nbsp; que o Quill
+// cria ao colar vira espaço, para não impedir a quebra de linha no artigo.
+export const cleanHtml = (html) => sanitize(html).replace(/&nbsp;/g, " ").replace(/\u00a0/g, " ");
 
 // o Quill vazio devolve <p><br></p>; só conta como conteúdo se houver texto ou imagem.
 // O DOMParser lê o texto sem executar nada e sem depender de regex para remover tags.
