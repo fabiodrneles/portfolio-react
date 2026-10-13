@@ -1,7 +1,7 @@
 # 003 Blog
 
 - **Status:** implementada
-- **Atualizada em:** 2026-09-30
+- **Atualizada em:** 2026-10-13
 
 ## Objetivo
 Publicar artigos técnicos, legíveis e compartilháveis nos três idiomas, com SEO correto.
@@ -13,6 +13,7 @@ Publicar artigos técnicos, legíveis e compartilháveis nos três idiomas, com 
 - SEO: o que aparece no buscador vem de `seoTitle` (até 43 caracteres, pois a página acrescenta " | Fabio Dorneles" e o `<title>` inteiro fica em até 60) e `seoDescription` (até 160), por artigo e por idioma. Sem eles valem `title` e `excerpt`. O título e o resumo exibidos no site não mudam.
 - `/admin`: cada idioma tem os campos "Título para buscadores" (até 43) e "Descrição para buscadores" (até 160), com contador de caracteres. O código gerado inclui `seoTitle` e `seoDescription`, troca `&nbsp;` por espaço nos três idiomas e o painel avisa quando falta tradução EN ou FR, quando o SEO passa do limite ou quando o título sem `seoTitle` ultrapassa 43 caracteres. Os limites ficam em `src/lib/postDraft.js`.
 - Feed RSS 2.0 por idioma: `/feed.xml` (pt), `/en/feed.xml` e `/fr/feed.xml`, gerados no build por `src/lib/feed.js` com todos os artigos (mais novo primeiro), texto completo em `content:encoded` e autor `Fábio D. Dorneles` (`FEED_AUTHOR` em `src/lib/site.js`; nome decidido pelo dono em 2026-09-30, só para o feed). Cada página declara os três feeds com `<link rel="alternate" type="application/rss+xml" title="...">` (o do idioma da página primeiro, para um leitor que parte da raiz oferecer a escolha de idioma); a lista do blog tem um link "RSS" e o rodapé de todas as páginas também (aponta para o feed do idioma da página).
+- Segurança do conteúdo: o HTML que sai do editor do `/admin` passa pelo DOMPurify antes de virar código (`cleanHtml` em `src/lib/postDraft.js`). Só ficam as tags e atributos de texto que o editor produz (parágrafos, títulos, listas, citação, código, links e imagens); saem `<script>`, `<iframe>`, `<style>`, atributos `on*` e links `javascript:`. Links que abrem em nova aba ganham `rel="noopener noreferrer"`. Motivo: o Quill 2.0.3 tem um aviso de XSS na exportação de HTML ([GHSA-v3m3-f69x-jf25](https://github.com/advisories/GHSA-v3m3-f69x-jf25)), sem versão corrigida em 2026-10-13, e esse HTML é exibido como está na página do artigo.
 - Blocos de código: o HTML do Quill (`<pre data-language="plain">`) é exibido com quebra de linha (`white-space: pre-wrap`), sem barra de rolagem, para não criar região rolável sem foco de teclado (axe). O editor do `/admin` tem o botão de bloco de código (`</>`), o botão de código em linha e um guia "Como inserir código" logo acima do editor.
 
 ## Critérios de aceite
@@ -28,6 +29,7 @@ Publicar artigos técnicos, legíveis e compartilháveis nos três idiomas, com 
 | 8 | Feed RSS válido por idioma, com autor `Fábio D. Dorneles`, todos os artigos e link de descoberta | `cypress/e2e/feed.cy.js` (novo) |
 | 9 | O rodapé de toda página tem o link RSS do idioma, com alvo de toque de pelo menos 24px | `cypress/e2e/feed-footer.cy.js` (novo) |
 | 10 | Toda página anuncia os 3 feeds no cabeçalho, com título por idioma e o do idioma da página primeiro | `cypress/e2e/feed-discovery.cy.js` (novo) |
+| 11 | O código gerado no `/admin` não leva script, atributo `on*` nem link `javascript:`, mesmo se colado no editor; nenhum artigo publicado tem esses itens | `cypress/e2e/content-safety.cy.js` (novo) |
 
 ## Arquivos principais
 `src/posts/`, `src/components/admin/Admin.jsx`, `src/app/[lang]/blog/`, `src/app/[lang]/opengraph-image.jsx`, `src/app/sitemap.js`

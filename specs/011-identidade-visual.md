@@ -11,7 +11,7 @@ O site é onde o dono vende o próprio nome. Ele precisa parecer o trabalho de u
 - **Modernidade:** painéis em tinta quase preta (`#141412`) para o que é técnico (ficha de inspeção, rodapé), dados em IBM Plex Mono, rótulos verticais como na escrita japonesa.
 - **Um único destaque:** vermelho shu (`#B5352B`, carimbo hanko). A marca "FD" é um carimbo quadrado. Nenhuma outra cor de destaque.
 - **Formatos:** cantos de 2 a 3 px, botão principal retangular em tinta, ação secundária como link sublinhado.
-- **Sem fotos por enquanto** (decisão do dono, 2026-10-13). No lugar do retrato, a ficha de inspeção com carimbo.
+- **Sem fotos** (decisão do dono, 2026-10-13, confirmada depois do lançamento). A identidade se apoia no carimbo "FD" e na ficha de inspeção, sem retrato.
 - **Removido por parecer template ou IA:** verde neon, janela de terminal falsa com código, grade de fundo, brilho borrado, ponto pulsando, rótulos `//` e `01 /`, cartões com ícone e selo, frases "não X, é Y", bloco de contato colorido gigante.
 - Textos do cargo e do "Sobre" não mudam (decisão do dono de 2026-10-01). Seções, filtros, idiomas, SEO, formulário e páginas continuam iguais em comportamento.
 
