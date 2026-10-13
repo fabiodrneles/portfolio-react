@@ -55,11 +55,11 @@ const Header = ({ lang, dict }) => {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  // Poucas opções no menu (lei de Hick): a seção Sobre continua na home, logo antes do contato.
   const links = [
     { id: "services", label: dict.services },
     { id: "portfolio", label: dict.work },
     { id: "qualification", label: dict.journey },
-    { id: "about", label: dict.about },
   ];
 
   const close = () => setOpen(false);
@@ -67,10 +67,13 @@ const Header = ({ lang, dict }) => {
   return (
     <header className={`header${scrolled ? " header--scrolled" : ""}${open ? " header--open" : ""}`}>
       <div className="header__bar container">
-        <Link href={home} className="header__logo" onClick={close}>
-          <span className="header__mark" aria-hidden="true">FD</span>
-          <span className="header__name">Fabio Dorneles</span>
-        </Link>
+        <div className="header__brand">
+          <Link href={home} className="header__logo" onClick={close}>
+            <span className="seal header__mark" aria-hidden="true">FD</span>
+            <span className="header__name">Fabio Dorneles</span>
+          </Link>
+          <span className="header__status">{dict.available}</span>
+        </div>
 
         <nav id="nav-menu" className="header__nav" aria-label={dict.main}>
           <ul className="header__list">
@@ -113,10 +116,6 @@ const Header = ({ lang, dict }) => {
         </nav>
 
         <div className="header__actions">
-          <span className="header__status">
-            <span className="pulse-dot" aria-hidden="true"></span>
-            {dict.available}
-          </span>
           <LanguageSwitcher lang={lang} label={dict.language} />
           <Link href={`${home}#contact`} className="button button--primary button--small header__cta">
             {dict.cta}

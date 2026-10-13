@@ -8,7 +8,7 @@ const Contact = ({ lang, dict }) => (
   <section className="section contact" id="contact">
     <div className="contact__grid container">
       <div className="contact__cta">
-        <span className="contact__eyebrow">{dict.eyebrow}</span>
+        <span className="eyebrow contact__eyebrow">{dict.eyebrow}</span>
         <h2 className="contact__title">{dict.title}</h2>
         <p className="contact__lead">{dict.lead}</p>
 

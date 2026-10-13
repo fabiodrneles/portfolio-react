@@ -39,32 +39,23 @@ const Work = ({ dict }) => {
             const text = dict.projects[project.id];
             return (
               <li key={project.id}>
-                <a
-                  href={project.url}
-                  className="card project"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <div className="project__terminal" aria-hidden="true">
-                    <span className="project__cmd">$ {project.cmd}</span>
-                    <span>{text.out}</span>
-                    <span className="project__ok">✓ {dict.done}</span>
-                  </div>
-                  <div className="project__body">
-                    <div className="project__head">
-                      <h3 className="project__title">{project.title}</h3>
-                      <Icon name="arrowUpRight" size={22} className="project__arrow" />
-                      <span className="visually-hidden">{dict.open}</span>
-                    </div>
+                <a href={project.url} className="project" target="_blank" rel="noreferrer">
+                  <span className="project__cmd" aria-hidden="true">
+                    {project.cmd}
+                  </span>
+                  <div className="project__main">
+                    <h3 className="project__title">{project.title}</h3>
                     <p className="project__desc">{text.desc}</p>
-                    <div className="project__tags">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="chip">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
                   </div>
+                  <span className="project__tags">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="chip">
+                        {tag}
+                      </span>
+                    ))}
+                  </span>
+                  <Icon name="arrowUpRight" size={20} strokeWidth={1.6} className="project__arrow" />
+                  <span className="visually-hidden">{dict.open}</span>
                 </a>
               </li>
             );

@@ -25,10 +25,10 @@ const pt = {
     skip: "Pular para o conteúdo",
   },
   hero: {
-    eyebrow: "// Engenheiro de QA · Desenvolvedor Full Stack",
-    titleStart: "Software que passa em",
-    titleHighlight: "todos os testes",
-    titleEnd: "antes dos seus usuários.",
+    eyebrow: "Engenheiro de QA · Desenvolvedor Full Stack",
+    titleStart: "Software que chega à produção",
+    titleHighlight: "sem surpresas.",
+    titleEnd: "",
     lead: "Desenvolvo front-end e back-end e provo que funciona: automação de testes, validação de APIs e cobertura de código em todo o ciclo de vida do projeto.",
     primary: "Entrar em contato",
     secondary: "Ver projetos",
@@ -38,18 +38,16 @@ const pt = {
     ],
   },
   runner: {
-    title: "fabio.cy.js · cypress run",
-    it: "entrega software confiável",
-    visit: "/seu-produto",
+    title: "Ficha de inspeção",
     specs: ["escreve front-end limpo", "projeta APIs confiáveis", "automatiza a suíte de testes", "entrega via CI/CD"],
     passed: "Todos os testes passaram",
     summary: "4 de 4 specs · 0 falhas",
   },
   stack: { label: "Stack do dia a dia" },
   services: {
-    eyebrow: "01 / serviços",
+    eyebrow: "Serviços",
     title: "Um engenheiro para construir e provar que funciona.",
-    lead: "Qualidade é o centro, não um detalhe no fim. Escolha uma área ou conte comigo no ciclo completo.",
+    lead: "A qualidade guia cada etapa do trabalho. Você pode contar comigo em uma área ou no ciclo completo.",
     core: "Especialidade principal",
     items: [
       {
@@ -78,7 +76,7 @@ const pt = {
     ],
   },
   work: {
-    eyebrow: "02 / projetos",
+    eyebrow: "Projetos",
     title: "Ferramentas que construí e testei.",
     filterLabel: "Filtrar projetos",
     all: "Todos",
@@ -105,7 +103,7 @@ const pt = {
     },
   },
   journey: {
-    eyebrow: "03 / trajetória",
+    eyebrow: "Trajetória",
     title: "Onde construí essa experiência.",
     experience: "Experiência",
     education: "Formação",
@@ -131,8 +129,8 @@ const pt = {
     places: { freelancer: "Freelancer", brazil: "Brasil" },
   },
   process: {
-    eyebrow: "04 / processo",
-    title: "Um pipeline, não um palpite.",
+    eyebrow: "Processo",
+    title: "Como eu trabalho.",
     steps: [
       { title: "Entender", desc: "Mapear requisitos e riscos. Definir o que é “funcionar” antes da primeira linha de código." },
       { title: "Construir", desc: "Front-end e back-end em entregas pequenas e revisáveis." },
@@ -141,17 +139,17 @@ const pt = {
     ],
   },
   about: {
-    eyebrow: "05 / sobre",
+    eyebrow: "Sobre",
     role: "Engenheiro de QA e Full Stack · Brasil",
     bio: "Como Desenvolvedor Full Stack, acumulei experiência como parte integrante de equipes colaborativas, contribuindo para o desenvolvimento e a entrega de soluções robustas e eficientes. Hoje, meu foco é tornar a qualidade mensurável.",
     cv: "Baixar currículo",
   },
   writing: {
-    eyebrow: "06 / artigos",
+    eyebrow: "Artigos",
     all: "Todos os artigos",
   },
   contact: {
-    eyebrow: "07 / contato",
+    eyebrow: "Contato",
     title: "Tem um produto que não pode quebrar?",
     lead: "Uma vaga, um projeto ou uma dúvida técnica: me conte pelo canal que preferir.",
     emailLabel: "e-mail · preferencial",

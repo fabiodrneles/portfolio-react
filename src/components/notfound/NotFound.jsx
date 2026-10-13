@@ -14,7 +14,7 @@ const NotFound = () => {
 
   return (
     <section className="notfound">
-      <span className="notfound__cmd">$ curl -I {pathname}</span>
+      <span className="seal notfound__seal" aria-hidden="true">FD</span>
       <h1 className="notfound__code">404</h1>
       <p className="notfound__message">{text.message}</p>
       <Link href={localePath(lang, "/")} className="button button--primary">

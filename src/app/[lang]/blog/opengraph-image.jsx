@@ -13,5 +13,5 @@ export function generateStaticParams() {
 export default async function Image({ params }) {
   const { lang } = await params;
   const { title, description } = getDictionary(lang).blog;
-  return renderOgImage({ eyebrow: "$ ls blog/", title, subtitle: description });
+  return renderOgImage({ label: "Blog", title, subtitle: description });
 }

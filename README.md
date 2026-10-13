@@ -19,7 +19,7 @@
 ![Cypress](https://img.shields.io/badge/Cypress-E2E-17202C?logo=cypress&logoColor=white)
 ![Deployed on Vercel](https://img.shields.io/badge/Vercel-deployed-000000?logo=vercel&logoColor=white)
 
-<img src="docs/images/home-desktop.png" alt="Home page of the portfolio in dark mode, with the hero text and a Cypress-style test report" width="900">
+<img src="docs/images/home-desktop.png" alt="Home page of the portfolio: paper and ink layout, serif headline and an inspection record with a red seal" width="900">
 
 </div>
 

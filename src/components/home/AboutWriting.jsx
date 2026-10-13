@@ -16,10 +16,10 @@ const AboutWriting = ({ lang, dict }) => {
   return (
     <section className="section about-writing" id="about">
       <div className="about-writing__grid container">
-        <div className="panel about">
+        <div className="about">
           <span className="eyebrow">{about.eyebrow}</span>
           <div className="about__id">
-            <span className="about__avatar" aria-hidden="true">FD</span>
+            <span className="seal about__avatar" aria-hidden="true">FD</span>
             <div>
               <h2 className="about__name">Fabio Dorneles</h2>
               <span className="about__role">{about.role}</span>
@@ -32,7 +32,7 @@ const AboutWriting = ({ lang, dict }) => {
           </a>
         </div>
 
-        <div className="panel writing">
+        <div className="writing">
           <div className="writing__head">
             <span className="eyebrow">{writing.eyebrow}</span>
             <Link href={localePath(lang, "/blog")} className="text-link writing__all">
