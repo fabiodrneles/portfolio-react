@@ -1,4 +1,5 @@
 import posts from "@/posts/posts";
+import { projects } from "@/data/portfolio";
 import { alternatesFor } from "@/i18n/metadata";
 import { locales } from "@/i18n/config";
 
@@ -10,6 +11,9 @@ export default function sitemap() {
     { path: "/", changeFrequency: "monthly", priority: 1 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
     { path: "/quality", changeFrequency: "monthly", priority: 0.5 },
+    ...projects
+      .filter((p) => p.caseStudy)
+      .map((p) => ({ path: `/projects/${p.id}`, changeFrequency: "monthly", priority: 0.7 })),
     { path: "/blog", lastModified: latestPost || undefined, changeFrequency: "weekly", priority: 0.8 },
     ...posts.map((post) => ({
       path: `/blog/${post.slug}`,

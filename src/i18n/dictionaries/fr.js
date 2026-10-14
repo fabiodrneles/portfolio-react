@@ -81,6 +81,7 @@ const fr = {
     all: "Tous",
     allRepos: "Tous les dépôts sur GitHub",
     open: "Ouvrir sur GitHub",
+    openCase: "Lire l'étude de cas",
     done: "terminé",
     projects: {
       "go-release-manager": {
@@ -176,6 +177,86 @@ const fr = {
     passing: "réussi",
     backToTop: "Retour en haut",
     privacy: "Politique de confidentialité",
+  },
+  caseStudies: {
+    "go-release-manager": {
+      metaTitle: "Go Release Manager : étude de cas",
+      metaDescription:
+        "Comment j'ai construit et mis en production une CLI en Go qui calcule la prochaine version SemVer à partir des commits : spécifications, tests, CI sur trois systèmes et releases automatisées.",
+      eyebrow: "Étude de cas",
+      title: "Go Release Manager",
+      lead: "Un outil en ligne de commande en Go qui décide la prochaine version d'un logiciel à partir des messages de commit et crée le tag. Il est en production : c'est lui qui versionne sdd-kit.",
+      facts: [
+        { value: "v1.2.0", label: "en production, il versionne sdd-kit" },
+        { value: "97 %", label: "de couverture de tests" },
+        { value: "3", label: "systèmes dans la CI : Linux, macOS et Windows" },
+      ],
+      factsNote: "Chiffres de la release v1.2.0, mesurés le 14/10/2026. Tout peut être vérifié dans le dépôt public.",
+      links: { repo: "Voir le dépôt", readme: "Lire la documentation", releases: "Télécharger les releases" },
+      outputCaption: "La sortie réelle de l'outil dans un dépôt avec trois nouveaux commits après la v1.2.0 :",
+      sections: [
+        {
+          heading: "Le problème",
+          paragraphs: [
+            "Décider la prochaine version se fait souvent à la main : quelqu'un lit les commits, choisit entre patch, minor et major et crée le tag. C'est lent, cela dépend de la mémoire et l'erreur est facile, surtout avec les pré-releases et les changements incompatibles.",
+            "Des outils comme semantic-release résolvent le problème, mais apportent Node.js, des plugins et de la configuration à des projets qui n'en utilisent pas.",
+          ],
+          list: [],
+        },
+        {
+          heading: "La solution",
+          paragraphs: [
+            "Un binaire unique, sans dépendances, qui lit les commits depuis la dernière version stable, applique les Conventional Commits et calcule le prochain tag SemVer. L'outil fait une seule chose : le build, les notes et la publication de la release restent du ressort de GoReleaser.",
+          ],
+          list: [
+            "La commande next n'affiche que la version, pour les scripts ; la sortie JSON donne le résultat complet.",
+            "La simulation (--dry-run) montre tout sans rien écrire ni demander d'identifiants.",
+            "Des pré-releases par canal (beta, rc) avec un compteur continu, une version imposée quand le plan l'exige et un tag sur un commit précis.",
+            "Une GitHub Action prête à l'emploi, qui télécharge le binaire de la release et vérifie sa somme de contrôle avant de s'exécuter.",
+          ],
+        },
+        {
+          heading: "Comment la qualité est garantie",
+          paragraphs: ["Le projet suit le même processus que j'utilise au travail :"],
+          list: [
+            "Développement guidé par les spécifications : chaque règle de version a des critères d'acceptation, et chaque critère renvoie au test qui le prouve.",
+            "Tests unitaires et de bout en bout, avec 97 % de couverture du code ; la CI exige au moins 80 %.",
+            "CI sur chaque pull request : lint, tests avec détection des accès concurrents, build, commandes du README et l'Action exécutée sous Linux, macOS et Windows.",
+            "Releases automatisées : l'outil calcule sa propre version, et GoReleaser publie des binaires pour cinq plateformes avec des sommes SHA-256.",
+            "Une branche et une pull request par tâche, avec Conventional Commits et un CHANGELOG.",
+          ],
+        },
+        {
+          heading: "Choix techniques",
+          paragraphs: [],
+          list: [
+            "La base est toujours le plus haut tag stable atteignable : une pré-release ne devient jamais la base par erreur.",
+            "En version 0.x, un changement incompatible augmente la minor, comme le prévoit SemVer.",
+            "Les diagnostics vont sur stderr et le résultat sur stdout : les scripts lisent la sortie sans rien filtrer.",
+            "L'outil parle anglais, et la documentation est un guide complet en portugais et en anglais.",
+          ],
+        },
+        {
+          heading: "Résultat",
+          paragraphs: [
+            "L'outil calcule les versions de sdd-kit, mon kit de développement guidé par les spécifications, à chaque clôture de phase. Lors de la revue avant la mise en production, de nouveaux tests ont fait passer la couverture de tout le code de 7,9 % à 97,1 %, et un défaut du --version du binaire publié a été trouvé et corrigé avant la diffusion.",
+          ],
+          list: [],
+        },
+        {
+          heading: "Limites",
+          paragraphs: [
+            "L'usage réel se limite encore à sdd-kit et à mes projets ; il manque la validation par d'autres équipes. Aucune image Docker n'est publiée. L'outil calcule les versions et crée les tags ; volontairement, il ne rédige pas le changelog et ne publie pas la release lui-même.",
+          ],
+          list: [],
+        },
+      ],
+      cta: {
+        heading: "Besoin de quelqu'un qui livre ainsi ?",
+        text: "Je travaille en QA et en développement : spécifications, tests automatisés, CI et livraison jusqu'à la production, avec la documentation pour ceux qui l'utiliseront.",
+        button: "Me contacter",
+      },
+    },
   },
   quality: {
     metaTitle: "Qualité de ce site",
