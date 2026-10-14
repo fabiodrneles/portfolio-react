@@ -12,7 +12,6 @@ export const painelConfigurado = () =>
       process.env.GITHUB_CLIENT_SECRET &&
       process.env.GITHUB_TOKEN &&
       process.env.ADMIN_GITHUB_USER &&
-      process.env.ANTHROPIC_API_KEY &&
       (process.env.SESSION_SECRET || "").length >= 32
   );
 

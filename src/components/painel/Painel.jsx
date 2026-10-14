@@ -103,6 +103,12 @@ const Painel = ({ usuario }) => {
       setMensagem("Traduções prontas. Revise antes de publicar.");
     });
 
+  // Sem tradução automática: as abas EN e FR começam com o texto em português, para você reescrever.
+  const escreverAMao = () => {
+    setTraducoes({ en: { ...pt }, fr: { ...pt } });
+    setMensagem("Abas em inglês e francês criadas. Reescreva o texto em cada uma e depois publique.");
+  };
+
   const salvarRascunho = () =>
     executar(async () => {
       const dados = await pedir("/api/painel/rascunho", {
@@ -164,6 +170,9 @@ const Painel = ({ usuario }) => {
       <div className="painel__linha">
         <button type="button" onClick={traduzir} disabled={ocupado || !pt.title.trim()}>
           Gerar traduções
+        </button>
+        <button type="button" onClick={escreverAMao} disabled={ocupado || !pt.title.trim()}>
+          Escrever EN e FR à mão
         </button>
         <button type="button" onClick={salvarRascunho} disabled={ocupado || !pt.title.trim()}>
           Salvar rascunho

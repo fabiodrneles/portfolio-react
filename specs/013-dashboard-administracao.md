@@ -37,7 +37,7 @@ Editar o site inteiro por um painel em `/painel` (o `/admin` atual continua como
 ## Requisitos de configuração (o dono faz no painel da Vercel)
 - Um aplicativo OAuth no GitHub, com o ID e o segredo nas variáveis de ambiente.
 - Um token do GitHub limitado a este repositório, com permissão de escrita no conteúdo, também nas variáveis de ambiente.
-- Uma chave da API da Anthropic (`ANTHROPIC_API_KEY`) para a tradução automática. Custa por uso, e fica só no servidor.
+- Opcional: uma chave da API da Anthropic (`ANTHROPIC_API_KEY`) para a tradução automática. Sem ela, o inglês e o francês são escritos à mão no painel. O painel funciona sem ela.
 - Nenhum deles vai para o navegador nem para o repositório.
 
 ## Decisões técnicas
