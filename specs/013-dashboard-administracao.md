@@ -10,12 +10,12 @@ Editar o site inteiro por um painel em `/admin`: textos, seções, projetos, exp
 - **Armazenamento:** commits no repositório pela API do GitHub. Histórico completo e reversível.
 - **Login:** só a conta GitHub do dono entra (OAuth). Nenhuma senha guardada no projeto.
 - **Publicação:** "Salvar rascunho" fica fora do site; "Publicar" vai para o ar após a reconstrução.
-- **Traduções:** artigo só é publicado com títulos e textos em inglês e francês (regra do `CLAUDE.md`).
+- **Traduções:** o dono escreve uma única vez, em português. O sistema traduz para inglês e francês na publicação, e o site entrega a versão do idioma escolhido pelo leitor (regra do `CLAUDE.md`: todo artigo sai com EN e FR).
 
 ## Comportamento
 - Login com GitHub, restrito ao usuário do dono. Sem sessão válida, `/admin` responde 404.
-- Editor de artigos: título, resumo, SEO e corpo em três idiomas. Salvar rascunho guarda em `content/drafts/`. Publicar move o artigo para `src/posts/` e faz o commit.
-- Tradução automática: o botão "Traduzir com IA" preenche as abas EN e FR a partir do português, pelo servidor (rota própria, sem chave no navegador). O texto gerado fica editável e nada é publicado sem revisão do dono. Se a chamada falhar, o editor mostra a mensagem e as abas continuam como estavam.
+- Editor de artigos: um único formulário em português (título, resumo, SEO e corpo). Salvar rascunho guarda em `content/drafts/`. Publicar traduz o artigo para EN e FR, mostra as traduções para revisão e só então move o artigo para `src/posts/` e faz o commit.
+- Tradução na publicação: o servidor chama a API da Anthropic uma vez por idioma, preservando HTML, links, código e nomes próprios. O resultado é gravado em `translations.en` e `translations.fr` do artigo. O dono pode editar qualquer aba antes de confirmar. Se a tradução falhar, nada é publicado e a mensagem de erro aparece.
 - Editor de conteúdo: textos da home (`src/i18n/dictionaries/`), projetos e experiência (`src/data/portfolio.js`). Cada alteração vira um commit.
 - Adicionar, editar e excluir: projetos, linhas da trajetória, serviços e artigos. Exclusão pede confirmação.
 - Depois de publicar, o painel mostra o estado da reconstrução (em andamento, no ar ou falhou) lendo o status do deploy.
@@ -29,10 +29,10 @@ Editar o site inteiro por um painel em `/admin`: textos, seções, projetos, exp
 | # | Critério | Teste que prova |
 | --- | --- | --- |
 | 1 | `/admin` responde 404 para quem não está logado com a conta do dono | novo teste: `cypress/e2e/admin-auth.cy.js` |
-| 2 | Artigo sem tradução EN ou FR não pode ser publicado | novo teste: `cypress/e2e/admin-publish.cy.js` |
+| 2 | Artigo sem tradução EN ou FR não pode ser publicado, e a publicação gera as duas traduções a partir do português | novo teste: `cypress/e2e/admin-publish.cy.js` |
 | 3 | Publicar um artigo cria o commit com o arquivo do artigo, e ele aparece na lista após a reconstrução | novo teste: `cypress/e2e/admin-publish.cy.js` |
 | 4 | Excluir pede confirmação e só então faz o commit | novo teste: `cypress/e2e/admin-content.cy.js` |
-| 5 | "Traduzir com IA" preenche EN e FR a partir do português, sem chave exposta no navegador | novo teste: `cypress/e2e/admin-translate.cy.js` |
+| 5 | A tradução roda só no servidor: a chave da API nunca aparece no navegador nem na resposta | novo teste: `cypress/e2e/admin-translate.cy.js` |
 
 ## Requisitos de configuração (o dono faz no painel da Vercel)
 - Um aplicativo OAuth no GitHub, com o ID e o segredo nas variáveis de ambiente.
