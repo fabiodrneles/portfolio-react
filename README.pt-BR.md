@@ -23,6 +23,10 @@
 
 </div>
 
+## Sumário
+
+[O que é isto?](#o-que-é-isto) · [Em resumo](#em-resumo) · [Destaques](#destaques) · [Como a qualidade é garantida](#como-a-qualidade-é-garantida) · [Como funciona](#como-funciona) · [Tecnologias](#tecnologias) · [Estrutura do projeto](#estrutura-do-projeto) · [Como rodar](#como-rodar) · [Escrevendo um novo artigo](#escrevendo-um-novo-artigo) · [Documentação](#documentação) · [Contato](#contato) · [Licença](#licença)
+
 ## O que é isto?
 
 Este é o código-fonte do meu site pessoal. Ele funciona como portfólio, mas também como um exemplo prático de como eu trabalho: specs curtas, testes ponta a ponta que nunca são enfraquecidos para fazer um build passar e pipelines que verificam acessibilidade, segurança, privacidade e desempenho a cada push.
@@ -100,6 +104,22 @@ Duas regras guiam a evolução do projeto:
 
 > Verificações automáticas não substituem testes manuais com leitores de tela nem medições com visitantes reais. Veja em [`docs/compliance`](docs/compliance/README.md) o que os pipelines provam e o que não provam.
 
+## Como funciona
+
+```mermaid
+flowchart LR
+  V[Visitante] --> P["proxy.js"]
+  P -->|"cookie, depois Accept-Language"| L{Idioma}
+  L -->|pt| A["Páginas em português (sem prefixo)"]
+  L -->|en| B["Páginas em /en"]
+  L -->|fr| C["Páginas em /fr"]
+  A & B & C --> S["HTML estático gerado no build"]
+```
+
+- Cada página é gerada no build, uma vez por idioma, com URL, metadados e entrada no sitemap próprios.
+- Os artigos ficam em `src/posts/posts.js`, com `translations` em inglês e francês. Se faltar uma tradução, a página mostra o texto em português com um aviso.
+- Um painel de publicação opcional (`/painel`, login com GitHub) faz parte do código, mas fica desligado até as variáveis de ambiente serem configuradas. Veja a [spec 013](specs/013-dashboard-administracao.md).
+
 ## Tecnologias
 
 | Área | Escolha |
@@ -111,19 +131,22 @@ Duas regras guiam a evolução do projeto:
 | Formulário de contato | [EmailJS](https://www.emailjs.com) |
 | Testes | Cypress, cypress-axe, axe-core, Pa11y, Lighthouse CI |
 | Segurança | CodeQL, Gitleaks, revisão de dependências, Dependabot |
+| Segurança do conteúdo | DOMPurify sanea o HTML dos artigos no editor e no servidor |
 | Hospedagem | Vercel |
 
 ## Estrutura do projeto
 
 ```text
 src/
-├── app/[lang]/        rotas por idioma: início, blog, qualidade, privacidade, admin, feed RSS
+├── app/[lang]/        rotas por idioma: início, blog, qualidade, privacidade, admin, painel, feed RSS
+├── app/api/painel/    rotas do painel de publicação opcional (desligado até ser configurado)
 ├── components/        interface por área (cabeçalho, início, blog, contato, rodapé, admin...)
 ├── i18n/              configuração de idiomas, metadados e dicionários (pt, en, fr)
 ├── data/portfolio.js  links, stack, projetos, experiência e formação
 ├── posts/             artigos do blog e escolha do idioma de cada um
 ├── lib/               feed, SEO, imagens Open Graph, constantes do site
 └── proxy.js           escolhe o idioma de cada visita (cookie, depois Accept-Language)
+content/               artigos e rascunhos publicados pelo painel (criada no primeiro uso)
 cypress/e2e/           testes ponta a ponta
 specs/                 uma spec curta por área, com critérios de aceite
 docs/                  mapa de conformidade e capturas de tela
@@ -186,6 +209,10 @@ Um artigo sem as versões em inglês e francês não vai para produção.
 - [`specs/`](specs/README.md): as specs, uma por área, com critérios de aceite e os testes que os provam
 - [`docs/compliance/`](docs/compliance/README.md): liga cada lei e norma (LGPD, WCAG, cabeçalhos de segurança) ao teste automático que a verifica
 - [`SECURITY.md`](SECURITY.md): como relatar uma vulnerabilidade de forma privada
+
+## Contato
+
+Aberto a oportunidades de QA e de desenvolvimento. [Site](https://fabiodorneles.com.br#contact) · [LinkedIn](https://www.linkedin.com/in/fabiodrneles/) · [GitHub](https://github.com/fabiodrneles)
 
 ## Licença
 
