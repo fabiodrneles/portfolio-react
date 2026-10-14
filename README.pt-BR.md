@@ -53,20 +53,18 @@ Estou aberto a oportunidades de QA e de desenvolvimento. Você me encontra pelo 
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/images/article-desktop.png" alt="Página de um artigo do blog com bloco de código"></td>
-    <td width="50%"><img src="docs/images/quality-desktop.png" alt="Página de qualidade com a lista das verificações automáticas"></td>
+    <td width="50%" align="center"><img src="docs/images/projects-desktop.png" alt="Seção de projetos com filtro por linguagem"><br><sub>Seção de projetos, com filtro por linguagem</sub></td>
+    <td width="50%" align="center"><img src="docs/images/blog-desktop.png" alt="Lista de artigos do blog com datas e resumos"><br><sub>Lista do blog com datas, títulos e resumos</sub></td>
   </tr>
   <tr>
-    <td align="center"><sub>Artigo técnico com blocos de código</sub></td>
-    <td align="center"><sub>A <a href="https://fabiodorneles.com.br/quality">página de qualidade</a>, gerada a partir deste repositório</sub></td>
+    <td width="50%" align="center"><img src="docs/images/article-desktop.png" alt="Página de um artigo do blog com bloco de código"><br><sub>Artigo técnico com blocos de código</sub></td>
+    <td width="50%" align="center"><img src="docs/images/quality-desktop.png" alt="Página de qualidade com a lista das verificações automáticas"><br><sub>A <a href="https://fabiodorneles.com.br/quality">página de qualidade</a>, gerada a partir deste repositório</sub></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><img src="docs/images/home-fr-desktop.png" alt="Página inicial em francês"><br><sub>A mesma página inicial em francês (<code>/fr</code>)</sub></td>
+    <td width="50%" align="center"><img src="docs/images/home-mobile.png" alt="Página inicial no celular" width="200"><br><sub>Layout no celular, testado em 390 px</sub></td>
   </tr>
 </table>
-
-<div align="center">
-<img src="docs/images/home-mobile.png" alt="Página inicial no celular" width="260">
-<br>
-<sub>Layout no celular, testado em 390 px</sub>
-</div>
 
 ## Como a qualidade é garantida
 

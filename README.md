@@ -53,20 +53,18 @@ I am open to QA and software development opportunities. You can reach me through
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/images/article-desktop.png" alt="Blog article page with a code block"></td>
-    <td width="50%"><img src="docs/images/quality-desktop.png" alt="Quality page listing the automated checks"></td>
+    <td width="50%" align="center"><img src="docs/images/projects-desktop.png" alt="Projects section with a language filter"><br><sub>Projects section, filterable by language</sub></td>
+    <td width="50%" align="center"><img src="docs/images/blog-desktop.png" alt="Blog listing with dates and summaries"><br><sub>Blog listing with dates, titles and summaries</sub></td>
   </tr>
   <tr>
-    <td align="center"><sub>Technical article with code blocks</sub></td>
-    <td align="center"><sub>The <a href="https://fabiodorneles.com.br/en/quality">Quality page</a>, generated from this repository</sub></td>
+    <td width="50%" align="center"><img src="docs/images/article-desktop.png" alt="Blog article page with a code block"><br><sub>Technical article with code blocks</sub></td>
+    <td width="50%" align="center"><img src="docs/images/quality-desktop.png" alt="Quality page listing the automated checks"><br><sub>The <a href="https://fabiodorneles.com.br/en/quality">Quality page</a>, generated from this repository</sub></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><img src="docs/images/home-fr-desktop.png" alt="Home page in French"><br><sub>The same home page in French (<code>/fr</code>)</sub></td>
+    <td width="50%" align="center"><img src="docs/images/home-mobile.png" alt="Home page on a phone" width="200"><br><sub>Mobile layout, tested at 390 px</sub></td>
   </tr>
 </table>
-
-<div align="center">
-<img src="docs/images/home-mobile.png" alt="Home page on a phone" width="260">
-<br>
-<sub>Mobile layout, tested at 390 px</sub>
-</div>
 
 ## How quality is enforced
 
