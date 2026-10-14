@@ -1,5 +1,9 @@
 // Regras do rascunho de artigo do /admin. Veja specs/003-blog.md.
 import DOMPurify from "dompurify";
+import { ALLOWED_ATTR, ALLOWED_TAGS } from "./htmlPolicy";
+import { slugify } from "./slug";
+
+export { slugify };
 
 export const SEO_TITLE_MAX = 43; // o <title> inteiro (com o sufixo abaixo) fica em até 60
 export const SEO_DESCRIPTION_MAX = 160;
@@ -8,22 +12,7 @@ export const TITLE_SUFFIX = " | Fabio Dorneles";
 
 export const LANG_NAMES = { pt: "português", en: "inglês", fr: "francês" };
 
-export function slugify(text) {
-  return text
-    .toString()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
-}
-
 // Só o que o editor produz para um artigo. Tudo o mais (script, iframe, style, on*, javascript:) sai.
-const ALLOWED_TAGS = ["p", "br", "h2", "h3", "strong", "b", "em", "i", "u", "s", "blockquote", "pre", "code", "ol", "ul", "li", "a", "img", "span"];
-const ALLOWED_ATTR = ["href", "target", "rel", "src", "alt", "class", "data-language", "data-list"];
-
 let hooked = false;
 const sanitize = (html) => {
   if (!hooked) {

@@ -1,10 +1,10 @@
-# 013 Dashboard de administração (rascunho)
+# 013 Dashboard de administração (em implementação)
 
-- **Status:** rascunho
+- **Status:** em implementação
 - **Atualizada em:** 2026-10-14
 
 ## Objetivo
-Editar o site inteiro por um painel em `/admin`: textos, seções, projetos, experiência e artigos. Sem banco de dados: cada publicação é um commit no GitHub, e a Vercel reconstrói o site.
+Editar o site inteiro por um painel em `/painel` (o `/admin` atual continua como gerador público, até o dono autorizar a troca): textos, seções, projetos, experiência e artigos. Sem banco de dados: cada publicação é um commit no GitHub, e a Vercel reconstrói o site.
 
 ## Decisões do dono (2026-10-14)
 - **Armazenamento:** commits no repositório pela API do GitHub. Histórico completo e reversível.
@@ -28,7 +28,7 @@ Editar o site inteiro por um painel em `/admin`: textos, seções, projetos, exp
 ## Critérios de aceite
 | # | Critério | Teste que prova |
 | --- | --- | --- |
-| 1 | `/admin` responde 404 para quem não está logado com a conta do dono | novo teste: `cypress/e2e/admin-auth.cy.js` |
+| 1 | `/painel` mostra só o login para quem não está logado com a conta do dono, e `/en/painel` e `/fr/painel` dão 404 | novo teste: `cypress/e2e/painel-auth.cy.js` (pendente) |
 | 2 | Artigo sem tradução EN ou FR não pode ser publicado, e a publicação gera as duas traduções a partir do português | novo teste: `cypress/e2e/admin-publish.cy.js` |
 | 3 | Publicar um artigo cria o commit com o arquivo do artigo, e ele aparece na lista após a reconstrução | novo teste: `cypress/e2e/admin-publish.cy.js` |
 | 4 | Excluir pede confirmação e só então faz o commit | novo teste: `cypress/e2e/admin-content.cy.js` |
@@ -40,10 +40,14 @@ Editar o site inteiro por um painel em `/admin`: textos, seções, projetos, exp
 - Uma chave da API da Anthropic (`ANTHROPIC_API_KEY`) para a tradução automática. Custa por uso, e fica só no servidor.
 - Nenhum deles vai para o navegador nem para o repositório.
 
-## Decisões técnicas (a confirmar na implementação)
-- Sessão em cookie assinado, `HttpOnly` e `SameSite=Strict`.
+## Decisões técnicas
+- Caminho `/painel`, porque os testes existentes do `/admin` dependem do gerador público. Trocar exige autorização explícita.
+- Sessão em cookie assinado com HMAC (`painel_sessao`), `HttpOnly`, `SameSite=Strict`, 8 horas. Sem `SESSION_SECRET` de 32+ caracteres o painel fecha.
+- Tradução com `claude-sonnet-5-5`, feita no servidor, uma chamada por idioma. Saída saneada com a política de `src/lib/htmlPolicy.js`.
+- Artigo publicado vira `content/posts/<slug>.json` por commit na API do GitHub, sem sobrescrever.
+- Pendente: rascunho (`content/drafts/`), editor de páginas e projetos, excluir com confirmação, estado da reconstrução.
 - Cada publicação faz uma reconstrução na Vercel, que leva cerca de 2 minutos.
-- O `/admin` atual (que gera código para colar) é substituído por este fluxo.
+- O `/admin` atual (que gera código para colar) fica até o dono autorizar a troca, junto com os testes que dependem dele.
 
 ## Arquivos principais
-`src/app/[lang]/admin/`, `src/components/admin/`, `src/lib/postDraft.js`, `src/posts/posts.js`, `src/data/portfolio.js`, `src/i18n/dictionaries/`
+`src/app/[lang]/painel/`, `src/components/painel/`, `src/app/api/painel/`, `src/lib/painelAuth.js`, `src/lib/traduzir.js`, `src/lib/githubConteudo.js`, `src/lib/sanitizeServer.js`, `src/lib/publishedPosts.js`, `src/posts/posts.js`, `src/i18n/dictionaries/`
