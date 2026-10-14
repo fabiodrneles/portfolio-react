@@ -22,6 +22,13 @@ export function proxy(request) {
 
   if (hasLocale(first)) return withLocale(request, first);
 
+  // O painel só existe em português: quem tem o navegador em inglês também cai nele, sem o redirecionamento para /en.
+  if (pathname === "/painel" || pathname.startsWith("/painel/")) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${defaultLocale}${pathname}`;
+    return withLocale(request, defaultLocale, url);
+  }
+
   const saved = request.cookies.get(LOCALE_COOKIE)?.value;
   const lang = hasLocale(saved) ? saved : matchAcceptLanguage(request.headers.get("accept-language"));
 

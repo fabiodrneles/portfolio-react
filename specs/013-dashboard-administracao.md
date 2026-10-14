@@ -31,7 +31,7 @@ Editar o site inteiro por um painel em `/painel` (o `/admin` atual continua como
 | 1 | `/painel` mostra só o login para quem não está logado com a conta do dono, e `/en/painel` e `/fr/painel` dão 404 | novo teste: `cypress/e2e/painel.cy.js` |
 | 2 | Artigo sem tradução EN ou FR não pode ser publicado, e a publicação gera as duas traduções a partir do português | novo teste: `cypress/e2e/admin-publish.cy.js` |
 | 3 | Publicar um artigo cria o commit com o arquivo do artigo, e ele aparece na lista após a reconstrução | novo teste: `cypress/e2e/admin-publish.cy.js` |
-| 4 | Excluir pede confirmação e só então faz o commit | novo teste: `cypress/e2e/admin-content.cy.js` |
+| 4 | Excluir pede confirmação e só então faz o commit | pendente: testes de exclusão logada; hoje só a recusa sem login está em `cypress/e2e/painel.cy.js` |
 | 5 | A tradução roda só no servidor: a chave da API nunca aparece no navegador nem na resposta | novo teste: `cypress/e2e/admin-translate.cy.js` |
 
 ## Requisitos de configuração (o dono faz no painel da Vercel)
@@ -45,7 +45,9 @@ Editar o site inteiro por um painel em `/painel` (o `/admin` atual continua como
 - Sessão em cookie assinado com HMAC (`painel_sessao`), `HttpOnly`, `SameSite=Strict`, 8 horas. Sem `SESSION_SECRET` de 32+ caracteres o painel fecha.
 - Tradução com `claude-sonnet-5-5`, feita no servidor, uma chamada por idioma. Saída saneada com a política de `src/lib/htmlPolicy.js`.
 - Artigo publicado vira `content/posts/<slug>.json` por commit na API do GitHub, sem sobrescrever.
-- Pendente: rascunho (`content/drafts/`), editor de páginas e projetos, excluir com confirmação, estado da reconstrução.
+- Rascunhos ficam em `content/drafts/` (salvar, listar e reabrir). Excluir artigo exige o endereço digitado de novo no servidor.
+- Pendente: editor de textos da home e de projetos, estado da reconstrução (leitura do status do deploy).
+- Último passo, do dono: configurar o login na Vercel (ver a seção de configuração).
 - Cada publicação faz uma reconstrução na Vercel, que leva cerca de 2 minutos.
 - O `/admin` atual (que gera código para colar) fica até o dono autorizar a troca, junto com os testes que dependem dele.
 

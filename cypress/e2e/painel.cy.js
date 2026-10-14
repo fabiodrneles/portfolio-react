@@ -35,6 +35,19 @@ describe("Painel de administração (/painel) sem login", () => {
       .should("eq", 401);
   });
 
+  [
+    { metodo: "GET", caminho: "/api/painel/rascunho" },
+    { metodo: "POST", caminho: "/api/painel/rascunho" },
+    { metodo: "GET", caminho: "/api/painel/artigos" },
+    { metodo: "DELETE", caminho: "/api/painel/artigos?slug=qualquer" },
+  ].forEach(({ metodo, caminho }) => {
+    it(`${metodo} ${caminho} recusa quem não entrou`, () => {
+      cy.request({ method: metodo, url: `${baseUrl}${caminho}`, body: { confirmar: "qualquer" }, failOnStatusCode: false })
+        .its("status")
+        .should("eq", 401);
+    });
+  });
+
   it("a rota de tradução recusa quem não entrou, sem chamar a API", () => {
     cy.request({
       method: "POST",

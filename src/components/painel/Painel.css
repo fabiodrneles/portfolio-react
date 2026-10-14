@@ -68,3 +68,16 @@
   padding: 0.75rem;
   border: 1px solid var(--ink);
 }
+
+.painel__linha {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.painel__lista ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
