@@ -29,6 +29,17 @@ Este é o código-fonte do meu site pessoal. Ele funciona como portfólio, mas t
 
 Estou aberto a oportunidades de QA e de desenvolvimento. Você me encontra pelo [site](https://fabiodorneles.com.br#contact), pelo [LinkedIn](https://www.linkedin.com/in/fabiodrneles/) ou pelo [GitHub](https://github.com/fabiodrneles).
 
+## Em resumo
+
+| Área | O que este repositório mostra |
+| --- | --- |
+| Front end | Next.js 16 (App Router), React 19, geração estática e três idiomas (pt, en, fr) |
+| Engenharia de qualidade | Testes ponta a ponta com Cypress, acessibilidade com axe-core e Pa11y, limites do Lighthouse, desenvolvimento guiado por specs |
+| Segurança | Cabeçalhos HTTP testados, CodeQL, Gitleaks, auditoria de dependências, conteúdo rico saneado |
+| Privacidade | Política de privacidade alinhada à LGPD, sem rastreadores antes da ação do visitante, ambos testados |
+| DevOps | Cinco pipelines no GitHub Actions, deploys na Vercel, execuções semanais agendadas |
+| Conteúdo e SEO | Blog em três idiomas com metadados por idioma, JSON-LD, feeds RSS e imagens de compartilhamento geradas |
+
 ## Destaques
 
 - **Três idiomas, um só código.** Português (padrão, sem prefixo), inglês (`/en`) e francês (`/fr`), com URL própria, marcações `hreflang` e entradas no sitemap para cada idioma. O idioma é escolhido pelo navegador na primeira visita e lembrado depois de uma escolha manual.
@@ -173,6 +184,7 @@ Um artigo sem as versões em inglês e francês não vai para produção.
 
 ## Documentação
 
+- [`docs/ONDE-ESTA-CADA-COISA.md`](docs/ONDE-ESTA-CADA-COISA.md): onde fica cada parte do site e para que serve
 - [`specs/`](specs/README.md): as specs, uma por área, com critérios de aceite e os testes que os provam
 - [`docs/compliance/`](docs/compliance/README.md): liga cada lei e norma (LGPD, WCAG, cabeçalhos de segurança) ao teste automático que a verifica
 - [`SECURITY.md`](SECURITY.md): como relatar uma vulnerabilidade de forma privada

@@ -29,6 +29,17 @@ This is the source code of my personal site. It works as a portfolio, but also a
 
 I am open to QA and software development opportunities. You can reach me through the [site](https://fabiodorneles.com.br/en#contact), [LinkedIn](https://www.linkedin.com/in/fabiodrneles/) or [GitHub](https://github.com/fabiodrneles).
 
+## At a glance
+
+| Area | What this repository shows |
+| --- | --- |
+| Front end | Next.js 16 (App Router), React 19, static generation and three locales (pt, en, fr) |
+| Quality engineering | Cypress end-to-end tests, axe-core and Pa11y accessibility checks, Lighthouse budgets, spec-driven development |
+| Security | Tested HTTP security headers, CodeQL, Gitleaks, dependency audit, sanitized rich-text content |
+| Privacy | LGPD-oriented privacy policy, no trackers before user action, both tested |
+| DevOps | Five GitHub Actions pipelines, Vercel deployments, weekly scheduled runs |
+| Content and SEO | Trilingual blog with per-language metadata, JSON-LD, RSS feeds and generated share images |
+
 ## Highlights
 
 - **Three languages, one codebase.** Portuguese (default, no prefix), English (`/en`) and French (`/fr`), with its own URL, `hreflang` tags and sitemap entries per language. The language is picked from the browser on the first visit and remembered after a manual choice.
@@ -173,6 +184,7 @@ An article without English and French versions is not published to production.
 
 ## Documentation
 
+- [`docs/ONDE-ESTA-CADA-COISA.md`](docs/ONDE-ESTA-CADA-COISA.md): where each part of the site lives and what it does (in Portuguese)
 - [`specs/`](specs/README.md): the specs, one per area, with acceptance criteria and the tests that prove them
 - [`docs/compliance/`](docs/compliance/README.md): maps each law and standard (LGPD, WCAG, security headers) to the automated test that checks it
 - [`SECURITY.md`](SECURITY.md): how to report a vulnerability privately
