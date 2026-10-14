@@ -1,3 +1,5 @@
+import { carregarArtigosPublicados } from "@/lib/publishedPosts";
+
 /**
  * @typedef {{ title: string, excerpt: string, seoTitle?: string, seoDescription?: string, content?: string, contentHtml?: string }} PostText
  * @typedef {{ slug: string, title: string, date: string, excerpt: string, seoTitle?: string, seoDescription?: string, content?: string, contentHtml?: string, translations?: { en?: PostText, fr?: PostText } }} Post
@@ -143,4 +145,6 @@ Queria um lugar simples para escrever sobre o que aprendo no dia a dia.
   **/
 ];
 
-export default posts;
+// Artigos do código primeiro, depois os publicados pelo painel (content/posts/).
+const todos = [...posts, ...carregarArtigosPublicados()];
+export default todos;

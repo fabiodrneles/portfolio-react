@@ -38,3 +38,4 @@ Toda mudança começa numa spec curta e termina com a spec atualizada. Assim o c
 | [010-curriculo-por-idioma](010-curriculo-por-idioma.md) | Currículo em PT e EN, por idioma da página | implementada |
 | [011-identidade-visual](011-identidade-visual.md) | Papel, tinta e precisão: cores, fontes e formatos | implementada |
 | [012-troca-de-idioma-sem-salto](012-troca-de-idioma-sem-salto.md) | Troca de idioma mantém a posição de rolagem | implementada |
+| [013-dashboard-administracao](013-dashboard-administracao.md) | Painel em /painel com GitHub como armazenamento e tradução automática | em implementação |

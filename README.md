@@ -29,6 +29,17 @@ This is the source code of my personal site. It works as a portfolio, but also a
 
 I am open to QA and software development opportunities. You can reach me through the [site](https://fabiodorneles.com.br/en#contact), [LinkedIn](https://www.linkedin.com/in/fabiodrneles/) or [GitHub](https://github.com/fabiodrneles).
 
+## At a glance
+
+| Area | What this repository shows |
+| --- | --- |
+| Front end | Next.js 16 (App Router), React 19, static generation and three locales (pt, en, fr) |
+| Quality engineering | Cypress end-to-end tests, axe-core and Pa11y accessibility checks, Lighthouse budgets, spec-driven development |
+| Security | Tested HTTP security headers, CodeQL, Gitleaks, dependency audit, sanitized rich-text content |
+| Privacy | LGPD-oriented privacy policy, no trackers before user action, both tested |
+| DevOps | Five GitHub Actions pipelines, Vercel deployments, weekly scheduled runs |
+| Content and SEO | Trilingual blog with per-language metadata, JSON-LD, RSS feeds and generated share images |
+
 ## Highlights
 
 - **Three languages, one codebase.** Portuguese (default, no prefix), English (`/en`) and French (`/fr`), with its own URL, `hreflang` tags and sitemap entries per language. The language is picked from the browser on the first visit and remembered after a manual choice.
@@ -42,20 +53,18 @@ I am open to QA and software development opportunities. You can reach me through
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/images/article-desktop.png" alt="Blog article page with a code block"></td>
-    <td width="50%"><img src="docs/images/quality-desktop.png" alt="Quality page listing the automated checks"></td>
+    <td width="50%" align="center"><img src="docs/images/projects-desktop.png" alt="Projects section with a language filter"><br><sub>Projects section, filterable by language</sub></td>
+    <td width="50%" align="center"><img src="docs/images/blog-desktop.png" alt="Blog listing with dates and summaries"><br><sub>Blog listing with dates, titles and summaries</sub></td>
   </tr>
   <tr>
-    <td align="center"><sub>Technical article with code blocks</sub></td>
-    <td align="center"><sub>The <a href="https://fabiodorneles.com.br/en/quality">Quality page</a>, generated from this repository</sub></td>
+    <td width="50%" align="center"><img src="docs/images/article-desktop.png" alt="Blog article page with a code block"><br><sub>Technical article with code blocks</sub></td>
+    <td width="50%" align="center"><img src="docs/images/quality-desktop.png" alt="Quality page listing the automated checks"><br><sub>The <a href="https://fabiodorneles.com.br/en/quality">Quality page</a>, generated from this repository</sub></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><img src="docs/images/home-fr-desktop.png" alt="Home page in French"><br><sub>The same home page in French (<code>/fr</code>)</sub></td>
+    <td width="50%" align="center"><img src="docs/images/home-mobile.png" alt="Home page on a phone" width="200"><br><sub>Mobile layout, tested at 390 px</sub></td>
   </tr>
 </table>
-
-<div align="center">
-<img src="docs/images/home-mobile.png" alt="Home page on a phone" width="260">
-<br>
-<sub>Mobile layout, tested at 390 px</sub>
-</div>
 
 ## How quality is enforced
 
@@ -173,6 +182,7 @@ An article without English and French versions is not published to production.
 
 ## Documentation
 
+- [`docs/ONDE-ESTA-CADA-COISA.md`](docs/ONDE-ESTA-CADA-COISA.md): where each part of the site lives and what it does (in Portuguese)
 - [`specs/`](specs/README.md): the specs, one per area, with acceptance criteria and the tests that prove them
 - [`docs/compliance/`](docs/compliance/README.md): maps each law and standard (LGPD, WCAG, security headers) to the automated test that checks it
 - [`SECURITY.md`](SECURITY.md): how to report a vulnerability privately
