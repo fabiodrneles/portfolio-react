@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Icon from "@/components/ui/Icon";
 import { GITHUB_URL, projects } from "@/data/portfolio";
+import { localePath } from "@/i18n/config";
 
 const FILTERS = ["all", "go", "java"];
 const FILTER_LABELS = { go: "Go", java: "Java" };
 
-const Work = ({ dict }) => {
+const Work = ({ lang, dict }) => {
   const [filter, setFilter] = useState("all");
   const visible = filter === "all" ? projects : projects.filter((p) => p.lang === filter);
 
@@ -37,9 +39,14 @@ const Work = ({ dict }) => {
         <ul className="work__grid">
           {visible.map((project) => {
             const text = dict.projects[project.id];
+            // Com estudo de caso (specs/014), o cartão abre a página do estudo, na mesma aba.
+            const Card = project.caseStudy ? Link : "a";
+            const target = project.caseStudy
+              ? { href: localePath(lang, `/projects/${project.id}`) }
+              : { href: project.url, target: "_blank", rel: "noreferrer" };
             return (
               <li key={project.id}>
-                <a href={project.url} className="project" target="_blank" rel="noreferrer">
+                <Card {...target} className="project">
                   <span className="project__cmd" aria-hidden="true">
                     {project.cmd}
                   </span>
@@ -55,8 +62,8 @@ const Work = ({ dict }) => {
                     ))}
                   </span>
                   <Icon name="arrowUpRight" size={20} strokeWidth={1.6} className="project__arrow" />
-                  <span className="visually-hidden">{dict.open}</span>
-                </a>
+                  <span className="visually-hidden">{project.caseStudy ? dict.openCase : dict.open}</span>
+                </Card>
               </li>
             );
           })}

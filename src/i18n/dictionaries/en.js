@@ -81,6 +81,7 @@ const en = {
     all: "All",
     allRepos: "All repositories on GitHub",
     open: "Open on GitHub",
+    openCase: "Read the case study",
     done: "done",
     projects: {
       "go-release-manager": {
@@ -176,6 +177,86 @@ const en = {
     passing: "passing",
     backToTop: "Back to top",
     privacy: "Privacy Policy",
+  },
+  caseStudies: {
+    "go-release-manager": {
+      metaTitle: "Go Release Manager: case study",
+      metaDescription:
+        "How I built and shipped to production a Go CLI that computes the next SemVer version from commits: specs, tests, CI on three operating systems and automated releases.",
+      eyebrow: "Case study",
+      title: "Go Release Manager",
+      lead: "A Go command-line tool that decides a software's next version from its commit messages and creates the tag. It runs in production: it versions sdd-kit.",
+      facts: [
+        { value: "v1.2.0", label: "in production, versioning sdd-kit" },
+        { value: "97%", label: "test coverage" },
+        { value: "3", label: "operating systems in CI: Linux, macOS and Windows" },
+      ],
+      factsNote: "Figures from release v1.2.0, measured on 2026-10-14. Everything can be checked in the public repository.",
+      links: { repo: "See the repository", readme: "Read the docs", releases: "Download the releases" },
+      outputCaption: "The tool's real output in a repository with three new commits after v1.2.0:",
+      sections: [
+        {
+          heading: "The problem",
+          paragraphs: [
+            "Deciding the next version is often done by hand: someone reads the commits, picks patch, minor or major and creates the tag. It is slow, relies on memory and goes wrong easily, above all with pre-releases and breaking changes.",
+            "Tools such as semantic-release solve it, but bring Node.js, plugins and configuration to projects that use none of them.",
+          ],
+          list: [],
+        },
+        {
+          heading: "The solution",
+          paragraphs: [
+            "A single binary with no dependencies that reads the commits since the latest stable version, applies Conventional Commits and computes the next SemVer tag. The tool does one thing: building, release notes and publishing stay with GoReleaser.",
+          ],
+          list: [
+            "The next command prints only the version, for scripts; the JSON output gives the full result.",
+            "The dry run (--dry-run) shows everything without writing anything or asking for credentials.",
+            "Pre-releases per channel (beta, rc) with a continuous counter, a forced version when the plan calls for one, and tagging a specific commit.",
+            "A ready-made GitHub Action that downloads the release binary and verifies its checksum before running.",
+          ],
+        },
+        {
+          heading: "How quality is enforced",
+          paragraphs: ["The project follows the same process I use at work:"],
+          list: [
+            "Spec-driven development: every versioning rule has acceptance criteria, and every criterion points to the test that proves it.",
+            "Unit and end-to-end tests, with 97% code coverage; CI requires at least 80%.",
+            "CI on every pull request: lint, tests with race detection, build, the README commands, and the Action running on Linux, macOS and Windows.",
+            "Automated releases: the tool computes its own version, and GoReleaser publishes binaries for five platforms with SHA-256 checksums.",
+            "One branch and one pull request per task, with Conventional Commits and a CHANGELOG.",
+          ],
+        },
+        {
+          heading: "Technical decisions",
+          paragraphs: [],
+          list: [
+            "The base is always the highest reachable stable tag, so a pre-release never becomes the base by mistake.",
+            "On 0.x versions, a breaking change bumps the minor, as SemVer says.",
+            "Diagnostics go to stderr and the result to stdout: scripts read the output without filtering anything.",
+            "The tool speaks English, and the documentation is a complete guide in Portuguese and English.",
+          ],
+        },
+        {
+          heading: "Outcome",
+          paragraphs: [
+            "The tool computes the versions of sdd-kit, my spec-driven development kit, at every phase closing. In the production review, new tests raised coverage of the whole codebase from 7.9% to 97.1%, and a defect in the published binary's --version was found and fixed before release to the public.",
+          ],
+          list: [],
+        },
+        {
+          heading: "Limits",
+          paragraphs: [
+            "Real-world use is still sdd-kit and my own projects; validation by other teams is missing. There is no published Docker image. The tool computes versions and creates tags; on purpose, it neither writes the changelog nor publishes the release by itself.",
+          ],
+          list: [],
+        },
+      ],
+      cta: {
+        heading: "Need someone who delivers like this?",
+        text: "I work in QA and development: specs, automated tests, CI and delivery all the way to production, with documentation for the people who will use it.",
+        button: "Get in touch",
+      },
+    },
   },
   quality: {
     metaTitle: "Quality of this site",

@@ -17,7 +17,7 @@ export default async function HomePage({ params }) {
       <Hero dict={dict} />
       <StackStrip label={dict.stack.label} />
       <Services dict={dict.services} />
-      <Work dict={dict.work} />
+      <Work lang={lang} dict={dict.work} />
       <Journey lang={lang} dict={dict.journey} />
       <Process dict={dict.process} />
       <AboutWriting lang={lang} dict={dict} />

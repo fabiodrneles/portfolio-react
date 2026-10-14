@@ -1,0 +1,44 @@
+/* Estudo de caso (specs/014): mesma base da página de qualidade. */
+.case__lead {
+  font-size: 1.125rem;
+  color: var(--text-strong);
+}
+
+.case__note {
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.case__figure {
+  margin: 0 0 1rem;
+}
+
+.case__figure figcaption {
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.case__terminal {
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  /* quebra a linha em vez de rolar: região rolável exigiria foco de teclado (axe) */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.case__cta {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line-3);
+}
+
+.case__cta-button {
+  margin-top: 1rem;
+}

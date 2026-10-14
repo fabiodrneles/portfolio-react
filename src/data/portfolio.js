@@ -27,6 +27,8 @@ export const projects = [
     lang: "go",
     cmd: "go-release-manager",
     url: "https://github.com/fabiodrneles/Go-Release-Manager",
+    // Página de estudo de caso (specs/014): o cartão abre /projects/<id> em vez do GitHub.
+    caseStudy: true,
   },
   {
     id: "go-checker",
@@ -48,6 +50,40 @@ export const projects = [
 ];
 
 /** Datas no formato "AAAA-MM" (ou só "AAAA"); `to: null` significa "atual". */
+/**
+ * Fatos dos estudos de caso que não dependem de idioma (specs/014): links e a saída real da
+ * ferramenta. Os textos traduzidos ficam em `caseStudies` nos dicionários.
+ */
+export const caseStudies = {
+  "go-release-manager": {
+    repo: "https://github.com/fabiodrneles/Go-Release-Manager",
+    readme: "https://github.com/fabiodrneles/Go-Release-Manager#readme",
+    releases: "https://github.com/fabiodrneles/Go-Release-Manager/releases",
+    // Saída real da v1.2.0 num repositório com três commits depois de v1.2.0.
+    terminal: [
+      "$ git log --oneline",
+      "257369a docs: usage examples",
+      "2aba4be feat(cli): add --timeout flag",
+      "4261197 fix(parser): handle empty input",
+      "576387c (tag: v1.2.0) feat: first command",
+      "",
+      "$ go-release-manager create --dry-run",
+      "No .go-releaserc.yml found. Using the default rules (feat/fix).",
+      "Latest stable version: v1.2.0",
+      "Analyzing 3 commit(s) since tag v1.2.0...",
+      "Analysis done. Highest increment: Minor",
+      "Increment: Minor. Next version: v1.3.0",
+      "",
+      "--- DRY RUN ---",
+      "Latest tag: v1.2.0",
+      "Commits analyzed: 3",
+      "Increment: Minor",
+      "Tag that would be created: v1.3.0",
+      "--- END OF DRY RUN ---",
+    ],
+  },
+};
+
 export const experience = [
   { id: "pismo", place: "Visa / Pismo", from: "2025-02", to: null },
   { id: "stone", place: "Stone Co.", from: "2024-02", to: "2024-11" },
