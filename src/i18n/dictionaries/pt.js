@@ -98,7 +98,7 @@ const pt = {
         out: "sites e APIs verificados",
       },
       "cv-craft": {
-        desc: "Gerador de currículos profissionais em Go, otimizados para sistemas ATS.",
+        desc: "Gera o currículo em PDF, Markdown e texto a partir de um único YAML, otimizado para os sistemas de triagem (ATS). Saiu de protótipo para a v1.0.0 com 71 critérios de aceite testados e 94% de cobertura; foi onde nasceu o sdd-kit.",
         out: "currículo gerado em PDF",
       },
       "spring-api": {
@@ -184,6 +184,80 @@ const pt = {
     privacy: "Política de Privacidade",
   },
   caseStudies: {
+    "cv-craft": {
+      metaTitle: "CV Craft: estudo de caso",
+      metaDescription:
+        "Como levei de protótipo à v1.0.0 uma CLI em Go que gera currículos otimizados para ATS em PDF, Markdown e texto a partir de um YAML: descoberta com evidências, specs e testes.",
+      eyebrow: "Estudo de caso",
+      title: "CV Craft",
+      lead: "Uma ferramenta de linha de comando em Go que gera o currículo em PDF, Markdown e texto a partir de um único arquivo YAML, otimizado para os sistemas de triagem (ATS). Saiu de protótipo para a v1.0.0, e foi o projeto em que nasceu o sdd-kit.",
+      facts: [
+        { value: "71", label: "critérios de aceite, todos com teste" },
+        { value: "94%", label: "de cobertura de testes" },
+        { value: "3", label: "formatos a partir de um YAML: PDF, Markdown e texto" },
+      ],
+      factsNote: "Números da v1.0.0, medidos em 14/10/2026. Tudo pode ser conferido no repositório público.",
+      links: { repo: "Ver o repositório", readme: "Ler a documentação", releases: "Baixar as releases" },
+      outputCaption: "A saída real da ferramenta: criar o modelo, gerar os três formatos e validar um YAML com erros.",
+      sections: [
+        {
+          heading: "O problema",
+          paragraphs: [
+            "Manter o currículo em vários formatos (o PDF para o recrutador, o texto para colar em formulários, o Markdown para o GitHub) é retrabalho e acaba em versões diferentes. Um PDF com colunas, tabelas ou imagens é lido mal pelos sistemas de triagem. E os geradores online pedem cadastro e enviam os seus dados para fora.",
+          ],
+          list: [],
+        },
+        {
+          heading: "A solução",
+          paragraphs: ["Um binário único em Go: o conteúdo fica num YAML versionável, e a ferramenta gera todos os formatos com o mesmo conteúdo, sem enviar nada para a internet."],
+          list: [
+            "O comando init cria um modelo comentado; o validate lista todos os problemas de uma vez, cada um com o campo e o motivo.",
+            "PDF feito para ATS: coluna única, texto selecionável, títulos de seção padronizados e metadados (título, autor, palavras-chave).",
+            "Acentos corretos em todos os formatos e títulos das seções em português ou inglês.",
+            "Um JSON Schema dá autocompletar e validação no editor; há modo interativo e geração automática ao salvar (--watch).",
+            "Exit codes documentados, para uso em scripts; instaladores para Windows, macOS e Linux que conferem o checksum.",
+          ],
+        },
+        {
+          heading: "Do protótipo à v1.0.0",
+          paragraphs: [
+            "O código estava parado como protótipo. A primeira etapa foi uma descoberta com evidências: ler o código, rodar cada comando do README e registrar cada achado com o arquivo, a linha ou a saída que o mostrava. Foram 22 achados, 5 deles críticos: acentos corrompidos no PDF, responsabilidades e conquistas perdidas no Markdown e no texto, um laço infinito no modo interativo e um comando de instalação do README que não funcionava.",
+            "Nenhuma linha de código mudou antes das decisões do dono. Depois, cada achado virou critério de aceite numa spec, e cada critério, um teste.",
+          ],
+          list: [],
+        },
+        {
+          heading: "Como a qualidade é garantida",
+          paragraphs: [],
+          list: [
+            "10 especificações e 71 critérios de aceite, todos provados por testes automatizados.",
+            "76 funções de teste e de benchmark, mais 9 arquivos com a saída esperada de cada formato, comparados a cada mudança.",
+            "CI em Linux, macOS e Windows, na versão mínima e na estável do Go, com lint, detecção de condição de corrida, cobertura mínima e um teste de fumaça do binário.",
+            "Os comandos dos READMEs rodam no CI, para a documentação nunca prometer o que a ferramenta não faz.",
+            "Releases com binários e checksums, publicadas só depois do CI completo.",
+          ],
+        },
+        {
+          heading: "Resultado",
+          paragraphs: [
+            "A v1.0.0 está publicada, com documentação para iniciantes em português e inglês. O processo usado aqui (descoberta com evidências, decisões do dono, uma spec por área e um pull request por tarefa) virou o sdd-kit, que hoje conduz meus outros projetos.",
+          ],
+          list: [],
+        },
+        {
+          heading: "Limites",
+          paragraphs: [
+            "É uma ferramenta de linha de comando: não há editor visual nem versão web. O uso real até agora é o meu; falta o retorno de outros usuários.",
+          ],
+          list: [],
+        },
+      ],
+      cta: {
+        heading: "Precisa de alguém que entregue assim?",
+        text: "Trabalho com QA e desenvolvimento: especificação, testes automatizados, CI e entrega até produção, com documentação para quem vai usar.",
+        button: "Fale comigo",
+      },
+    },
     "sdd-kit": {
       metaTitle: "sdd-kit: estudo de caso",
       metaDescription:

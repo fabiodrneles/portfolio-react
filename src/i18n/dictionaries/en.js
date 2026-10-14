@@ -97,7 +97,7 @@ const en = {
         out: "websites and APIs checked",
       },
       "cv-craft": {
-        desc: "Professional resume generator built with Go. Creates ATS-optimized resumes.",
+        desc: "Builds a resume in PDF, Markdown and text from a single YAML file, optimized for applicant tracking systems (ATS). Went from prototype to v1.0.0 with 71 tested acceptance criteria and 94% coverage; it is where sdd-kit was born.",
         out: "resume generated as PDF",
       },
       "spring-api": {
@@ -183,6 +183,80 @@ const en = {
     privacy: "Privacy Policy",
   },
   caseStudies: {
+    "cv-craft": {
+      metaTitle: "CV Craft: case study",
+      metaDescription:
+        "How I took a Go CLI that builds ATS-friendly resumes in PDF, Markdown and text from one YAML file from prototype to v1.0.0: evidence-based discovery, specs and tests.",
+      eyebrow: "Case study",
+      title: "CV Craft",
+      lead: "A Go command-line tool that builds a resume in PDF, Markdown and text from a single YAML file, optimized for applicant tracking systems (ATS). It went from prototype to v1.0.0, and it is the project where sdd-kit was born.",
+      facts: [
+        { value: "71", label: "acceptance criteria, all tested" },
+        { value: "94%", label: "test coverage" },
+        { value: "3", label: "formats from one YAML: PDF, Markdown and text" },
+      ],
+      factsNote: "Figures from v1.0.0, measured on 2026-10-14. Everything can be checked in the public repository.",
+      links: { repo: "See the repository", readme: "Read the docs", releases: "Download the releases" },
+      outputCaption: "The tool's real output: creating the template, building the three formats and validating a YAML with errors (the tool speaks Portuguese or English; here, Portuguese).",
+      sections: [
+        {
+          heading: "The problem",
+          paragraphs: [
+            "Keeping a resume in several formats (the PDF for recruiters, plain text for application forms, Markdown for GitHub) is rework and ends in versions that drift apart. A PDF with columns, tables or images is read poorly by applicant tracking systems. And online builders ask you to sign up and send your data elsewhere.",
+          ],
+          list: [],
+        },
+        {
+          heading: "The solution",
+          paragraphs: ["A single Go binary: the content lives in a YAML file you can version, and the tool builds every format with the same content, without sending anything to the internet."],
+          list: [
+            "The init command creates a commented template; validate lists every problem at once, each with the field and the reason.",
+            "An ATS-friendly PDF: a single column, selectable text, standard section titles and metadata (title, author, keywords).",
+            "Correct accents in every format, and section titles in Portuguese or English.",
+            "A JSON Schema gives autocomplete and validation in the editor; there is an interactive mode and rebuild on save (--watch).",
+            "Documented exit codes for scripts; installers for Windows, macOS and Linux that verify the checksum.",
+          ],
+        },
+        {
+          heading: "From prototype to v1.0.0",
+          paragraphs: [
+            "The code had stalled as a prototype. The first step was evidence-based discovery: reading the code, running every command in the README and recording each finding with the file, the line or the output that showed it. There were 22 findings, 5 of them critical: garbled accents in the PDF, responsibilities and achievements lost in the Markdown and text outputs, an infinite loop in interactive mode, and an install command in the README that did not work.",
+            "No line of code changed before the owner's decisions. Then every finding became an acceptance criterion in a spec, and every criterion a test.",
+          ],
+          list: [],
+        },
+        {
+          heading: "How quality is enforced",
+          paragraphs: [],
+          list: [
+            "10 specs and 71 acceptance criteria, all proven by automated tests.",
+            "76 test and benchmark functions, plus 9 files with the expected output of each format, compared on every change.",
+            "CI on Linux, macOS and Windows, on the minimum and the stable Go version, with lint, race detection, minimum coverage and a smoke test of the binary.",
+            "The README commands run in CI, so the docs never promise what the tool does not do.",
+            "Releases with binaries and checksums, published only after the full CI.",
+          ],
+        },
+        {
+          heading: "Outcome",
+          paragraphs: [
+            "v1.0.0 is published, with beginner-friendly documentation in Portuguese and English. The process used here (evidence-based discovery, owner decisions, one spec per area and one pull request per task) became sdd-kit, which now drives my other projects.",
+          ],
+          list: [],
+        },
+        {
+          heading: "Limits",
+          paragraphs: [
+            "It is a command-line tool: there is no visual editor or web version. Real-world use so far is my own; feedback from other users is missing.",
+          ],
+          list: [],
+        },
+      ],
+      cta: {
+        heading: "Need someone who delivers like this?",
+        text: "I work in QA and development: specs, automated tests, CI and delivery all the way to production, with documentation for the people who will use it.",
+        button: "Get in touch",
+      },
+    },
     "sdd-kit": {
       metaTitle: "sdd-kit: case study",
       metaDescription:

@@ -97,7 +97,7 @@ const fr = {
         out: "sites et API vérifiés",
       },
       "cv-craft": {
-        desc: "Générateur de CV professionnels en Go, optimisés pour les systèmes ATS.",
+        desc: "Génère le CV en PDF, Markdown et texte à partir d'un seul YAML, optimisé pour les logiciels de tri des candidatures (ATS). Passé du prototype à la v1.0.0 avec 71 critères d'acceptation testés et 94 % de couverture ; c'est là qu'est né sdd-kit.",
         out: "CV généré en PDF",
       },
       "spring-api": {
@@ -183,6 +183,80 @@ const fr = {
     privacy: "Politique de confidentialité",
   },
   caseStudies: {
+    "cv-craft": {
+      metaTitle: "CV Craft : étude de cas",
+      metaDescription:
+        "Comment j'ai mené du prototype à la v1.0.0 une CLI en Go qui génère des CV optimisés pour les ATS en PDF, Markdown et texte à partir d'un YAML : découverte fondée sur des preuves, spécifications et tests.",
+      eyebrow: "Étude de cas",
+      title: "CV Craft",
+      lead: "Un outil en ligne de commande en Go qui génère le CV en PDF, Markdown et texte à partir d'un seul fichier YAML, optimisé pour les logiciels de tri des candidatures (ATS). Il est passé du prototype à la v1.0.0, et c'est le projet où est né sdd-kit.",
+      facts: [
+        { value: "71", label: "critères d'acceptation, tous testés" },
+        { value: "94 %", label: "de couverture de tests" },
+        { value: "3", label: "formats à partir d'un YAML : PDF, Markdown et texte" },
+      ],
+      factsNote: "Chiffres de la v1.0.0, mesurés le 14/10/2026. Tout peut être vérifié dans le dépôt public.",
+      links: { repo: "Voir le dépôt", readme: "Lire la documentation", releases: "Télécharger les releases" },
+      outputCaption: "La sortie réelle de l'outil : créer le modèle, générer les trois formats et valider un YAML avec des erreurs (l'outil parle portugais ou anglais ; ici, portugais).",
+      sections: [
+        {
+          heading: "Le problème",
+          paragraphs: [
+            "Tenir son CV dans plusieurs formats (le PDF pour les recruteurs, le texte pour les formulaires de candidature, le Markdown pour GitHub) demande du travail en double et finit en versions différentes. Un PDF avec des colonnes, des tableaux ou des images est mal lu par les logiciels de tri. Et les générateurs en ligne demandent une inscription et envoient vos données ailleurs.",
+          ],
+          list: [],
+        },
+        {
+          heading: "La solution",
+          paragraphs: ["Un binaire unique en Go : le contenu vit dans un YAML versionnable, et l'outil génère tous les formats avec le même contenu, sans rien envoyer sur Internet."],
+          list: [
+            "La commande init crée un modèle commenté ; validate liste tous les problèmes d'un coup, chacun avec le champ et la raison.",
+            "Un PDF pensé pour les ATS : une seule colonne, du texte sélectionnable, des titres de section standard et des métadonnées (titre, auteur, mots-clés).",
+            "Des accents corrects dans tous les formats et des titres de section en portugais ou en anglais.",
+            "Un JSON Schema apporte l'autocomplétion et la validation dans l'éditeur ; il y a un mode interactif et une génération à chaque sauvegarde (--watch).",
+            "Des codes de sortie documentés pour les scripts ; des installeurs pour Windows, macOS et Linux qui vérifient la somme de contrôle.",
+          ],
+        },
+        {
+          heading: "Du prototype à la v1.0.0",
+          paragraphs: [
+            "Le code était resté à l'état de prototype. La première étape a été une découverte fondée sur des preuves : lire le code, exécuter chaque commande du README et noter chaque constat avec le fichier, la ligne ou la sortie qui le montrait. Il y a eu 22 constats, dont 5 critiques : des accents corrompus dans le PDF, des responsabilités et des réalisations perdues dans le Markdown et le texte, une boucle infinie dans le mode interactif et une commande d'installation du README qui ne fonctionnait pas.",
+            "Aucune ligne de code n'a changé avant les décisions du propriétaire. Ensuite, chaque constat est devenu un critère d'acceptation dans une spécification, et chaque critère un test.",
+          ],
+          list: [],
+        },
+        {
+          heading: "Comment la qualité est garantie",
+          paragraphs: [],
+          list: [
+            "10 spécifications et 71 critères d'acceptation, tous prouvés par des tests automatisés.",
+            "76 fonctions de test et de benchmark, plus 9 fichiers avec la sortie attendue de chaque format, comparés à chaque changement.",
+            "CI sous Linux, macOS et Windows, sur la version minimale et la version stable de Go, avec lint, détection des accès concurrents, couverture minimale et un test de fumée du binaire.",
+            "Les commandes des README s'exécutent dans la CI, pour que la documentation ne promette jamais ce que l'outil ne fait pas.",
+            "Des releases avec binaires et sommes de contrôle, publiées seulement après la CI complète.",
+          ],
+        },
+        {
+          heading: "Résultat",
+          paragraphs: [
+            "La v1.0.0 est publiée, avec une documentation pour débutants en portugais et en anglais. Le processus utilisé ici (découverte fondée sur des preuves, décisions du propriétaire, une spécification par domaine et une pull request par tâche) est devenu sdd-kit, qui pilote aujourd'hui mes autres projets.",
+          ],
+          list: [],
+        },
+        {
+          heading: "Limites",
+          paragraphs: [
+            "C'est un outil en ligne de commande : il n'y a ni éditeur visuel ni version web. L'usage réel, pour l'instant, est le mien ; il manque les retours d'autres utilisateurs.",
+          ],
+          list: [],
+        },
+      ],
+      cta: {
+        heading: "Besoin de quelqu'un qui livre ainsi ?",
+        text: "Je travaille en QA et en développement : spécifications, tests automatisés, CI et livraison jusqu'à la production, avec la documentation pour ceux qui l'utiliseront.",
+        button: "Me contacter",
+      },
+    },
     "sdd-kit": {
       metaTitle: "sdd-kit : étude de cas",
       metaDescription:
