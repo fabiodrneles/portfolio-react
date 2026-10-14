@@ -84,6 +84,10 @@ const en = {
     openCase: "Read the case study",
     done: "done",
     projects: {
+      "sdd-kit": {
+        desc: "A Spec Driven Development kit for AI agents: it turns a request into a spec, tickets and one pull request per ticket with green CI, all the way to the release. Ready-made CI for six languages and GitHub Actions automation; 42 releases, built with its own process.",
+        out: "spec → tickets → PRs → release",
+      },
       "go-release-manager": {
         desc: "Computes the next SemVer version from Conventional Commits and creates the tag, from the terminal or as a GitHub Action. In production: it versions sdd-kit, with 97% test coverage and binaries for Linux, macOS and Windows.",
         out: "v1.2.0 → v1.3.0 · tag created",
@@ -179,6 +183,83 @@ const en = {
     privacy: "Privacy Policy",
   },
   caseStudies: {
+    "sdd-kit": {
+      metaTitle: "sdd-kit: case study",
+      metaDescription:
+        "How I built a kit that brings a professional team's delivery process to AI agents: specs, one pull request per ticket with green CI, GitHub Actions automation and releases.",
+      eyebrow: "Case study",
+      title: "sdd-kit",
+      lead: "A Spec Driven Development kit for AI agents such as Claude Code: it turns a request into a spec, an epic, tickets and one pull request per ticket with green CI, all the way to the release. The owner decides; the agent executes.",
+      facts: [
+        { value: "42", label: "published releases (now at v1.24.0)" },
+        { value: "22", label: "specs for the kit itself" },
+        { value: "6", label: "languages with ready-made CI" },
+      ],
+      factsNote: "Figures from the public repository on 2026-10-14.",
+      links: { repo: "See the repository", readme: "Read the docs", demo: "See the demo project" },
+      outputCaption: "The real output of adopting the kit in an empty Go repository, then the first make ci (middle lines omitted; the scripts speak the owner's language, here Portuguese):",
+      sections: [
+        {
+          heading: "The problem",
+          paragraphs: [
+            "AI agents write code fast, but without a process: they forget the project at every session, open huge pull requests, decide things that belonged to the owner and, when CI goes red, sometimes fix it by switching the test off.",
+            "The community's SDD tools handle the specification well. What is left to the person is the delivery: turning the spec into reviewable tickets, keeping CI green and closing the version.",
+          ],
+          list: [],
+        },
+        {
+          heading: "The solution",
+          paragraphs: ["The kit brings a professional team's way of delivering to any repository:"],
+          list: [
+            "A skill that teaches the agent the whole process: evidence-based analysis, specs with acceptance criteria, an epic per phase, one ticket per branch and per pull request, review, CHANGELOG and tag.",
+            "An adoption script, in sh and PowerShell, that copies the template without overwriting anything: CLAUDE.md, issue and PR templates, specs and ready-made CI for Go, Node/TypeScript, Java, Python, Rust and C#/.NET, with minimum test coverage.",
+            "An event engine on GitHub Actions that does the mechanical steps without AI: it updates the checkpoint on every merge, summarizes red CI, brings main into the PRs, opens the closing PR and triggers the release.",
+            "Resume checkpoints: a session can end at any moment, and the next one picks up where the last one stopped.",
+            "axyn, a Go CLI that brings the same process to free or local models, moving on only when the quality gates pass.",
+          ],
+        },
+        {
+          heading: "How quality is enforced",
+          paragraphs: ["The kit is developed with its own process, and every pull request goes through 12 checks:"],
+          list: [
+            "Markdown and shell lint, tests of the scripts, and workflow verification (actionlint).",
+            "Adoption tested on Linux, macOS and Windows.",
+            "Every language template adopted into a minimal project, with the generated make ci actually running.",
+            "Traceability: every acceptance criterion is cited in a test; a rule fails CI if one is left out.",
+            "Each release's version is computed from the commits, with Go Release Manager.",
+          ],
+        },
+        {
+          heading: "Technical decisions",
+          paragraphs: [],
+          list: [
+            "Explicit stopping points: decisions, review, merge and tag belong to the owner, unless delegated.",
+            "Tests are sovereign: red CI is fixed at the root cause, never by loosening or skipping a test.",
+            "Scripts in POSIX sh and PowerShell, so they run the same on Linux, macOS and Windows.",
+            "Adoption never overwrites the project's files, and a weekly sync keeps adopted repositories up to date.",
+          ],
+        },
+        {
+          heading: "Outcome",
+          paragraphs: [
+            "The kit grew out of cv-craft, which went from prototype to v1.x with this process: 10 specs and 71 acceptance criteria, all with an automated test. Today it drives Go Release Manager and sdd-kit-demo, a project built from scratch with an epic, tickets, pull requests and a release, as well as the kit itself. The same method, with specs and sovereign tests, guides this site.",
+          ],
+          list: [],
+        },
+        {
+          heading: "Limits",
+          paragraphs: [
+            "The kit depends on GitHub and on an agent (Claude Code, or opencode through axyn). So far it is used on my own projects; validation by other teams is missing. The process does not replace the person: decisions and review still belong to the owner.",
+          ],
+          list: [],
+        },
+      ],
+      cta: {
+        heading: "Need someone who delivers like this?",
+        text: "I work in QA and development: specs, automated tests, CI and delivery all the way to production, with documentation for the people who will use it.",
+        button: "Get in touch",
+      },
+    },
     "go-release-manager": {
       metaTitle: "Go Release Manager: case study",
       metaDescription:
