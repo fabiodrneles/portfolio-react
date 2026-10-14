@@ -23,7 +23,7 @@ export const projects = [
   {
     id: "go-release-manager",
     title: "Go Release Manager",
-    tags: ["Go", "CLI"],
+    tags: ["Go", "CLI", "GitHub Actions"],
     lang: "go",
     cmd: "go-release-manager",
     url: "https://github.com/fabiodrneles/Go-Release-Manager",

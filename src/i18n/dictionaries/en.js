@@ -84,8 +84,8 @@ const en = {
     done: "done",
     projects: {
       "go-release-manager": {
-        desc: "Stop creating releases manually. Automates the entire release workflow.",
-        out: "release created · changelog generated",
+        desc: "Computes the next SemVer version from Conventional Commits and creates the tag, from the terminal or as a GitHub Action. In production: it versions sdd-kit, with 97% test coverage and binaries for Linux, macOS and Windows.",
+        out: "v1.2.0 → v1.3.0 · tag created",
       },
       "go-checker": {
         desc: "A simple yet powerful command-line tool to quickly verify websites and APIs.",

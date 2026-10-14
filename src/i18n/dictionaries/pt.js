@@ -85,8 +85,8 @@ const pt = {
     done: "concluído",
     projects: {
       "go-release-manager": {
-        desc: "Chega de criar releases na mão. Automatiza todo o fluxo de release.",
-        out: "release criada · changelog gerado",
+        desc: "Calcula a próxima versão SemVer pelos Conventional Commits e cria a tag, no terminal ou como GitHub Action. Em produção: gera as versões do sdd-kit, com 97% de cobertura de testes e binários para Linux, macOS e Windows.",
+        out: "v1.2.0 → v1.3.0 · tag criada",
       },
       "go-checker": {
         desc: "Ferramenta de linha de comando simples e poderosa para verificar sites e APIs rapidamente.",
