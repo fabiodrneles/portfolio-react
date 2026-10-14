@@ -28,7 +28,7 @@ Editar o site inteiro por um painel em `/painel` (o `/admin` atual continua como
 ## Critérios de aceite
 | # | Critério | Teste que prova |
 | --- | --- | --- |
-| 1 | `/painel` mostra só o login para quem não está logado com a conta do dono, e `/en/painel` e `/fr/painel` dão 404 | novo teste: `cypress/e2e/painel-auth.cy.js` (pendente) |
+| 1 | `/painel` mostra só o login para quem não está logado com a conta do dono, e `/en/painel` e `/fr/painel` dão 404 | novo teste: `cypress/e2e/painel.cy.js` |
 | 2 | Artigo sem tradução EN ou FR não pode ser publicado, e a publicação gera as duas traduções a partir do português | novo teste: `cypress/e2e/admin-publish.cy.js` |
 | 3 | Publicar um artigo cria o commit com o arquivo do artigo, e ele aparece na lista após a reconstrução | novo teste: `cypress/e2e/admin-publish.cy.js` |
 | 4 | Excluir pede confirmação e só então faz o commit | novo teste: `cypress/e2e/admin-content.cy.js` |
