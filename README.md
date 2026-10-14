@@ -23,6 +23,10 @@
 
 </div>
 
+## Contents
+
+[What is this?](#what-is-this) · [At a glance](#at-a-glance) · [Highlights](#highlights) · [How quality is enforced](#how-quality-is-enforced) · [How it works](#how-it-works) · [Tech stack](#tech-stack) · [Project structure](#project-structure) · [Getting started](#getting-started) · [Writing a new article](#writing-a-new-article) · [Documentation](#documentation) · [Contact](#contact) · [License](#license)
+
 ## What is this?
 
 This is the source code of my personal site. It works as a portfolio, but also as a working example of how I approach software: small specs, end-to-end tests that are never weakened to make a build pass, and pipelines that check accessibility, security, privacy and performance on every push.
@@ -100,6 +104,22 @@ Two rules shape how the project evolves:
 
 > Automated checks are not a substitute for manual testing with screen readers or measurements with real visitors. See [`docs/compliance`](docs/compliance/README.md) for what the pipelines prove and what they do not.
 
+## How it works
+
+```mermaid
+flowchart LR
+  V[Visitor] --> P["proxy.js"]
+  P -->|"cookie, then Accept-Language"| L{Language}
+  L -->|pt| A["Portuguese pages (no prefix)"]
+  L -->|en| B["/en pages"]
+  L -->|fr| C["/fr pages"]
+  A & B & C --> S["Static HTML generated at build time"]
+```
+
+- Every page is generated at build time, once per language, with its own URL, metadata and sitemap entry.
+- Articles live in `src/posts/posts.js` with `translations` for English and French. If a translation is missing, the page falls back to Portuguese and shows a notice.
+- An optional publishing panel (`/painel`, GitHub login) is part of the code but stays disabled until its environment variables are set. See [spec 013](specs/013-dashboard-administracao.md).
+
 ## Tech stack
 
 | Area | Choice |
@@ -111,19 +131,22 @@ Two rules shape how the project evolves:
 | Contact form | [EmailJS](https://www.emailjs.com) |
 | Testing | Cypress, cypress-axe, axe-core, Pa11y, Lighthouse CI |
 | Security | CodeQL, Gitleaks, dependency review, Dependabot |
+| Content safety | DOMPurify sanitizes article HTML in the editor and on the server |
 | Hosting | Vercel |
 
 ## Project structure
 
 ```text
 src/
-├── app/[lang]/        routes per language: home, blog, quality, privacy, admin, RSS feed
+├── app/[lang]/        routes per language: home, blog, quality, privacy, admin, panel, RSS feed
+├── app/api/painel/    routes of the optional publishing panel (disabled until configured)
 ├── components/        UI by area (header, home, blog, contact, footer, admin...)
 ├── i18n/              locale config, metadata helpers and dictionaries (pt, en, fr)
 ├── data/portfolio.js  links, stack, projects, experience and education
 ├── posts/             blog articles and per-language selection
 ├── lib/               feed, SEO, Open Graph images, site constants
 └── proxy.js           picks the language of each visit (cookie, then Accept-Language)
+content/               articles and drafts published by the panel (created on first use)
 cypress/e2e/           end-to-end specs
 specs/                 one short spec per area, with acceptance criteria
 docs/                  compliance map and screenshots
@@ -186,6 +209,10 @@ An article without English and French versions is not published to production.
 - [`specs/`](specs/README.md): the specs, one per area, with acceptance criteria and the tests that prove them
 - [`docs/compliance/`](docs/compliance/README.md): maps each law and standard (LGPD, WCAG, security headers) to the automated test that checks it
 - [`SECURITY.md`](SECURITY.md): how to report a vulnerability privately
+
+## Contact
+
+Open to QA and software development roles. [Website](https://fabiodorneles.com.br/en#contact) · [LinkedIn](https://www.linkedin.com/in/fabiodrneles/) · [GitHub](https://github.com/fabiodrneles)
 
 ## License
 
