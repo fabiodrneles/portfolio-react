@@ -50,15 +50,11 @@ export default async function CaseStudyPage({ params }) {
       <p className="case__note">{text.factsNote}</p>
 
       <p className="quality__links">
-        <a href={facts.repo} className="text-link" target="_blank" rel="noopener noreferrer">
-          {text.links.repo} →
-        </a>
-        <a href={facts.readme} className="text-link" target="_blank" rel="noopener noreferrer">
-          {text.links.readme} →
-        </a>
-        <a href={facts.releases} className="text-link" target="_blank" rel="noopener noreferrer">
-          {text.links.releases} →
-        </a>
+        {facts.links.map(({ key, url }) => (
+          <a key={key} href={url} className="text-link" target="_blank" rel="noopener noreferrer">
+            {text.links[key]} →
+          </a>
+        ))}
       </p>
 
       <figure className="case__figure">

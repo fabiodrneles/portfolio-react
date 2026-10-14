@@ -84,6 +84,10 @@ const fr = {
     openCase: "Lire l'étude de cas",
     done: "terminé",
     projects: {
+      "sdd-kit": {
+        desc: "Un kit de Spec Driven Development pour les agents d'IA : il transforme une demande en spécification, tickets et une pull request par ticket avec une CI verte, jusqu'à la release. CI prête pour six langages et automatisation GitHub Actions ; 42 releases, développé avec son propre processus.",
+        out: "spec → tickets → PRs → release",
+      },
       "go-release-manager": {
         desc: "Calcule la prochaine version SemVer à partir des Conventional Commits et crée le tag, en ligne de commande ou comme GitHub Action. En production : il versionne sdd-kit, avec 97 % de couverture de tests et des binaires pour Linux, macOS et Windows.",
         out: "v1.2.0 → v1.3.0 · tag créé",
@@ -179,6 +183,83 @@ const fr = {
     privacy: "Politique de confidentialité",
   },
   caseStudies: {
+    "sdd-kit": {
+      metaTitle: "sdd-kit : étude de cas",
+      metaDescription:
+        "Comment j'ai construit un kit qui apporte aux agents d'IA le processus de livraison d'une équipe professionnelle : spécifications, une pull request par ticket avec une CI verte, automatisation GitHub Actions et releases.",
+      eyebrow: "Étude de cas",
+      title: "sdd-kit",
+      lead: "Un kit de Spec Driven Development pour les agents d'IA comme Claude Code : il transforme une demande en spécification, épopée, tickets et une pull request par ticket avec une CI verte, jusqu'à la release. Le propriétaire décide ; l'agent exécute.",
+      facts: [
+        { value: "42", label: "releases publiées (aujourd'hui en v1.24.0)" },
+        { value: "22", label: "spécifications du kit lui-même" },
+        { value: "6", label: "langages avec une CI prête à l'emploi" },
+      ],
+      factsNote: "Chiffres du dépôt public au 14/10/2026.",
+      links: { repo: "Voir le dépôt", readme: "Lire la documentation", demo: "Voir le projet de démonstration" },
+      outputCaption: "La sortie réelle de l'adoption dans un dépôt Go vide, puis le premier make ci (lignes du milieu omises ; les scripts parlent la langue du propriétaire, ici le portugais) :",
+      sections: [
+        {
+          heading: "Le problème",
+          paragraphs: [
+            "Les agents d'IA écrivent du code vite, mais sans processus : ils oublient le projet à chaque session, ouvrent des pull requests énormes, décident à la place du propriétaire et, quand la CI passe au rouge, la réparent parfois en désactivant le test.",
+            "Les outils SDD de la communauté gèrent bien la spécification. Ce qui reste à la personne, c'est la livraison : transformer la spécification en tickets relisibles, garder la CI verte et clôturer la version.",
+          ],
+          list: [],
+        },
+        {
+          heading: "La solution",
+          paragraphs: ["Le kit apporte à n'importe quel dépôt la façon de livrer d'une équipe professionnelle :"],
+          list: [
+            "Une skill qui enseigne à l'agent tout le processus : analyse fondée sur des preuves, spécifications avec critères d'acceptation, une épopée par phase, un ticket par branche et par pull request, revue, CHANGELOG et tag.",
+            "Un script d'adoption, en sh et en PowerShell, qui copie le modèle sans rien écraser : CLAUDE.md, modèles d'issue et de PR, spécifications et une CI prête pour Go, Node/TypeScript, Java, Python, Rust et C#/.NET, avec une couverture de tests minimale.",
+            "Un moteur d'événements sur GitHub Actions qui fait les étapes mécaniques sans IA : il met à jour le point de reprise à chaque merge, résume la CI rouge, intègre la main dans les PR, ouvre la PR de clôture et déclenche la release.",
+            "Des points de reprise : une session peut s'arrêter à tout moment, et la suivante reprend là où la précédente s'est arrêtée.",
+            "axyn, une CLI en Go qui applique le même processus à des modèles gratuits ou locaux, en n'avançant que si les contrôles de qualité passent.",
+          ],
+        },
+        {
+          heading: "Comment la qualité est garantie",
+          paragraphs: ["Le kit est développé avec son propre processus, et chaque pull request passe par 12 vérifications :"],
+          list: [
+            "Lint du Markdown et du shell, tests des scripts et vérification des workflows (actionlint).",
+            "L'adoption testée sous Linux, macOS et Windows.",
+            "Chaque modèle de langage adopté dans un projet minimal, avec le make ci généré réellement exécuté.",
+            "Traçabilité : chaque critère d'acceptation est cité dans un test ; une règle fait échouer la CI s'il en manque un.",
+            "La version de chaque release est calculée à partir des commits, avec Go Release Manager.",
+          ],
+        },
+        {
+          heading: "Choix techniques",
+          paragraphs: [],
+          list: [
+            "Des points d'arrêt explicites : décisions, revue, merge et tag appartiennent au propriétaire, sauf délégation.",
+            "Les tests sont souverains : une CI rouge se corrige à la cause racine, jamais en assouplissant ou en sautant un test.",
+            "Des scripts en sh POSIX et en PowerShell, pour tourner de la même façon sous Linux, macOS et Windows.",
+            "L'adoption n'écrase jamais les fichiers du projet, et une synchronisation hebdomadaire tient les dépôts adoptés à jour.",
+          ],
+        },
+        {
+          heading: "Résultat",
+          paragraphs: [
+            "Le kit est né de cv-craft, passé du prototype à la v1.x avec ce processus : 10 spécifications et 71 critères d'acceptation, tous couverts par un test automatisé. Aujourd'hui, il pilote Go Release Manager et sdd-kit-demo, un projet créé de zéro avec épopée, tickets, pull requests et release, ainsi que le kit lui-même. La même méthode, avec des spécifications et des tests souverains, guide ce site.",
+          ],
+          list: [],
+        },
+        {
+          heading: "Limites",
+          paragraphs: [
+            "Le kit dépend de GitHub et d'un agent (Claude Code, ou opencode via axyn). Pour l'instant, il est utilisé sur mes projets ; il manque la validation par d'autres équipes. Le processus ne remplace pas la personne : les décisions et la revue restent au propriétaire.",
+          ],
+          list: [],
+        },
+      ],
+      cta: {
+        heading: "Besoin de quelqu'un qui livre ainsi ?",
+        text: "Je travaille en QA et en développement : spécifications, tests automatisés, CI et livraison jusqu'à la production, avec la documentation pour ceux qui l'utiliseront.",
+        button: "Me contacter",
+      },
+    },
     "go-release-manager": {
       metaTitle: "Go Release Manager : étude de cas",
       metaDescription:

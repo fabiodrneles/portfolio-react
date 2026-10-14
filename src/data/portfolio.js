@@ -21,6 +21,15 @@ export const stack = ["Cypress", "Selenium", "Java", "Kotlin", "Spring", "Go", "
 /** `id` liga cada projeto aos textos traduzidos em `work.projects`. */
 export const projects = [
   {
+    id: "sdd-kit",
+    title: "sdd-kit",
+    tags: ["Claude Code", "GitHub Actions", "Go"],
+    lang: "go",
+    cmd: "adopt.sh",
+    url: "https://github.com/fabiodrneles/sdd-kit",
+    caseStudy: true,
+  },
+  {
     id: "go-release-manager",
     title: "Go Release Manager",
     tags: ["Go", "CLI", "GitHub Actions"],
@@ -56,9 +65,12 @@ export const projects = [
  */
 export const caseStudies = {
   "go-release-manager": {
-    repo: "https://github.com/fabiodrneles/Go-Release-Manager",
-    readme: "https://github.com/fabiodrneles/Go-Release-Manager#readme",
-    releases: "https://github.com/fabiodrneles/Go-Release-Manager/releases",
+    // `key` liga cada link ao rótulo traduzido em `caseStudies.<id>.links`.
+    links: [
+      { key: "repo", url: "https://github.com/fabiodrneles/Go-Release-Manager" },
+      { key: "readme", url: "https://github.com/fabiodrneles/Go-Release-Manager#readme" },
+      { key: "releases", url: "https://github.com/fabiodrneles/Go-Release-Manager/releases" },
+    ],
     // Saída real da v1.2.0 num repositório com três commits depois de v1.2.0.
     terminal: [
       "$ git log --oneline",
@@ -80,6 +92,31 @@ export const caseStudies = {
       "Increment: Minor",
       "Tag that would be created: v1.3.0",
       "--- END OF DRY RUN ---",
+    ],
+  },
+  "sdd-kit": {
+    links: [
+      { key: "repo", url: "https://github.com/fabiodrneles/sdd-kit" },
+      { key: "readme", url: "https://github.com/fabiodrneles/sdd-kit#readme" },
+      { key: "demo", url: "https://github.com/fabiodrneles/sdd-kit-demo" },
+    ],
+    // Saída real da v1.24.0: adoção num repositório Go vazio e o primeiro make ci (linhas do meio omitidas).
+    terminal: [
+      "$ sh adopt.sh --lang go --skeleton",
+      "criado: CLAUDE.md",
+      "criado: .github/workflows/ci.yml",
+      "criado: .github/workflows/sdd-on-merge.yml",
+      "criado: specs/constitution.md",
+      "criado: specs/ROADMAP.md",
+      "…",
+      "sdd-kit go em my-app: 59 criados, 0 ignorados, 0 sobrescritos",
+      "",
+      "$ make ci",
+      "golangci-lint run",
+      "0 issues.",
+      "ok   github.com/you/my-app   coverage: 100.0% of statements",
+      "cobertura: 100.0% (mínimo 80%)",
+      "go build ./...",
     ],
   },
 };
