@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 // Estudo de caso do Go Release Manager (specs/014).
+import "cypress-axe";
 
 const baseUrl = Cypress.config("baseUrl") || "https://portfolio-react-nine-red.vercel.app";
 const PATH = "/projects/go-release-manager";
@@ -41,8 +42,8 @@ describe("Estudo de caso: Go Release Manager", () => {
       cy.visit(`${baseUrl}${prefix || "/"}`);
       cy.get(`.work__grid a[href='${prefix}${PATH}']`)
         .should("have.length", 1)
-        .and("not.have.attr", "target")
-        .and("contain", "Go Release Manager");
+        .and("contain", "Go Release Manager")
+        .and("not.have.attr", "target");
     });
 
     [
