@@ -1,16 +1,16 @@
 # 014 Estudo de caso de projeto
 
 - **Status:** implementada
-- **Atualizada em:** 2026-10-14
+- **Atualizada em:** 2026-10-15
 
 ## Objetivo
-Mostrar a quem avalia o portfólio, com fatos verificáveis, como um projeto foi pensado, construído, testado e levado a produção. Hoje há três: o sdd-kit, o Go Release Manager e o CV Craft. O cartão da área de projetos diz o quê; o estudo de caso diz como e com que resultado.
+Mostrar a quem avalia o portfólio, com fatos verificáveis, como um projeto foi pensado, construído, testado e levado a produção. Hoje há quatro: o sdd-kit, o Go Release Manager, o Go Checker e o CV Craft. O cartão da área de projetos diz o quê; o estudo de caso diz como e com que resultado.
 
 ## Comportamento
-- Uma página por projeto em `/projects/<id>` (e `/en/...`, `/fr/...`), sem rota localizada, no sitemap nos 3 idiomas: `/projects/sdd-kit`, `/projects/go-release-manager` e `/projects/cv-craft`.
+- Uma página por projeto em `/projects/<id>` (e `/en/...`, `/fr/...`), sem rota localizada, no sitemap nos 3 idiomas: `/projects/sdd-kit`, `/projects/go-release-manager`, `/projects/go-checker` e `/projects/cv-craft`.
 - Na área de projetos, o cartão de um projeto com estudo de caso abre a página do estudo, na mesma aba. Os outros cartões continuam abrindo o GitHub em nova aba.
 - Conteúdo: o problema, a solução, a saída real da ferramenta (texto, não imagem), como a qualidade é garantida, as decisões técnicas, o resultado em produção, os limites e um convite para contato.
-- Números só com a fonte e a data da medição (2026-10-14). Seção "Limites" explícita.
+- Números só com a fonte e a data da medição (2026-10-14; o Go Checker, 2026-10-15). Seção "Limites" explícita.
 - Três links por projeto (repositório, documentação e releases ou demonstração), com `rel="noopener noreferrer"`.
 - O sdd-kit entra na lista de projetos, em primeiro lugar.
 
@@ -20,10 +20,10 @@ Estudos de caso dos demais projetos (o modelo fica pronto para eles) e números 
 ## Critérios de aceite
 | # | Critério | Teste que prova |
 | --- | --- | --- |
-| 1 | Cada página existe nos 3 idiomas, com um h1, os números, a saída da ferramenta e links seguros para o repositório | `cypress/e2e/case-study.cy.js`, `cypress/e2e/case-study-sdd-kit.cy.js`, `cypress/e2e/case-study-cv-craft.cy.js` |
-| 2 | O cartão do projeto na página inicial leva ao estudo de caso no idioma da página | os três acima |
-| 3 | Está no sitemap nos 3 idiomas | os três acima |
-| 4 | Sem violações do axe (WCAG 2.2 AA) no desktop e no celular, e sem rolagem horizontal em 320px | os três acima |
+| 1 | Cada página existe nos 3 idiomas, com um h1, os números, a saída da ferramenta e links seguros para o repositório | `cypress/e2e/case-study.cy.js`, `cypress/e2e/case-study-sdd-kit.cy.js`, `cypress/e2e/case-study-cv-craft.cy.js`, `cypress/e2e/case-study-go-checker.cy.js` |
+| 2 | O cartão do projeto na página inicial leva ao estudo de caso no idioma da página | os quatro acima |
+| 3 | Está no sitemap nos 3 idiomas | os quatro acima |
+| 4 | Sem violações do axe (WCAG 2.2 AA) no desktop e no celular, e sem rolagem horizontal em 320px | os quatro acima |
 
 ## Decisões
 - Tom modesto, como na página de qualidade: o que convence é o repositório público, não adjetivos.

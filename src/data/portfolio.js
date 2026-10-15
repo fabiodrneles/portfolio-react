@@ -42,10 +42,11 @@ export const projects = [
   {
     id: "go-checker",
     title: "Go Checker",
-    tags: ["Go", "QA"],
+    tags: ["Go", "SRE", "CI/CD"],
     lang: "go",
     cmd: "go-checker",
     url: "https://github.com/fabiodrneles/go-checker",
+    caseStudy: true,
   },
   {
     id: "cv-craft",
@@ -72,6 +73,33 @@ export const projects = [
  * ferramenta. Os textos traduzidos ficam em `caseStudies` nos dicionários.
  */
 export const caseStudies = {
+  "go-checker": {
+    links: [
+      { key: "repo", url: "https://github.com/fabiodrneles/go-checker" },
+      { key: "readme", url: "https://github.com/fabiodrneles/go-checker#readme" },
+      { key: "releases", url: "https://github.com/fabiodrneles/go-checker/releases" },
+    ],
+    // Saída real da v1.0.0 contra o ambiente de demonstração do README (sete serviços).
+    terminal: [
+      "$ go-checker check",
+      "✓ UP    Storefront    200 OK  37ms",
+      "✓ UP    Orders API    200 OK  43ms",
+      "✗ DOWN  Checkout API  200 OK  63ms",
+      '        → $.status is "degraded", want "ok"',
+      "        → $.db.ok is false, want true",
+      "! WARN  Search        200 OK  1.24s",
+      "        → latency 1.243s above max_latency 800ms",
+      "✗ DOWN  Payments      503 Service Unavailable  9ms  (2 attempts)",
+      "! WARN  Auth service  200 OK  45ms",
+      "        → certificate expires in 9 days (minimum 14)",
+      "✓ UP    Postgres      connected to 127.0.0.1:5432  498µs",
+      "",
+      "7 checks: 3 up, 2 warn, 2 down in 1.24s",
+      "",
+      "$ go-checker check -f typo.yaml",
+      'error: typo.yaml: line 4: unknown key "timout" (did you mean "timeout"?)',
+    ],
+  },
   "go-release-manager": {
     // `key` liga cada link ao rótulo traduzido em `caseStudies.<id>.links`.
     links: [

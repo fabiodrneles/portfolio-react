@@ -94,8 +94,8 @@ const pt = {
         out: "v1.2.0 → v1.3.0 · tag criada",
       },
       "go-checker": {
-        desc: "Ferramenta de linha de comando simples e poderosa para verificar sites e APIs rapidamente.",
-        out: "sites e APIs verificados",
+        desc: "Verifica sites e APIs no terminal, no CI e como monitor 24/7: asserções em JSON, raio-x da requisição (DNS, TLS, TTFB), validade do certificado, métricas do Prometheus e alertas no Slack, Discord, Teams e Telegram. De protótipo à v1.0.0, com 50 critérios de aceite testados e 96% de cobertura.",
+        out: "7 checks · 3 up, 2 warn, 2 down",
       },
       "cv-craft": {
         desc: "Gera o currículo em PDF, Markdown e texto a partir de um único YAML, otimizado para os sistemas de triagem (ATS). Saiu de protótipo para a v1.0.0 com 71 critérios de aceite testados e 94% de cobertura; foi onde nasceu o sdd-kit.",
@@ -184,6 +184,107 @@ const pt = {
     privacy: "Política de Privacidade",
   },
   caseStudies: {
+    "go-checker": {
+      "metaTitle": "Go Checker: estudo de caso",
+      "metaDescription": "Como levei de protótipo à v1.0.0 uma CLI em Go de verificação de saúde de sites e APIs: asserções, raio-x da requisição, certificado TLS, CI, Prometheus e alertas.",
+      "eyebrow": "Estudo de caso",
+      "title": "Go Checker",
+      "lead": "Uma ferramenta em Go que responde à pergunta que todo time faz várias vezes por dia: está tudo funcionando? Ela confere se a resposta está certa, rápida e com o certificado em dia, trava o deploy quebrado no CI e, como monitor, avisa o time só quando a queda é real.",
+      "facts": [
+        {
+          "value": "50",
+          "label": "critérios de aceite, todos com teste"
+        },
+        {
+          "value": "96%",
+          "label": "de cobertura, testada em Linux, macOS e Windows"
+        },
+        {
+          "value": "11",
+          "label": "casos de uso documentados com a saída real"
+        }
+      ],
+      "factsNote": "Números da v1.0.0, medidos em 15/10/2026. Tudo pode ser conferido no repositório público.",
+      "links": {
+        "repo": "Ver o repositório",
+        "readme": "Ler a documentação",
+        "releases": "Baixar as releases"
+      },
+      "outputCaption": "A saída real da ferramenta: sete serviços verificados, cada falha com o motivo, e um erro de digitação na configuração apontado com a linha e a sugestão certa.",
+      "sections": [
+        {
+          "heading": "O problema",
+          "paragraphs": [
+            "Um /health que responde 200 com o banco desconectado, um site que fica lento sem que ninguém saiba se é DNS, rede, TLS ou o servidor, um certificado que vence num domingo, um pacote perdido que acorda o plantão às 3h. Os verificadores simples só olham o status; as plataformas completas pedem banco, interface e manutenção.",
+            "O go-checker começou como um protótipo de 190 linhas com problemas sérios: a latência impressa era sempre 2562047h, o processo saía com 0 mesmo com serviços fora (inútil em CI), não havia testes, README nem CI, e um binário de 9,5 MB estava commitado."
+          ],
+          "list": []
+        },
+        {
+          "heading": "A solução",
+          "paragraphs": [
+            "Um binário único, configurado em YAML versionado junto com o código, que serve no terminal, no pipeline e como monitor contínuo:"
+          ],
+          "list": [
+            "Asserções sobre o conteúdo: status, latência máxima, texto e regex no corpo, valores no JSON ($.data.items[0].id) e cabeçalhos, cada falha com o esperado e o encontrado.",
+            "Raio-x da requisição: tempos de DNS, conexão TCP, handshake TLS e primeiro byte, e os dias até o certificado vencer.",
+            "Códigos de saída para CI (0, 1 e 2), relatórios em JSON, JUnit e Markdown, resumo automático no GitHub Actions e uma GitHub Action pronta.",
+            "Modo monitor com métricas do Prometheus (p50, p95 e p99) e alertas no Slack, Discord, Teams, Telegram ou num webhook, com proteção contra oscilação.",
+            "Geração dos checks a partir de uma especificação OpenAPI, checks de portas TCP e de DNS, e segredos lidos do ambiente.",
+            "Distribuição em binários para cinco plataformas, imagem Docker multi-arquitetura e go install."
+          ]
+        },
+        {
+          "heading": "Do protótipo à v1.0.0",
+          "paragraphs": [
+            "Comecei por uma análise com evidências: rodar a ferramenta, registrar cada defeito com a saída que o provava e decidir com o dono o que mudar antes de tocar no código. Daí saíram 10 especificações com critérios de aceite, e cada entrega virou um pull request com o CI verde.",
+            "Antes de liberar a versão, fiz uma pesquisa de mercado comparando o go-checker com Gatus, Uptime Kuma, Blackbox Exporter, Hurl, StepCI, Checkly e k6. Ele já estava acima da média em diagnóstico, integração com CI e geração a partir de OpenAPI, e abaixo em segredos, protocolos, canais de alerta e distribuição. Fechei essas lacunas antes da v1.0.0: variáveis de ambiente, autenticação, TCP e DNS, Discord, Teams e Telegram, e a imagem Docker."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Decisões técnicas",
+          "paragraphs": [],
+          "list": [
+            "Medição com net/http/httptrace e uma conexão nova por requisição, para que DNS, TCP e TLS entrem no tempo como para um visitante novo.",
+            "Retentativas com backoff exponencial e jitter só para erros transitórios (rede e 5xx): um 404 é a resposta final do servidor e não é repetido.",
+            "Uma máquina de estados por check filtra oscilações: um estado novo só vale depois de N rodadas seguidas, então um pacote perdido não vira alerta.",
+            "Formato de exposição do Prometheus e JSON path escritos no projeto: as únicas dependências são cobra e yaml.v3.",
+            "Configuração estrita: uma chave desconhecida é erro com a linha e a sugestão mais próxima, calculada por distância de edição."
+          ]
+        },
+        {
+          "heading": "Como a qualidade é garantida",
+          "paragraphs": [],
+          "list": [
+            "50 critérios de aceite, cada um citado por um teste automatizado, e 96% de cobertura com detecção de condição de corrida.",
+            "Os testes nunca saem para a internet: servidores locais e uma autoridade certificadora própria geram certificados com a validade exata de cada cenário.",
+            "CI em Linux, macOS e Windows; a própria GitHub Action é testada contra um servidor local em Linux e Windows.",
+            "A release é ensaiada em cada pull request que a altera, com binários e imagem Docker, sem publicar.",
+            "Os comandos do README rodam no CI, para a documentação nunca prometer o que a ferramenta não faz."
+          ]
+        },
+        {
+          "heading": "Resultado",
+          "paragraphs": [
+            "A v1.0.0 está publicada com binários para Linux, macOS e Windows, imagem no GitHub Container Registry e uma GitHub Action. A documentação, em português e inglês, apresenta cada recurso como um caso de uso, com o comando para copiar e a saída real."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Limites",
+          "paragraphs": [
+            "Não há página de status pública nem checks de ICMP e gRPC; para uma página de status, Gatus e Uptime Kuma atendem melhor. O uso real até agora é o meu: falta o retorno de outros times."
+          ],
+          "list": []
+        }
+      ],
+      "cta": {
+        "heading": "Precisa de alguém que entregue assim?",
+        "text": "Trabalho com QA e desenvolvimento: especificação, testes automatizados, CI e entrega até produção, com documentação para quem vai usar.",
+        "button": "Fale comigo"
+      }
+    },
     "cv-craft": {
       metaTitle: "CV Craft: estudo de caso",
       metaDescription:
