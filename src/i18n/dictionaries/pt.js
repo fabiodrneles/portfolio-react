@@ -90,8 +90,8 @@ const pt = {
         out: "spec → tickets → PRs → release",
       },
       "go-release-manager": {
-        desc: "Calcula a próxima versão SemVer pelos Conventional Commits e cria a tag, no terminal ou como GitHub Action. Em produção: gera as versões do sdd-kit, com 97% de cobertura de testes e binários para Linux, macOS e Windows.",
-        out: "v1.2.0 → v1.3.0 · tag criada",
+        desc: "Calcula a próxima versão SemVer pelos Conventional Commits e cria a tag, no terminal ou como GitHub Action. Na v1.3.0, também barra o pull request cujo squash merge perderia uma quebra de compatibilidade. Em produção no sdd-kit, com 97% de cobertura e binários para Linux, macOS e Windows.",
+        out: "v1.3.0 → v2.0.0 · quebra detectada",
       },
       "go-checker": {
         desc: "Verifica sites e APIs no terminal, no CI e como monitor 24/7: asserções em JSON, raio-x da requisição (DNS, TLS, TTFB), validade do certificado, métricas do Prometheus e alertas no Slack, Discord, Teams e Telegram. De protótipo à v1.0.0, com 50 critérios de aceite testados e 96% de cobertura.",
@@ -439,18 +439,18 @@ const pt = {
     "go-release-manager": {
       metaTitle: "Go Release Manager: estudo de caso",
       metaDescription:
-        "Como construí e levei a produção uma CLI em Go que calcula a próxima versão SemVer pelos commits: especificação, testes, CI em três sistemas e release automatizada.",
+        "Como construí e levei a produção uma CLI em Go que calcula a próxima versão SemVer pelos commits e protege as quebras de compatibilidade em squash merges: especificação, testes, CI em três sistemas e release automatizada.",
       eyebrow: "Estudo de caso",
       title: "Go Release Manager",
       lead: "Uma ferramenta de linha de comando em Go que decide a próxima versão de um software pelas mensagens de commit e cria a tag. Está em produção: é ela que versiona o sdd-kit.",
       facts: [
-        { value: "v1.2.0", label: "em produção, versionando o sdd-kit" },
+        { value: "v1.3.0", label: "em produção, versionando o sdd-kit" },
         { value: "97%", label: "de cobertura de testes" },
         { value: "3", label: "sistemas no CI: Linux, macOS e Windows" },
       ],
-      factsNote: "Números da release v1.2.0, medidos em 14/10/2026. Tudo pode ser conferido no repositório público.",
+      factsNote: "Números da release v1.3.0, medidos em 15/10/2026 (cobertura de 96,9%). Tudo pode ser conferido no repositório público.",
       links: { repo: "Ver o repositório", readme: "Ler a documentação", releases: "Baixar as releases" },
-      outputCaption: "A saída real da ferramenta num repositório com três commits novos depois da v1.2.0:",
+      outputCaption: "A saída real da v1.3.0: três commits novos, um deles incompatível, e o check-pr barrando um título que perderia a quebra:",
       sections: [
         {
           heading: "O problema",
@@ -470,6 +470,20 @@ const pt = {
             "A simulação (--dry-run) mostra tudo sem escrever nada e sem pedir credenciais.",
             "Pré-releases por canal (beta, rc) com contador contínuo, versão forçada quando o plano exige e tag num commit específico.",
             "Uma GitHub Action pronta, que baixa o binário da release e confere o checksum antes de rodar.",
+            "O --explain lista os commits que decidiram o incremento e a regra de cada um, para ninguém precisar adivinhar por que a versão saiu major.",
+          ],
+        },
+        {
+          heading: "Quebras de compatibilidade em squash merges",
+          paragraphs: [
+            "Depois da divulgação, um leitor perguntou o que acontece num squash merge, em que só a mensagem final do commit decide a versão. Se o aviso BREAKING CHANGE ficou só na descrição do PR ou num commit do meio, e o título não tem \"!\", a release sai minor quando deveria ser major, e quem atualiza não sabe que algo quebrou.",
+            "A v1.3.0 fecha essa brecha em camadas, todas com a mesma regra de detecção do cálculo de versão:",
+          ],
+          list: [
+            "O comando check-pr reprova o PR quando a quebra anunciada em qualquer lugar não está no título, e sugere o título certo; também avisa de rodapé fora do lugar e de \"BREAKING CHANGES\" escrito errado.",
+            "Uma Action check-pr para o CI, que lê título e descrição do arquivo do evento, e não do script, para que um título malicioso não injete código.",
+            "Uma rede de segurança depois do merge, que compara o commit que entrou na main com o PR e abre uma issue se a quebra se perdeu.",
+            "Um guia de boas práticas, em português e em inglês, com o que o GitHub guarda em cada configuração do squash e como escrever o PR.",
           ],
         },
         {
@@ -478,7 +492,7 @@ const pt = {
           list: [
             "Desenvolvimento guiado por especificação: cada regra de versão tem critérios de aceite, e cada critério aponta para o teste que o prova.",
             "Testes de unidade e de ponta a ponta, com 97% de cobertura do código; o CI exige no mínimo 80%.",
-            "CI em todo pull request: lint, testes com detecção de condição de corrida, build, os comandos do README e a Action rodando em Linux, macOS e Windows.",
+            "CI em todo pull request: lint, testes com detecção de condição de corrida, build, os comandos do README, a Action rodando em Linux, macOS e Windows e o próprio check-pr conferindo o título.",
             "Release automatizada: a ferramenta calcula a própria versão, e o GoReleaser publica binários para cinco plataformas com checksum SHA-256.",
             "Uma branch e um pull request por tarefa, com Conventional Commits e CHANGELOG.",
           ],
@@ -503,7 +517,7 @@ const pt = {
         {
           heading: "Limites",
           paragraphs: [
-            "O uso real ainda é no sdd-kit e nos meus projetos; falta a validação de outros times. Não há imagem Docker publicada. A ferramenta calcula versões e cria tags; de propósito, não gera changelog nem publica a release sozinha.",
+            "O uso real ainda é no sdd-kit e nos meus projetos; falta a validação de outros times. O check-pr pega só quebras declaradas (com \"!\" ou BREAKING CHANGE): uma quebra que ninguém anunciou exigiria comparar a API pública entre versões. Não há imagem Docker publicada, e a ferramenta, de propósito, não gera changelog nem publica a release sozinha.",
           ],
           list: [],
         },

@@ -89,8 +89,8 @@ const fr = {
         out: "spec → tickets → PRs → release",
       },
       "go-release-manager": {
-        desc: "Calcule la prochaine version SemVer à partir des Conventional Commits et crée le tag, en ligne de commande ou comme GitHub Action. En production : il versionne sdd-kit, avec 97 % de couverture de tests et des binaires pour Linux, macOS et Windows.",
-        out: "v1.2.0 → v1.3.0 · tag créé",
+        desc: "Calcule la prochaine version SemVer à partir des Conventional Commits et crée le tag, en ligne de commande ou comme GitHub Action. Depuis la v1.3.0, il bloque aussi la pull request dont le squash merge perdrait un changement incompatible. En production sur sdd-kit, avec 97 % de couverture et des binaires pour Linux, macOS et Windows.",
+        out: "v1.3.0 → v2.0.0 · rupture détectée",
       },
       "go-checker": {
         desc: "Vérifie sites et API depuis le terminal, en CI et comme moniteur 24/7 : assertions JSON, radiographie de la requête (DNS, TLS, TTFB), validité du certificat, métriques Prometheus et alertes Slack, Discord, Teams et Telegram. Du prototype à la v1.0.0, avec 50 critères d’acceptation testés et 96 % de couverture.",
@@ -444,18 +444,18 @@ const fr = {
     "go-release-manager": {
       metaTitle: "Go Release Manager : étude de cas",
       metaDescription:
-        "Comment j'ai construit et mis en production une CLI en Go qui calcule la prochaine version SemVer à partir des commits : spécifications, tests, CI sur trois systèmes et releases automatisées.",
+        "Comment j'ai construit et mis en production une CLI en Go qui calcule la prochaine version SemVer à partir des commits et protège les changements incompatibles dans les squash merges : spécifications, tests, CI sur trois systèmes et releases automatisées.",
       eyebrow: "Étude de cas",
       title: "Go Release Manager",
       lead: "Un outil en ligne de commande en Go qui décide la prochaine version d'un logiciel à partir des messages de commit et crée le tag. Il est en production : c'est lui qui versionne sdd-kit.",
       facts: [
-        { value: "v1.2.0", label: "en production, il versionne sdd-kit" },
+        { value: "v1.3.0", label: "en production, il versionne sdd-kit" },
         { value: "97 %", label: "de couverture de tests" },
         { value: "3", label: "systèmes dans la CI : Linux, macOS et Windows" },
       ],
-      factsNote: "Chiffres de la release v1.2.0, mesurés le 14/10/2026. Tout peut être vérifié dans le dépôt public.",
+      factsNote: "Chiffres de la release v1.3.0, mesurés le 15/10/2026 (couverture de 96,9 %). Tout peut être vérifié dans le dépôt public.",
       links: { repo: "Voir le dépôt", readme: "Lire la documentation", releases: "Télécharger les releases" },
-      outputCaption: "La sortie réelle de l'outil dans un dépôt avec trois nouveaux commits après la v1.2.0 :",
+      outputCaption: "La sortie réelle de la v1.3.0 : trois nouveaux commits, dont un incompatible, et check-pr qui bloque un titre qui perdrait la rupture :",
       sections: [
         {
           heading: "Le problème",
@@ -475,6 +475,20 @@ const fr = {
             "La simulation (--dry-run) montre tout sans rien écrire ni demander d'identifiants.",
             "Des pré-releases par canal (beta, rc) avec un compteur continu, une version imposée quand le plan l'exige et un tag sur un commit précis.",
             "Une GitHub Action prête à l'emploi, qui télécharge le binaire de la release et vérifie sa somme de contrôle avant de s'exécuter.",
+            "--explain liste les commits qui ont décidé l'incrément et la règle de chacun, pour que personne n'ait à deviner pourquoi la version est passée en major.",
+          ],
+        },
+        {
+          heading: "Changements incompatibles et squash merges",
+          paragraphs: [
+            "Après la publication, un lecteur a demandé ce qui se passe dans un squash merge, où seul le message final du commit décide la version. Si l'avis BREAKING CHANGE n'est que dans la description de la PR ou dans un commit intermédiaire, et que le titre n'a pas de \"!\", la release sort en minor alors qu'elle devrait être major, et les utilisateurs mettent à jour sans savoir que quelque chose a cassé.",
+            "La v1.3.0 comble cette faille par couches, toutes avec la même règle de détection que le calcul de version :",
+          ],
+          list: [
+            "La commande check-pr refuse la PR quand une rupture annoncée quelque part manque dans le titre, et propose le bon titre ; elle signale aussi un pied de page mal placé et un \"BREAKING CHANGES\" mal écrit.",
+            "Une Action check-pr pour la CI, qui lit le titre et la description dans le fichier de l'événement, et non dans le script, pour qu'un titre malveillant ne puisse pas injecter de code.",
+            "Un filet de sécurité après le merge, qui compare le commit arrivé sur main avec sa PR et ouvre une issue si la rupture s'est perdue.",
+            "Un guide de bonnes pratiques, en portugais et en anglais, sur ce que GitHub garde selon le réglage du squash et sur la façon d'écrire la PR.",
           ],
         },
         {
@@ -483,7 +497,7 @@ const fr = {
           list: [
             "Développement guidé par les spécifications : chaque règle de version a des critères d'acceptation, et chaque critère renvoie au test qui le prouve.",
             "Tests unitaires et de bout en bout, avec 97 % de couverture du code ; la CI exige au moins 80 %.",
-            "CI sur chaque pull request : lint, tests avec détection des accès concurrents, build, commandes du README et l'Action exécutée sous Linux, macOS et Windows.",
+            "CI sur chaque pull request : lint, tests avec détection des accès concurrents, build, commandes du README, l'Action exécutée sous Linux, macOS et Windows et check-pr lui-même qui vérifie le titre.",
             "Releases automatisées : l'outil calcule sa propre version, et GoReleaser publie des binaires pour cinq plateformes avec des sommes SHA-256.",
             "Une branche et une pull request par tâche, avec Conventional Commits et un CHANGELOG.",
           ],
@@ -508,7 +522,7 @@ const fr = {
         {
           heading: "Limites",
           paragraphs: [
-            "L'usage réel se limite encore à sdd-kit et à mes projets ; il manque la validation par d'autres équipes. Aucune image Docker n'est publiée. L'outil calcule les versions et crée les tags ; volontairement, il ne rédige pas le changelog et ne publie pas la release lui-même.",
+            "L'usage réel se limite encore à sdd-kit et à mes projets ; il manque la validation par d'autres équipes. check-pr ne détecte que les ruptures déclarées (avec \"!\" ou BREAKING CHANGE) : une rupture que personne n'a annoncée demanderait de comparer l'API publique entre versions. Aucune image Docker n'est publiée, et volontairement l'outil ne rédige pas le changelog et ne publie pas la release lui-même.",
           ],
           list: [],
         },

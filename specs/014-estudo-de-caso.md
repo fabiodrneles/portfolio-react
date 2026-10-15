@@ -13,6 +13,7 @@ Mostrar a quem avalia o portfólio, com fatos verificáveis, como um projeto foi
 - Números só com a fonte e a data da medição (2026-10-14; o Go Checker, 2026-10-15). Seção "Limites" explícita.
 - Três links por projeto (repositório, documentação e releases ou demonstração), com `rel="noopener noreferrer"`.
 - O sdd-kit entra na lista de projetos, em primeiro lugar.
+- O estudo do Go Release Manager acompanha a release em produção: na v1.3.0 (medida em 2026-10-15) ganhou a seção sobre quebras de compatibilidade em squash merges, o `--explain` e o `check-pr` na saída da ferramenta.
 
 ## Fora do escopo
 Estudos de caso dos demais projetos (o modelo fica pronto para eles) e números lidos em tempo real de outro repositório.

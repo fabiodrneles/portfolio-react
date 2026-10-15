@@ -89,8 +89,8 @@ const en = {
         out: "spec → tickets → PRs → release",
       },
       "go-release-manager": {
-        desc: "Computes the next SemVer version from Conventional Commits and creates the tag, from the terminal or as a GitHub Action. In production: it versions sdd-kit, with 97% test coverage and binaries for Linux, macOS and Windows.",
-        out: "v1.2.0 → v1.3.0 · tag created",
+        desc: "Computes the next SemVer version from Conventional Commits and creates the tag, from the terminal or as a GitHub Action. Since v1.3.0 it also blocks a pull request whose squash merge would lose a breaking change. In production on sdd-kit, with 97% coverage and binaries for Linux, macOS and Windows.",
+        out: "v1.3.0 → v2.0.0 · break detected",
       },
       "go-checker": {
         desc: "Checks websites and APIs from the terminal, in CI and as a 24/7 monitor: JSON assertions, a request trace (DNS, TLS, TTFB), certificate expiry, Prometheus metrics and alerts to Slack, Discord, Teams and Telegram. From prototype to v1.0.0, with 50 tested acceptance criteria and 96% coverage.",
@@ -444,18 +444,18 @@ const en = {
     "go-release-manager": {
       metaTitle: "Go Release Manager: case study",
       metaDescription:
-        "How I built and shipped to production a Go CLI that computes the next SemVer version from commits: specs, tests, CI on three operating systems and automated releases.",
+        "How I built and shipped to production a Go CLI that computes the next SemVer version from commits and guards breaking changes in squash merges: specs, tests, CI on three operating systems and automated releases.",
       eyebrow: "Case study",
       title: "Go Release Manager",
       lead: "A Go command-line tool that decides a software's next version from its commit messages and creates the tag. It runs in production: it versions sdd-kit.",
       facts: [
-        { value: "v1.2.0", label: "in production, versioning sdd-kit" },
+        { value: "v1.3.0", label: "in production, versioning sdd-kit" },
         { value: "97%", label: "test coverage" },
         { value: "3", label: "operating systems in CI: Linux, macOS and Windows" },
       ],
-      factsNote: "Figures from release v1.2.0, measured on 2026-10-14. Everything can be checked in the public repository.",
+      factsNote: "Figures from release v1.3.0, measured on 2026-10-15 (96.9% coverage). Everything can be checked in the public repository.",
       links: { repo: "See the repository", readme: "Read the docs", releases: "Download the releases" },
-      outputCaption: "The tool's real output in a repository with three new commits after v1.2.0:",
+      outputCaption: "The real output of v1.3.0: three new commits, one of them breaking, and check-pr blocking a title that would lose the break:",
       sections: [
         {
           heading: "The problem",
@@ -475,6 +475,20 @@ const en = {
             "The dry run (--dry-run) shows everything without writing anything or asking for credentials.",
             "Pre-releases per channel (beta, rc) with a continuous counter, a forced version when the plan calls for one, and tagging a specific commit.",
             "A ready-made GitHub Action that downloads the release binary and verifies its checksum before running.",
+            "--explain lists the commits that decided the increment and the rule behind each one, so nobody has to guess why the version came out major.",
+          ],
+        },
+        {
+          heading: "Breaking changes in squash merges",
+          paragraphs: [
+            "After the launch, a reader asked what happens in a squash merge, where only the final commit message decides the version. If the BREAKING CHANGE notice lives only in the PR description or in a commit in the middle, and the title has no \"!\", the release comes out minor when it should be major, and users upgrade without knowing something broke.",
+            "v1.3.0 closes that gap in layers, all with the same detection rule as the version calculation:",
+          ],
+          list: [
+            "The check-pr command fails the PR when a break announced anywhere is missing from the title, and suggests the right title; it also warns about a misplaced footer and a misspelled \"BREAKING CHANGES\".",
+            "A check-pr Action for CI, which reads the title and description from the event file, not from the script, so a hostile title cannot inject code.",
+            "A post-merge safety net that compares the commit that landed on main with its PR and opens an issue if the break was lost.",
+            "A best-practices guide, in Portuguese and English, covering what GitHub keeps in each squash setting and how to write the PR.",
           ],
         },
         {
@@ -483,7 +497,7 @@ const en = {
           list: [
             "Spec-driven development: every versioning rule has acceptance criteria, and every criterion points to the test that proves it.",
             "Unit and end-to-end tests, with 97% code coverage; CI requires at least 80%.",
-            "CI on every pull request: lint, tests with race detection, build, the README commands, and the Action running on Linux, macOS and Windows.",
+            "CI on every pull request: lint, tests with race detection, build, the README commands, the Action running on Linux, macOS and Windows, and check-pr itself checking the title.",
             "Automated releases: the tool computes its own version, and GoReleaser publishes binaries for five platforms with SHA-256 checksums.",
             "One branch and one pull request per task, with Conventional Commits and a CHANGELOG.",
           ],
@@ -508,7 +522,7 @@ const en = {
         {
           heading: "Limits",
           paragraphs: [
-            "Real-world use is still sdd-kit and my own projects; validation by other teams is missing. There is no published Docker image. The tool computes versions and creates tags; on purpose, it neither writes the changelog nor publishes the release by itself.",
+            "Real-world use is still sdd-kit and my own projects; validation by other teams is missing. check-pr only catches declared breaks (with \"!\" or BREAKING CHANGE): a break nobody announced would need a comparison of the public API between versions. There is no published Docker image, and on purpose the tool neither writes the changelog nor publishes the release by itself.",
           ],
           list: [],
         },
