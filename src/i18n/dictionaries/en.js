@@ -93,8 +93,8 @@ const en = {
         out: "v1.2.0 → v1.3.0 · tag created",
       },
       "go-checker": {
-        desc: "A simple yet powerful command-line tool to quickly verify websites and APIs.",
-        out: "websites and APIs checked",
+        desc: "Checks websites and APIs from the terminal, in CI and as a 24/7 monitor: JSON assertions, a request trace (DNS, TLS, TTFB), certificate expiry, Prometheus metrics and alerts to Slack, Discord, Teams and Telegram. From prototype to v1.0.0, with 50 tested acceptance criteria and 96% coverage.",
+        out: "7 checks · 3 up, 2 warn, 2 down",
       },
       "cv-craft": {
         desc: "Builds a resume in PDF, Markdown and text from a single YAML file, optimized for applicant tracking systems (ATS). Went from prototype to v1.0.0 with 71 tested acceptance criteria and 94% coverage; it is where sdd-kit was born.",
@@ -183,6 +183,113 @@ const en = {
     privacy: "Privacy Policy",
   },
   caseStudies: {
+    "go-checker": {
+      "metaTitle": "Go Checker: case study",
+      "metaDescription": "How I took a Go health-check CLI for websites and APIs from prototype to v1.0.0: assertions, request trace, TLS certificates, CI, Prometheus and alerts.",
+      "eyebrow": "Case study",
+      "title": "Go Checker",
+      "lead": "A Go tool that answers the question every team asks several times a day: is everything working? It checks that the answer is right and fast and that the certificate is valid. It also stops a broken deploy in CI and, as a monitor, alerts the team only when an outage is real.",
+      "facts": [
+        {
+          "value": "50",
+          "label": "acceptance criteria, all tested"
+        },
+        {
+          "value": "96%",
+          "label": "test coverage, on Linux, macOS and Windows"
+        },
+        {
+          "value": "11",
+          "label": "documented use cases with real output"
+        }
+      ],
+      "factsNote": "Figures for v1.0.0, measured on 2026-10-15. Everything can be checked in the public repository.",
+      "links": {
+        "repo": "View the repository",
+        "readme": "Read the documentation",
+        "releases": "Download the releases"
+      },
+      "outputCaption": "The tool's real output: seven services checked, each failure with its reason, and a typo in the configuration reported with its line and the right suggestion.",
+      "sections": [
+        {
+          "heading": "The problem",
+          "paragraphs": [
+            "Some failures slip past simple checks:",
+            "Simple checkers only look at the status code. Full platforms need a database, a UI and upkeep.",
+            "go-checker started as a 190-line prototype with serious problems. The printed latency was always 2562047h. The process exited 0 even when services were down, which made it useless in CI. It had no tests, no README and no CI, and a 9.5 MB binary was committed."
+          ],
+          "list": [
+            "a /health endpoint that returns 200 with the database disconnected;",
+            "a site that slows down, and nobody knows whether DNS, the network, TLS or the server is to blame;",
+            "a certificate that expires on a Sunday;",
+            "a lost packet that pages the on-call engineer at 3 a.m."
+          ]
+        },
+        {
+          "heading": "The solution",
+          "paragraphs": [
+            "A single binary, configured in YAML versioned next to the code, that works in the terminal, in the pipeline and as a continuous monitor:"
+          ],
+          "list": [
+            "Content assertions: status, max latency, body text and regex, JSON values ($.data.items[0].id) and headers. Each failure says what was expected and what was found.",
+            "Request trace: DNS, TCP connect, TLS handshake and first-byte times, and the days until the certificate expires.",
+            "CI exit codes (0, 1 and 2), JSON, JUnit and Markdown reports, an automatic GitHub Actions job summary and a ready-made GitHub Action.",
+            "Monitor mode with Prometheus metrics (p50, p95 and p99) and alerts to Slack, Discord, Teams, Telegram or any webhook, with flap protection.",
+            "Checks generated from an OpenAPI spec, TCP port and DNS checks, and secrets read from the environment.",
+            "Binaries for five platforms, a multi-arch Docker image, and go install."
+          ]
+        },
+        {
+          "heading": "From prototype to v1.0.0",
+          "paragraphs": [
+            "I started with an evidence-based analysis. I ran the tool, recorded each defect with the output that proved it, and agreed with the owner on what to change before touching the code. That produced 10 specifications with acceptance criteria, and each delivery became a pull request with green CI.",
+            "Before the release, I benchmarked go-checker against Gatus, Uptime Kuma, Blackbox Exporter, Hurl, StepCI, Checkly and k6. It was already above average in diagnostics, CI integration and OpenAPI generation. It was below average in secrets handling, protocols, alert channels and distribution. I closed those gaps before v1.0.0: environment variables, authentication, TCP and DNS checks, Discord, Teams and Telegram alerts, and the Docker image."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Technical decisions",
+          "paragraphs": [],
+          "list": [
+            "Timings come from net/http/httptrace, with a new connection per request, so DNS, TCP and TLS count as they would for a first-time visitor.",
+            "Retries use exponential backoff with jitter, and only for transient errors (network and 5xx). A 404 is the server's final answer and is not retried.",
+            "A per-check state machine filters flapping: a new state only counts after N rounds in a row, so one lost packet does not become an alert.",
+            "The Prometheus exposition format and the JSON path are written in the project. The only dependencies are cobra and yaml.v3.",
+            "The configuration is strict: an unknown key is an error with its line and the closest suggestion, computed by edit distance."
+          ]
+        },
+        {
+          "heading": "How quality is ensured",
+          "paragraphs": [],
+          "list": [
+            "50 acceptance criteria, each cited by an automated test, and 96% coverage with the race detector on.",
+            "Tests never reach the internet. Local servers and a dedicated certificate authority produce certificates with the exact lifetime each scenario needs.",
+            "CI runs on Linux, macOS and Windows. The GitHub Action itself is tested against a local server on Linux and Windows.",
+            "Every pull request that touches the release rehearses it, building binaries and the Docker image without publishing.",
+            "The README commands run in CI, so the documentation never promises what the tool does not do."
+          ]
+        },
+        {
+          "heading": "Outcome",
+          "paragraphs": [
+            "v1.0.0 is out, with binaries for Linux, macOS and Windows, an image on the GitHub Container Registry and a GitHub Action. The documentation, in Portuguese and English, presents every feature as a use case, with a command to copy and the real output."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Limits",
+          "paragraphs": [
+            "There is no public status page and no ICMP or gRPC checks. For a status page, Gatus and Uptime Kuma are better fits. So far I am the only real user; feedback from other teams is still missing."
+          ],
+          "list": []
+        }
+      ],
+      "cta": {
+        "heading": "Need someone who delivers like this?",
+        "text": "I work in QA and development: specification, automated tests, CI and delivery to production, with documentation for the people who will use it.",
+        "button": "Get in touch"
+      }
+    },
     "cv-craft": {
       metaTitle: "CV Craft: case study",
       metaDescription:
