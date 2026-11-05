@@ -15,7 +15,7 @@ jobs:
           node-version: 22
       # Testa o build de produção do próprio commit (não o site já publicado)
       - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         env:
           CYPRESS_BASE_URL: http://localhost:3000
         with:
